@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Profile_Activity">
+
+    <Button
+        android:id="@+id/btn_Aplicar_Cambios"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="119dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="119dp"
+        android:layout_marginBottom="9dp"
+        android:text="@string/aplicar_cambios"
+        app:layout_constraintBottom_toTopOf="@+id/btn_Cerrar_Sesion"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/et_ConfirmPassword3" />
+
+    <Button
+        android:id="@+id/btn_Cerrar_Sesion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="130dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="129dp"
+        android:text="@string/cerrar_sesion"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_Aplicar_Cambios" />
+
+    <EditText
+        android:id="@+id/et_ConfirmPassword3"
+        android:layout_width="300dp"
+        android:layout_height="37dp"
+        android:layout_marginStart="62dp"
+        android:layout_marginEnd="49dp"
+        android:ems="10"
+        android:hint="@string/confirmPassword"
+        android:inputType="textPersonName"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_ConfirmPassword3" />
+
+    <TextView
+        android:id="@+id/tv_ConfirmPassword3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="62dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="195dp"
+        android:text="@string/confirmPassword"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toTopOf="@+id/et_ConfirmPassword3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/et_Password3" />
+
+    <EditText
+        android:id="@+id/et_Password3"
+        android:layout_width="300dp"
+        android:layout_height="37dp"
+        android:layout_marginStart="62dp"
+        android:layout_marginEnd="49dp"
+        android:ems="10"
+        android:hint="@string/password"
+        android:inputType="textPersonName"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_Password3" />
+
+    <TextView
+        android:id="@+id/tv_Password3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="62dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="267dp"
+        android:text="@string/password"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toTopOf="@+id/et_Password3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/et_Username3" />
+
+    <EditText
+        android:id="@+id/et_Username3"
+        android:layout_width="300dp"
+        android:layout_height="37dp"
+        android:layout_marginStart="62dp"
+        android:layout_marginEnd="49dp"
+        android:ems="10"
+        android:hint="@string/ej_osvaldo_ortega"
+        android:inputType="textPersonName"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_Username3" />
+
+    <TextView
+        android:id="@+id/tv_Username3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="62dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="212dp"
+        android:text="@string/username"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toTopOf="@+id/et_Username3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/et_CompleteName3" />
+
+    <EditText
+        android:id="@+id/et_CompleteName3"
+        android:layout_width="300dp"
+        android:layout_height="37dp"
+        android:layout_marginStart="62dp"
+        android:layout_marginEnd="49dp"
+        android:ems="10"
+        android:hint="@string/exampleCompleteName"
+        android:inputType="textPersonName"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_Nombre_Completo" />
+
+    <TextView
+        android:id="@+id/tv_Nombre_Completo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="62dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="219dp"
+        android:text="@string/nombre_completo"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toTopOf="@+id/et_CompleteName3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_Perfil" />
+
+    <TextView
+        android:id="@+id/tv_Perfil"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="165dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="165dp"
+        android:text="@string/perfil"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/iv_Perfil" />
+
+    <ImageView
+        android:id="@+id/iv_Perfil"
+        android:layout_width="173dp"
+        android:layout_height="140dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="32dp"
+        app:layout_constraintBottom_toTopOf="@+id/tv_Perfil"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/usuario"
+        app:tint="#DE84FF" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
