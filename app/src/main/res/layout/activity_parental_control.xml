@@ -6,12 +6,130 @@
     android:layout_height="match_parent"
     tools:context=".Parental_Control_Activity">
 
+    <TextView
+        android:id="@+id/tv_Cantidad_Maxima_r"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="60dp"
+        android:layout_marginTop="29dp"
+        android:layout_marginEnd="164dp"
+        android:text="Cantidad maxima a retirar:"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toTopOf="@+id/et_Cantidad_Maxima_r"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_controlparental" />
+
     <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="179dp"
-        android:layout_height="192dp"
+        android:id="@+id/iv_Control_Parental"
+        android:layout_width="225dp"
+        android:layout_height="225dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/logo_myfirstbank" />
+        app:srcCompat="@drawable/control_parenta"
+        android:contentDescription="TODO" />
+
+    <TextView
+        android:id="@+id/tv_controlparental"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="155dp"
+        android:layout_marginEnd="155dp"
+        android:layout_marginBottom="487dp"
+        android:text="Control Parental"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/iv_Control_Parental"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/tv_Cantidad_Maxima_p"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="60dp"
+        android:layout_marginTop="36dp"
+        android:layout_marginEnd="129dp"
+        android:text="Cantidad maxima a prestamos:"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/et_Cantidad_Maxima_r" />
+
+    <TextView
+        android:id="@+id/tv_Codigo_Parental"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="60dp"
+        android:layout_marginTop="36dp"
+        android:layout_marginEnd="172dp"
+        android:text="Cambiar codigo parental:"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/et_Cantidad_Maxima_p" />
+
+    <EditText
+        android:id="@+id/et_Cantidad_Maxima_r"
+        android:layout_width="288dp"
+        android:layout_height="39dp"
+        android:layout_marginStart="61dp"
+        android:layout_marginEnd="62dp"
+        android:layout_marginBottom="36dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="ej: 200$"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toTopOf="@+id/tv_Cantidad_Maxima_p"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_Cantidad_Maxima_r" />
+
+    <EditText
+        android:id="@+id/et_Cantidad_Maxima_p"
+        android:layout_width="288dp"
+        android:layout_height="39dp"
+        android:layout_marginStart="61dp"
+        android:layout_marginEnd="62dp"
+        android:layout_marginBottom="36dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="ej: 200$"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toTopOf="@+id/tv_Codigo_Parental"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_Cantidad_Maxima_p" />
+
+    <EditText
+        android:id="@+id/et_Codigo_Parental"
+        android:layout_width="288dp"
+        android:layout_height="39dp"
+        android:layout_marginStart="61dp"
+        android:layout_marginEnd="62dp"
+        android:layout_marginBottom="34dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="*codigo actual*"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toTopOf="@+id/btn_Aplicar_Cambios_CP"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_Codigo_Parental" />
+
+    <Button
+        android:id="@+id/btn_Aplicar_Cambios_CP"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="119dp"
+        android:layout_marginTop="60dp"
+        android:layout_marginEnd="119dp"
+        android:text="Aplicar Cambios"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/et_Codigo_Parental" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
