@@ -33,6 +33,7 @@
         <item>Semanal</item>
         <item>Mensual</item>
     </string-array>
+    <string name="ahorrar">Ahorrar</string>
     <string name="ej_cuenta">Cuenta: XXXX XXXX XXXX 1234</string>
     <string name="tipo_hint">Tipo de ahorro</string>
     <string name="duracion">Duración:</string>
