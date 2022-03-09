@@ -54,7 +54,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="Semanal"
-            android:hint="Tipo de ahorro"
+            android:hint="@string/tipo_hint"
             android:inputType="none" />
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -113,34 +113,59 @@
         android:layout_height="wrap_content"
         android:textSize="14sp"
         android:layout_marginTop = "26dp"
+        android:layout_marginStart="20dp"
         android:inputType="none"
+        android:drawableStart="@drawable/ic_money"
         app:layout_constraintStart_toEndOf="@id/tv_ahorro_generado"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintLeft_toRightOf="@id/tv_ahorro_generado"
         app:layout_constraintTop_toBottomOf="@id/sb_duracion"
         />
 
-    TextView
-    android:id="@+id/tv_ahorro_generado"
+    <TextView
+    android:id="@+id/tv_bonus"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:layout_marginStart="64dp"
     android:layout_marginTop="32dp"
-    android:text="@string/ahorro_gen"
+    android:text="@string/bonus"
     android:textSize="16sp"
-    app:layout_constraintTop_toBottomOf="@+id/sb_duracion"
+    app:layout_constraintTop_toBottomOf="@+id/et_ahorro_generado"
     app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
-        android:id="@+id/et_ahorro_generado"
+        android:id="@+id/et_bonus"
         android:layout_width="120dp"
         android:layout_height="wrap_content"
         android:textSize="14sp"
         android:layout_marginTop = "26dp"
+        android:layout_marginStart="10dp"
         android:inputType="none"
-        app:layout_constraintStart_toEndOf="@id/tv_ahorro_generado"
+        android:drawableStart="@drawable/ic_money"
+        app:layout_constraintStart_toEndOf="@id/tv_bonus"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintLeft_toRightOf="@id/tv_ahorro_generado"
-        app:layout_constraintTop_toBottomOf="@id/sb_duracion"
+        app:layout_constraintLeft_toRightOf="@id/tv_bonus"
+        app:layout_constraintTop_toBottomOf="@id/et_ahorro_generado"
+        />
+
+    <TextView
+        android:id="@+id/tv_cuenta"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="64dp"
+        android:layout_marginTop="32dp"
+        android:text="@string/ej_cuenta"
+        android:textSize="20sp"
+        app:layout_constraintTop_toBottomOf="@+id/et_bonus"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/tv_cuenta"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginStart="60dp"
+        android:layout_marginTop="32dp"
         />
 </androidx.constraintlayout.widget.ConstraintLayout>
