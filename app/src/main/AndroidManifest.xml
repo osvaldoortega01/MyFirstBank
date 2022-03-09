@@ -13,6 +13,9 @@
             android:name=".Profile_Activity"
             android:exported="false" />
         <activity
+            android:name=".Movimientos"
+            android:exported="true" />
+        <activity
             android:name=".Parental_Control_Activity"
             android:exported="false" />
         <activity
@@ -36,6 +39,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
     </application>
 
 </manifest>

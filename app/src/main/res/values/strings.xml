@@ -9,13 +9,14 @@
     <string name="exampleEmail">Nombre Completo</string>
     <string name="Email">Correo electrónico</string>
     <string name="confirmPassword">Confirmar contraseña</string>
+
     <string name="usuario">Usuario</string>
     <string name="control_parental">Control Parental</string>
     <string name="ingrese_la_cantidad_maxima_a_retirar">Ingrese la Cantidad maxima a retirar:</string>
     <string name="ingrese_la_cantidad_maxima_a_prestamos">Ingrese la cantidad maxima a prestamos:</string>
     <string name="cambiar_codigo_parental">Cambiar codigo parental:</string>
     <string name="ej_200">ej: 200$</string>
-    <string name="ej_200">ej: 200$</string>
+
     <string name="codigo_actual">*codigo actual*</string>
     <string name="aplicar">Aplicar</string>
     <string name="todo">TODO</string>
@@ -24,4 +25,22 @@
     <string name="aplicar_cambios">Aplicar Cambios</string>
     <string name="cerrar_sesion">Cerrar Sesion</string>
     <string name="ej_osvaldo_ortega">ej: osvaldo.ortega</string>
+
+    <string name="movimientos_icono">movimientos_icono</string>
+    <string name="movimientos">Movimientos</string>
+    <string name="saldo_actual">Tu saldo actual es:</string>
+    <string name="mxn">MXN</string>
+    <string name="icono_cash">icono Cash</string>
+    <string name="saldo_pesos">10,500.30</string>
+    <string name="volver">volver</string>
+    <string name="ingresar_dinero">Ingresar Dinero</string>
+    <string name="retirar_dinero">Retirar Dinero</string>
+    <string name="pr_stamo">Préstamo</string>
+    <string name="pregunta_cantidad_depositar">Cuánto dinero vas a depositar?</string>
+    <string name="confirmar">Confirmar</string>
+    <string name="ingresa_la_cantidad_en_pesos">Ingresa la cantidad en pesos</string>
+    <string name="pregunta_retirar_dinero">Cuánto dinero vas a retirar?</string>
+    <string name="pregunta_prestamo">Cuánto dinero vas a solicitar?</string>
+
+
 </resources>
