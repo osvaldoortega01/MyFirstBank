@@ -42,8 +42,7 @@
     <string name="pregunta_retirar_dinero">Cuánto dinero vas a retirar?</string>
     <string name="pregunta_prestamo">Cuánto dinero vas a solicitar?</string>
     <string name="_340_50">$340.50</string>
-    <string name="control_parental">Control Parental</string>
-    <string name="movimientos">Movimientos</string>
+
     <string name="mi_primer_banco">Mi Primer Banco</string>
     <string name="su_saldo_actual_es">SU SALDO ACTUAL ES:</string>
     <string name="estado_de_cuenta">Estado de cuenta</string>
