@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AhorroActivity">
+
+    <TextView
+        android:id="@+id/tv_Meta"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="60dp"
+        android:layout_marginTop="36dp"
+        android:text="@string/meta"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toTopOf="@+id/et_Meta_ahorro"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/et_Meta_ahorro"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="64dp"
+        android:layout_marginEnd="64dp"
+        android:layout_marginBottom="673dp"
+        android:ems="10"
+        android:drawableStart="@drawable/ic_money"
+        android:inputType="numberDecimal"
+        android:text="@string/ej_10k"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_Meta" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+        android:id="@+id/constraint_ddl"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="64dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="64dp"
+        app:startIconDrawable="@drawable/ic_calendar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/et_Meta_ahorro">
+        
+        <AutoCompleteTextView
+            android:id="@+id/autotv_tipo_ahorro"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Semanal"
+            android:hint="Tipo de ahorro"
+            android:inputType="none" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <TextView
+        android:id="@+id/tv_duracion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="64dp"
+        android:layout_marginTop="32dp"
+        android:text="@string/duracion"
+        android:textSize="16sp"
+        app:layout_constraintTop_toBottomOf="@+id/constraint_ddl"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <EditText
+        android:id="@+id/et_duracion"
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:textSize="14sp"
+        android:layout_marginBottom="10dp"
+        android:inputType="none"
+        app:layout_constraintStart_toEndOf="@id/tv_duracion"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toRightOf="@id/tv_duracion"
+        app:layout_constraintBottom_toTopOf="@id/sb_duracion"
+        />
+
+  <SeekBar
+      android:id="@+id/sb_duracion"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:min="0"
+      android:max="100"
+      android:progress="0"
+      android:layout_marginStart="64dp"
+      android:layout_marginTop="16dp"
+      android:layout_marginEnd="64dp"
+      app:layout_constraintTop_toBottomOf="@id/tv_duracion"
+      app:layout_constraintRight_toRightOf="parent"
+      app:layout_constraintLeft_toLeftOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_ahorro_generado"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="64dp"
+        android:layout_marginTop="32dp"
+        android:text="@string/ahorro_gen"
+        android:textSize="16sp"
+        app:layout_constraintTop_toBottomOf="@+id/sb_duracion"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <EditText
+        android:id="@+id/et_ahorro_generado"
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:textSize="14sp"
+        android:layout_marginTop = "26dp"
+        android:inputType="none"
+        app:layout_constraintStart_toEndOf="@id/tv_ahorro_generado"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toRightOf="@id/tv_ahorro_generado"
+        app:layout_constraintTop_toBottomOf="@id/sb_duracion"
+        />
+
+    TextView
+    android:id="@+id/tv_ahorro_generado"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="64dp"
+    android:layout_marginTop="32dp"
+    android:text="@string/ahorro_gen"
+    android:textSize="16sp"
+    app:layout_constraintTop_toBottomOf="@+id/sb_duracion"
+    app:layout_constraintStart_toStartOf="parent" />
+
+    <EditText
+        android:id="@+id/et_ahorro_generado"
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:textSize="14sp"
+        android:layout_marginTop = "26dp"
+        android:inputType="none"
+        app:layout_constraintStart_toEndOf="@id/tv_ahorro_generado"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toRightOf="@id/tv_ahorro_generado"
+        app:layout_constraintTop_toBottomOf="@id/sb_duracion"
+        />
+</androidx.constraintlayout.widget.ConstraintLayout>

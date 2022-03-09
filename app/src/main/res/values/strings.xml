@@ -15,7 +15,6 @@
     <string name="ingrese_la_cantidad_maxima_a_prestamos">Ingrese la cantidad maxima a prestamos:</string>
     <string name="cambiar_codigo_parental">Cambiar codigo parental:</string>
     <string name="ej_200">ej: 200$</string>
-    <string name="ej_200">ej: 200$</string>
     <string name="codigo_actual">*codigo actual*</string>
     <string name="aplicar">Aplicar</string>
     <string name="todo">TODO</string>
@@ -24,4 +23,13 @@
     <string name="aplicar_cambios">Aplicar Cambios</string>
     <string name="cerrar_sesion">Cerrar Sesion</string>
     <string name="ej_osvaldo_ortega">ej: osvaldo.ortega</string>
+    <string name="meta">Meta de ahorro:</string>
+    <string name="ej_10k">10000</string>
+    <string-array name="tipos_ahorro">
+        <item>Diario</item>
+        <item>Semanal</item>
+        <item>Mensual</item>
+    </string-array>
+    <string name="duracion">Duración:</string>
+    <string name="ahorro_gen">Ahorro Generado:</string>
 </resources>
