@@ -41,6 +41,17 @@
     <string name="ingresa_la_cantidad_en_pesos">Ingresa la cantidad en pesos</string>
     <string name="pregunta_retirar_dinero">Cuánto dinero vas a retirar?</string>
     <string name="pregunta_prestamo">Cuánto dinero vas a solicitar?</string>
+    <string name="_340_50">$340.50</string>
+    <string name="control_parental">Control Parental</string>
+    <string name="movimientos">Movimientos</string>
+    <string name="mi_primer_banco">Mi Primer Banco</string>
+    <string name="su_saldo_actual_es">SU SALDO ACTUAL ES:</string>
+    <string name="estado_de_cuenta">Estado de cuenta</string>
+    <string name="seleccione_un_mes">Seleccione un mes:</string>
+    <string name="ingrese_el_a_o">Ingrese el año:</string>
+    <string name="mi_estado_de_cuenta">MI ESTADO DE CUENTA:</string>
+    <string name="ej_2022">ej: 2022</string>
+    <string name="aplicar_filtro">Aplicar Filtro</string>
 
 
 </resources>

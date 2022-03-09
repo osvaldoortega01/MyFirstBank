@@ -18,9 +18,9 @@ class Movimientos : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_movimientos)
 
-        val depositarButton: Button = findViewById(R.id.button)
-        val retirarButton: Button = findViewById(R.id.button2)
-        val prestamoButton: Button = findViewById(R.id.button3)
+        val depositarButton: Button = findViewById(R.id.btn_movIngresar)
+        val retirarButton: Button = findViewById(R.id.btn_movRetirar)
+        val prestamoButton: Button = findViewById(R.id.btn_movPrestamo)
 
         depositarButton.setOnClickListener {
             val inflater: LayoutInflater =
