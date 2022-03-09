@@ -40,39 +40,35 @@
         android:textSize="24sp"
         app:backgroundTint="#EF9696"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btn_MenuMovimientos" />
 
     <Button
         android:id="@+id/btn_MenuMovimientos"
-        android:layout_width="292dp"
-        android:layout_height="65dp"
-        android:layout_marginStart="59dp"
-        android:layout_marginEnd="60dp"
-        android:layout_marginBottom="24dp"
+        android:layout_width="303dp"
+        android:layout_height="68dp"
+        android:layout_marginStart="54dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="54dp"
         android:text="@string/movimientos"
         android:textSize="24sp"
         app:backgroundTint="#EF9696"
-        app:layout_constraintBottom_toTopOf="@+id/btn_MenuControlParental"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/et_MenuSaldoCuenta" />
 
     <EditText
         android:id="@+id/et_MenuSaldoCuenta"
         android:layout_width="164dp"
         android:layout_height="68dp"
         android:layout_marginStart="123dp"
-        android:layout_marginTop="22dp"
+        android:layout_marginTop="21dp"
         android:layout_marginEnd="124dp"
-        android:layout_marginBottom="14dp"
         android:ems="10"
         android:inputType="numberDecimal"
         android:text="@string/_340_50"
         android:textAlignment="center"
         android:textSize="34sp"
-        app:layout_constraintBottom_toTopOf="@+id/btn_MenuMovimientos"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/TV_MenuSaldoActual" />
