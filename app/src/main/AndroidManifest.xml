@@ -10,7 +10,11 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MyFirstBank">
         <activity
+
             android:name=".AhorroActivity"
+
+            android:name=".EstadoDeCuentaActivity"
+
             android:exported="false" />
         <activity
             android:name=".Profile_Activity"

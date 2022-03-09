@@ -39,6 +39,7 @@ class MainActivity : AppCompatActivity() {
         startActivity(intent)
     }
     private fun openMainMenu(){
-
+        var intent = Intent(this, MainMenuActivity::class.java)
+        startActivity(intent)
     }
 }
