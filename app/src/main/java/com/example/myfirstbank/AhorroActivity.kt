@@ -1,10 +1,12 @@
 package com.example.myfirstbank
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
+import android.widget.Button
 import android.widget.SeekBar
 import com.example.myfirstbank.databinding.ActivityAhorroBinding
 import com.example.myfirstbank.databinding.ActivityMainBinding
@@ -52,9 +54,17 @@ class AhorroActivity : AppCompatActivity(), AdapterView.OnItemClickListener {
             }
 
         })
+
+        var btn_Ahorrar2: Button = findViewById(R.id.btn_ahorrar2)
+        btn_Ahorrar2.setOnClickListener{ openMainMenu() }
     }
 
     override fun onItemClick(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {//Recupero item seleccionado
        item = parent?.getItemAtPosition(position).toString()
+    }
+
+    fun openMainMenu() {
+        var intent = Intent(this, MainMenuActivity::class.java)
+        startActivity(intent)
     }
 }

@@ -11,8 +11,6 @@
         android:layout_width="141dp"
         android:layout_height="33dp"
         android:layout_marginTop="28dp"
-        android:layout_marginBottom="26dp"
-        app:layout_constraintBottom_toTopOf="@+id/tv_AñoDeFiltro"
         app:layout_constraintStart_toEndOf="@+id/tv_SeleccionDeMes"
         app:layout_constraintTop_toBottomOf="@+id/tv_MiEstadoDeCuenta" />
 
@@ -24,7 +22,6 @@
         android:layout_marginTop="28dp"
         android:layout_marginBottom="26dp"
         android:text="@string/seleccione_un_mes"
-        android:textColor="@color/black"
         android:textSize="20sp"
         app:layout_constraintBottom_toTopOf="@+id/tv_IngresoDeAño"
         app:layout_constraintStart_toStartOf="parent"
@@ -33,11 +30,10 @@
     <TextView
         android:id="@+id/tv_IngresoDeAño"
         android:layout_width="194dp"
-        android:layout_height="33dp"
+        android:layout_height="39dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="26dp"
         android:text="@string/ingrese_el_a_o"
-        android:textColor="@color/black"
         android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_SeleccionDeMes" />
@@ -56,17 +52,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/tv_AñoDeFiltro"
-        android:layout_width="141dp"
-        android:layout_height="33dp"
-        android:layout_marginTop="26dp"
-        android:text="@string/ej_2022"
-        android:textAlignment="center"
-        android:textSize="20sp"
-        app:layout_constraintStart_toEndOf="@+id/tv_IngresoDeAño"
-        app:layout_constraintTop_toBottomOf="@+id/sp_meses" />
-
     <Button
         android:id="@+id/btn_AplicarFiltro"
         android:layout_width="wrap_content"
@@ -78,4 +63,17 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_IngresoDeAño" />
+
+    <EditText
+        android:id="@+id/et_AñoEstado"
+        android:layout_width="141dp"
+        android:layout_height="39dp"
+        android:layout_marginTop="26dp"
+        android:ems="10"
+        android:inputType="number"
+        android:textSize="16sp"
+        app:layout_constraintStart_toEndOf="@+id/tv_IngresoDeAño"
+        app:layout_constraintTop_toBottomOf="@+id/sp_meses"
+        tools:text="@string/ej_2022" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

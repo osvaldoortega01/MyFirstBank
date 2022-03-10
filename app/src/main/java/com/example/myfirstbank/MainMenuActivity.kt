@@ -36,7 +36,8 @@ class MainMenuActivity : AppCompatActivity() {
         startActivity(intent)
     }
     fun openAhorros(){
-        // TODO: Pantalla de Ahorros
+        var intent = Intent(this, AhorroActivity::class.java)
+        startActivity(intent)
     }
     fun openPerfil(){
         var intent = Intent(this, Profile_Activity::class.java)
