@@ -65,5 +65,35 @@
     <string name="mi_estado_de_cuenta">MI ESTADO DE CUENTA:</string>
     <string name="ej_2022">ej: 2022</string>
     <string name="aplicar_filtro">Aplicar Filtro</string>
+    <string name="icono_conversion_moneda">icono conversion moneda</string>
+    <string name="conversion_de_divisas">CONVERSION DE DIVISAS</string>
+    <string name="aqui_puedes_comprobar_el_valor_de_tus_ahorros_en_otra_moneda">Aqui puedes comprobar el valor de tus ahorros en otra moneda</string>
+    <string name="convertir_a">Convertir a:</string>
+    <string name="selecciona_divisa">Selecciona Divisa</string>
+    <string name="convertir">CONVERTIR</string>
+
+    <string-array name="lista_divisas">
+        <item>Dólar Americano - USD</item>
+        <item>Euro - EUR</item>
+        <item>Libra Esterlina - GBP</item>
+        <item>Franco Suizo - CHF</item>
+        <item>Yen Japonés - JPY</item>
+        <item>Dólar Hongkones - HKD</item>
+        <item>Dólar Canadiense - CAD</item>
+        <item>Yuan Chino - CNY</item>
+        <item>Dólar Australiano - AUD</item>
+        <item>Real Brasileño - BRL</item>
+        <item>Rublo Ruso - RUB</item>
+        <item>Bitcoin</item>
+        <item>Ethereum</item>
+        <item>Tether</item>
+        <item>Binance Coin</item>
+        <item>USD Coin</item>
+        <item>XRP</item>
+        <item>Cardano</item>
+        <item>Solana</item>
+        <item>Terra</item>
+        <item>Avalanche</item>
+    </string-array>
 
 </resources>

@@ -1,6 +1,7 @@
 package com.example.myfirstbank
 
 import android.content.Context
+import android.content.Intent
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -18,9 +19,11 @@ class Movimientos : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_movimientos)
 
+        //Botones activos en la pantalla MOVIMIENTOS
         val depositarButton: Button = findViewById(R.id.btn_movIngresar)
         val retirarButton: Button = findViewById(R.id.btn_movRetirar)
         val prestamoButton: Button = findViewById(R.id.btn_movPrestamo)
+        val conversionDivisasButton: Button = findViewById(R.id.btn_ConvDivisas)
 
         depositarButton.setOnClickListener {
             val inflater: LayoutInflater =
@@ -157,6 +160,9 @@ class Movimientos : AppCompatActivity() {
             )
         }
 
+        conversionDivisasButton.setOnClickListener {
+            startActivity(Intent(this, ConversionDivisas::class.java))
+        }
 
     }
 
