@@ -26,7 +26,7 @@
             android:exported="false" />
         <activity
             android:name=".Movimientos"
-            android:exported="true" />
+            android:exported="false" />
         <activity
             android:name=".Parental_Control_Activity"
             android:exported="false" />

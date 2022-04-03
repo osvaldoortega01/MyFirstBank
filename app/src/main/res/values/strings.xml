@@ -76,8 +76,10 @@
     <string-array name="lista_divisas">
         <item>Dólar Americano - USD</item>
         <item>Euro - EUR</item>
-        <item>Bitcoin</item>
-        <item>Ethereum</item>
+        <item>Bitcoin - BTC</item>
+        <item>Libra Esterlina - GBP</item>
+        <item>Franco Suizo - CHF</item>
+        <item>Yen Japonés - JPY</item>
     </string-array>
 
 </resources>

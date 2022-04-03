@@ -8,6 +8,7 @@ import com.example.myfirstbank.databinding.ActivityAhorroBinding
 import com.example.myfirstbank.databinding.ActivityConversionDivisasBinding
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import retrofit2.Response
 import retrofit2.Retrofit
@@ -19,7 +20,6 @@ class ConversionDivisas : AppCompatActivity() {
     var latestConcurrencyValue : Float = 0f
     var currencyConverted: Float = 0f
     var nombreMonedaSeleccionada : String = ""
-    //val vistaValor: TextView = findViewById(R.id.textView12)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,8 +31,8 @@ class ConversionDivisas : AppCompatActivity() {
         val spinner = findViewById<Spinner>(R.id.spinner)
         val lista = resources.getStringArray(R.array.lista_divisas)
         val adaptador = ArrayAdapter(this,android.R.layout.simple_spinner_item,lista)
-        spinner.adapter = adaptador
 
+        spinner.adapter = adaptador
         spinner.onItemSelectedListener = object:
             AdapterView.OnItemSelectedListener{
                 override fun onItemSelected(parent: AdapterView<*>?,view: View?,position: Int,id: Long) {
@@ -40,20 +40,18 @@ class ConversionDivisas : AppCompatActivity() {
                         0-> nombreMonedaSeleccionada="USD"
                         1-> nombreMonedaSeleccionada="EUR"
                         2-> nombreMonedaSeleccionada="BTC"
-                        3-> nombreMonedaSeleccionada="ETC" //Remover Ethereum pues no lo incluye el API
+                        3-> nombreMonedaSeleccionada="GBP"
+                        4-> nombreMonedaSeleccionada="CHF"
+                        5-> nombreMonedaSeleccionada="JPY"
                     }
                 }
                 override fun onNothingSelected(parent: AdapterView<*>?) {
                     TODO("Not yet implemented")
                 }
             }
-
         convertirButton.setOnClickListener {
             getCurrencyLatestValue(nombreMonedaSeleccionada)
         }
-
-
-
     }
 
 
@@ -70,17 +68,18 @@ class ConversionDivisas : AppCompatActivity() {
             val call = getRetrofit().create(APIService::class.java)
                 .getLatestValues("convert?from=MXN&to=$query")
             val currencyValue = call.body()
+            val tvValorPesoActual: TextView = findViewById(R.id.textView14)
+            val tvValorConversion: TextView = findViewById(R.id.textView12)
             runOnUiThread{
                 if (call.isSuccessful){
                     if (currencyValue != null) {
                         latestConcurrencyValue=0f
                         currencyConverted=0f
-
                         latestConcurrencyValue=currencyValue.result
-                        println(latestConcurrencyValue)
+                        tvValorPesoActual.text="$ "+latestConcurrencyValue.toString()+" "+nombreMonedaSeleccionada
                         //Aqui se multiplicará el elelemnto que contiene la cantidad de dinero ahorrado
                         currencyConverted=10500.30f*latestConcurrencyValue
-                        println(currencyConverted)
+                        tvValorConversion.text="$ "+currencyConverted.toString()+" "+nombreMonedaSeleccionada
                     }
                 }
                 else{
