@@ -1,3 +1,5 @@
 package com.example.myfirstbank
 
-data class ConcurrencyResponse(var divisa: Float)
+import com.google.gson.annotations.SerializedName
+
+data class ResponseMXN(var result: Float)

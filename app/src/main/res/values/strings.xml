@@ -71,29 +71,13 @@
     <string name="convertir_a">Convertir a:</string>
     <string name="selecciona_divisa">Selecciona Divisa</string>
     <string name="convertir">CONVERTIR</string>
+    <string name="actualmente_1_peso_mxn_equivale_a">Actualmente 1 peso MXN equivale a:</string>
 
     <string-array name="lista_divisas">
         <item>Dólar Americano - USD</item>
         <item>Euro - EUR</item>
-        <item>Libra Esterlina - GBP</item>
-        <item>Franco Suizo - CHF</item>
-        <item>Yen Japonés - JPY</item>
-        <item>Dólar Hongkones - HKD</item>
-        <item>Dólar Canadiense - CAD</item>
-        <item>Yuan Chino - CNY</item>
-        <item>Dólar Australiano - AUD</item>
-        <item>Real Brasileño - BRL</item>
-        <item>Rublo Ruso - RUB</item>
         <item>Bitcoin</item>
         <item>Ethereum</item>
-        <item>Tether</item>
-        <item>Binance Coin</item>
-        <item>USD Coin</item>
-        <item>XRP</item>
-        <item>Cardano</item>
-        <item>Solana</item>
-        <item>Terra</item>
-        <item>Avalanche</item>
     </string-array>
 
 </resources>
