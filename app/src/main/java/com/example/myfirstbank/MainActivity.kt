@@ -24,8 +24,8 @@ class MainActivity : AppCompatActivity() {
 
     }
     private fun validateLogin(){
-        val usernameEditText: EditText = findViewById(R.id.usernameEditText)
-        val passwordEditText: EditText = findViewById(R.id.passwordEditText)
+        var usernameEditText: EditText = findViewById(R.id.usernameEditText)
+        var passwordEditText: EditText = findViewById(R.id.passwordEditText)
         if (usernameEditText.text.toString() == "admin" && passwordEditText.text.toString() == "admin"){
             Toast.makeText(this, "Inicio de sesión exitoso", Toast.LENGTH_SHORT).show()
             openMainMenu()
@@ -35,11 +35,11 @@ class MainActivity : AppCompatActivity() {
         }
     }
     private fun openRegister(){
-        val intent = Intent(this, RegisterActivity::class.java)
+        var intent = Intent(this, RegisterActivity::class.java)
         startActivity(intent)
     }
     private fun openMainMenu(){
-        val intent = Intent(this, MainMenuActivity::class.java)
+        var intent = Intent(this, MainMenuActivity::class.java)
         startActivity(intent)
     }
 }
