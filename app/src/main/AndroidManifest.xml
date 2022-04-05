@@ -3,7 +3,7 @@
     package="com.example.myfirstbank">
 
     <!--Permiso de la app para acceder a internet!-->
-    <uses-permission android:name="android.permission.INTERNET"></uses-permission>
+    <uses-permission android:name="android.permission.INTERNET"/>
 
     <application
         android:allowBackup="true"
