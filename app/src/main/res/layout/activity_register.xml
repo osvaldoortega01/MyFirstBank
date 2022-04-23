@@ -6,152 +6,176 @@
     android:layout_height="match_parent"
     tools:context=".RegisterActivity">
 
-    <TextView
-        android:id="@+id/tv_CompleteName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:text="@string/completeName"
-        android:textSize="16sp"
-        app:layout_constraintBottom_toTopOf="@+id/et_CompleteName"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.21"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_register" />
-
-    <EditText
-        android:id="@+id/et_CompleteName"
-        android:layout_width="300dp"
-        android:layout_height="37dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:textSize="14sp"
-        app:layout_constraintStart_toStartOf="@+id/tv_CompleteName"
-        app:layout_constraintTop_toBottomOf="@+id/tv_CompleteName"
-        android:hint="@string/exampleCompleteName"/>
-
-
-    <TextView
-        android:id="@+id/tv_Username"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
-        android:text="@string/username"
-        android:textSize="16sp"
-        app:layout_constraintStart_toStartOf="@+id/et_CompleteName"
-        app:layout_constraintTop_toBottomOf="@+id/et_CompleteName" />
-
-    <EditText
-        android:id="@+id/et_Username"
-        android:layout_width="300dp"
-        android:layout_height="37dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:textSize="14sp"
-        app:layout_constraintStart_toStartOf="@+id/tv_Username"
-        app:layout_constraintTop_toBottomOf="@+id/tv_Username"
-        android:hint="ej: osvaldo.ortega"/>
-
-
-    <TextView
-        android:id="@+id/tv_Password"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
-        android:text="@string/password"
-        android:textSize="16sp"
-        app:layout_constraintStart_toStartOf="@+id/et_Username"
-        app:layout_constraintTop_toBottomOf="@+id/et_Username" />
-
-
-    <EditText
-        android:id="@+id/et_Password"
-        android:layout_width="300dp"
-        android:layout_height="37dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:textSize="14sp"
-        app:layout_constraintStart_toStartOf="@+id/tv_Password"
-        app:layout_constraintTop_toBottomOf="@+id/tv_Password"
-        android:hint="@string/password"/>
-
-
-    <EditText
-        android:id="@+id/et_ConfirmPassword"
-        android:layout_width="300dp"
-        android:layout_height="37dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:textSize="14sp"
-        app:layout_constraintStart_toStartOf="@+id/tv_ConfirmPassword"
-        app:layout_constraintTop_toBottomOf="@+id/tv_ConfirmPassword"
-        android:hint="@string/confirmPassword"/>
-
-
-    <EditText
-        android:id="@+id/et_EmailAddress"
-        android:layout_width="300dp"
-        android:layout_height="37dp"
-        android:ems="10"
-        android:inputType="textEmailAddress"
-        app:layout_constraintStart_toStartOf="@+id/tv_EmailAddress"
-        app:layout_constraintTop_toBottomOf="@+id/tv_EmailAddress"
-        android:textSize="14sp"
-        android:hint="@string/Email"/>
-
-
-    <Button
-        android:id="@+id/btn_Register"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="40dp"
-        android:text="@string/register"
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="173dp"
+        android:layout_height="140dp"
+        android:contentDescription="icono_registrar_cuenta"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.022"
+        app:srcCompat="@drawable/user_plus_solid"
+        app:tint="#DE84FF"
+        tools:ignore="ImageContrastCheck" />
 
     <TextView
         android:id="@+id/tv_register"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="184dp"
         android:text="@string/register"
         android:textSize="24sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/tv_ConfirmPassword"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
-        android:text="@string/confirmPassword"
-        android:textSize="16sp"
-        app:layout_constraintStart_toStartOf="@+id/et_Password"
-        app:layout_constraintTop_toBottomOf="@+id/et_Password" />
-
-    <TextView
-        android:id="@+id/tv_EmailAddress"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
-        android:text="@string/Email"
-        android:textSize="16sp"
-        app:layout_constraintStart_toStartOf="@+id/et_ConfirmPassword"
-        app:layout_constraintTop_toBottomOf="@+id/et_ConfirmPassword" />
-
-    <ImageView
-        android:id="@+id/imageView3"
-        android:layout_width="173dp"
-        android:layout_height="140dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginBottom="28dp"
-        app:layout_constraintBottom_toTopOf="@+id/tv_register"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/user_plus_solid"
-        app:tint="#DE84FF" />
+        app:layout_constraintVertical_bias="0.23" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.65">
+
+        <TextView
+            android:id="@+id/tv_CompleteName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="@string/completeName"
+            android:textAlignment="center"
+            android:textSize="16sp" />
+
+        <EditText
+            android:id="@+id/et_CompleteName"
+            android:layout_width="300dp"
+            android:layout_height="37dp"
+            android:ems="10"
+            android:hint="Nombre del Niño"
+            android:inputType="textPersonName"
+            android:textColorHint="#757575"
+            android:textSize="14sp"
+            tools:ignore="TouchTargetSizeCheck"
+            android:autofillHints="" />
+
+        <TextView
+            android:id="@+id/tv_EmailAddress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="@string/Email"
+            android:textSize="16sp" />
+
+        <EditText
+            android:id="@+id/et_EmailAddress"
+            android:layout_width="300dp"
+            android:layout_height="37dp"
+            android:ems="10"
+            android:hint="@string/Email"
+            android:importantForAutofill="no"
+            android:inputType="textEmailAddress"
+            android:textColorHint="#757575"
+            android:textSize="14sp"
+            tools:ignore="TouchTargetSizeCheck,DuplicateSpeakableTextCheck" />
+
+        <TextView
+            android:id="@+id/tv_Password"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="@string/password"
+            android:textSize="16sp" />
+
+        <EditText
+            android:id="@+id/et_Password"
+            android:layout_width="300dp"
+            android:layout_height="37dp"
+            android:ems="10"
+            android:hint="@string/password"
+            android:importantForAutofill="no"
+            android:inputType="textPassword"
+            android:textColorHint="#757575"
+            android:textSize="14sp"
+            tools:ignore="TouchTargetSizeCheck,DuplicateSpeakableTextCheck" />
+
+        <TextView
+            android:id="@+id/tv_ConfirmPassword"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="@string/confirmPassword"
+            android:textSize="16sp" />
+
+        <EditText
+            android:id="@+id/et_ConfirmPassword"
+            android:layout_width="300dp"
+            android:layout_height="37dp"
+            android:ems="10"
+            android:hint="@string/confirmPassword"
+            android:inputType="textPassword"
+            android:textColorHint="#757575"
+            android:textSize="14sp"
+            tools:ignore="DuplicateSpeakableTextCheck,TouchTargetSizeCheck"
+            android:importantForAutofill="no" />
+
+        <TextView
+            android:id="@+id/tv_ControlParental"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="@string/control_parental"
+            android:textSize="16sp" />
+
+        <EditText
+            android:id="@+id/et_ControlParental"
+            android:layout_width="300dp"
+            android:layout_height="37dp"
+            android:ems="10"
+            android:hint="Clave PIN"
+            android:inputType="number"
+            android:textSize="14sp"
+            tools:ignore="TouchTargetSizeCheck"
+            android:importantForAutofill="no" />
+
+        <TextView
+            android:id="@+id/tv_ConfirmarControlParental"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Confirmar Control Parental"
+            android:textSize="16sp" />
+
+        <EditText
+            android:id="@+id/et_ConfirmarControlParental"
+            android:layout_width="300dp"
+            android:layout_height="37dp"
+            android:ems="10"
+            android:hint="Confirmar Clave PIN"
+            android:inputType="number"
+            android:textColorHint="#757575"
+            android:textSize="14sp"
+            tools:ignore="TouchTargetSizeCheck"
+            android:importantForAutofill="no" />
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btn_Register"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/register"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView3"
+        app:layout_constraintVertical_bias="0.95"
+        tools:ignore="DuplicateSpeakableTextCheck" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

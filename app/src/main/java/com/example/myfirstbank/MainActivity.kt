@@ -1,45 +1,55 @@
 package com.example.myfirstbank
 
-import android.app.Activity
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Button
-import android.widget.EditText
-import android.widget.TextView
 import android.widget.Toast
 import com.example.myfirstbank.databinding.ActivityMainBinding
+import com.google.firebase.auth.FirebaseAuth
+
+//Esta variable se usará para saber en cualquier momento el email del usuario
+lateinit var actualUserEmail : String
 
 class MainActivity : AppCompatActivity() {
 
-    lateinit var binding: ActivityMainBinding
+    private lateinit var binding: ActivityMainBinding
+    //Se necesita cada vez que una actividad requiera hacer manejo de Autorizaciones con Firebase
+    private lateinit var firebaseAuth: FirebaseAuth
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-        val loginButton: Button = findViewById(R.id.loginButton)
-        loginButton.setOnClickListener { validateLogin() }
-        val registerButton: Button = findViewById(R.id.registerButton)
-        registerButton.setOnClickListener{ openRegister() }
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
-    }
-    private fun validateLogin(){
-        var usernameEditText: EditText = findViewById(R.id.usernameEditText)
-        var passwordEditText: EditText = findViewById(R.id.passwordEditText)
-        if (usernameEditText.text.toString() == "admin" && passwordEditText.text.toString() == "admin"){
-            Toast.makeText(this, "Inicio de sesión exitoso", Toast.LENGTH_SHORT).show()
-            openMainMenu()
+        firebaseAuth = FirebaseAuth.getInstance()
+
+
+        binding.loginButton.setOnClickListener {
+            val email = binding.usernameEditText.text.toString()
+            val pass = binding.passwordEditText.text.toString()
+
+            if (email.isNotEmpty() && pass.isNotEmpty()) {
+                firebaseAuth.signInWithEmailAndPassword(email, pass).addOnCompleteListener {
+                    if (it.isSuccessful) {
+                        val intent = Intent(this, MainMenuActivity::class.java)
+                        actualUserEmail=email
+                        startActivity(intent)
+                    } else {
+                        Toast.makeText(
+                            this, it.exception.toString(),
+                            Toast.LENGTH_SHORT
+                        ).show()
+                    }
+                }
+            }else{
+                Toast.makeText(this,"No se permiten campos vacíos",
+                    Toast.LENGTH_SHORT).show()
+            }
         }
-        else{
-            Toast.makeText(this, "Usuario y/o contraseña incorrectos", Toast.LENGTH_LONG).show()
+
+        binding.registerButton.setOnClickListener{
+            val intent = Intent(this, RegisterActivity::class.java)
+            startActivity(intent)
         }
-    }
-    private fun openRegister(){
-        var intent = Intent(this, RegisterActivity::class.java)
-        startActivity(intent)
-    }
-    private fun openMainMenu(){
-        var intent = Intent(this, MainMenuActivity::class.java)
-        startActivity(intent)
     }
 }
