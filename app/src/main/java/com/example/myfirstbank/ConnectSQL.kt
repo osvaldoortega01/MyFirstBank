@@ -20,7 +20,7 @@ class ConnectSQL {
         val connString : String
         try{
             Class.forName("net.sourceforge.jtds.jdbc.Driver").newInstance()
-            connString = "jdbc:jtds:sqlserver://myfirstbank.database.windows.net:1433;DatabaseName=myfirstbankdb;user=dispositivos@myfirstbank;password=p;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;ssl=request"
+            connString = "jdbc:jtds:sqlserver://myfirstbank.database.windows.net:1433;DatabaseName=myfirstbankdb;user=dispositivos@myfirstbank;password=zHpJ7y9BZ4S66Qt;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;ssl=request"
             conn = DriverManager.getConnection(connString)
         } catch (ex: SQLException){
             Log.e("Error: ", ex.message!!)
