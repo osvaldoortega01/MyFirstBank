@@ -10,6 +10,7 @@ import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
 import com.example.myfirstbank.databinding.ActivityMainBinding
+import com.google.android.material.textfield.TextInputLayout
 import java.sql.PreparedStatement
 import java.sql.ResultSet
 import java.sql.SQLException
@@ -23,24 +24,24 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        val loginButton: Button = findViewById(R.id.loginButton)
+        val loginButton: Button = findViewById(R.id.btn_login)
         loginButton.setOnClickListener { validateLogin() }
-        val registerButton: Button = findViewById(R.id.registerButton)
+        val registerButton: Button = findViewById(R.id.btn_Register)
         registerButton.setOnClickListener{ openRegister() }
 
     }
     private fun validateLogin(){
-        var usernameEditText: EditText = findViewById(R.id.usernameEditText)
-        var passwordEditText: EditText = findViewById(R.id.passwordEditText)
+        var ti_Username: TextInputLayout = findViewById(R.id.ti_Username)
+        var ti_Password: TextInputLayout = findViewById(R.id.ti_Password)
 
         try{
 
             val usuario: PreparedStatement = connectSQL.dbConn()?.prepareStatement("SELECT UserPassword FROM usuarios WHERE Username = ?")!!
-            usuario.setString(1, usernameEditText.text.toString())
+            usuario.setString(1, ti_Username.editText?.text.toString())
             val contrasena: ResultSet = usuario.executeQuery()
             contrasena.next()
             Log.e("Error: ", contrasena.getString(1))
-            if (passwordEditText.text.toString() == contrasena.getString(1)){
+            if (ti_Password.editText?.text.toString() == contrasena.getString(1)){
                 Toast.makeText(this, "Inicio de sesión correcto", Toast.LENGTH_SHORT).show()
                 openMainMenu()
             }
