@@ -41,11 +41,11 @@ class MainActivity : AppCompatActivity() {
             contrasena.next()
             Log.e("Error: ", contrasena.getString(1))
             if (passwordEditText.text.toString() == contrasena.getString(1)){
-                Toast.makeText(this, "Buen inicio de sesión", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "Correcto inicio", Toast.LENGTH_SHORT).show()
                 openMainMenu()
             }
             else{
-                Toast.makeText(this, "Usuario y/o contraseña incorrectos", Toast.LENGTH_LONG).show()
+                Toast.makeText(this, "Mal Inicio", Toast.LENGTH_LONG).show()
             }
         }
         catch (ex: SQLException){
