@@ -10,14 +10,14 @@ class Profile_Activity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_profile)
 
-        var btn_Cerrar_Sesion: Button = findViewById(R.id.btn_Cerrar_Sesion)
-        btn_Cerrar_Sesion.setOnClickListener{ openMain() }
+        var btn_CerrarSesion: Button = findViewById(R.id.btn_CerrarSesion)
+        btn_CerrarSesion.setOnClickListener{ openMain() }
 
         var btn_EstadoDeCuenta: Button = findViewById(R.id.btn_EstadoDeCuenta)
         btn_EstadoDeCuenta.setOnClickListener{ openEstado() }
 
-        var btn_Aplicar_Cambios: Button = findViewById(R.id.btn_Aplicar_Cambios)
-        btn_Aplicar_Cambios.setOnClickListener{ openMainMenu() }
+        var btn_AplicarCambios: Button = findViewById(R.id.btn_AplicarCambios)
+        btn_AplicarCambios.setOnClickListener{ openMainMenu() }
     }
 
     fun openMain(){
