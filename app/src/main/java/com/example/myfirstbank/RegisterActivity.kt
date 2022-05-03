@@ -32,11 +32,11 @@ class RegisterActivity : AppCompatActivity() {
     }
 
     private fun registerUser(){
-        var etcompletename: TextInputEditText = findViewById(R.id.ti_CompleteName)
-        var etusername: TextInputEditText = findViewById(R.id.ti_Username)
-        var etpassword: TextInputEditText = findViewById(R.id.ti_Password)
-        var etconfirmpassword: TextInputEditText = findViewById(R.id.ti_ConfirmPassword)
-        var etemailaddress: TextInputEditText = findViewById(R.id.ti_EmailAddress)
+        var etcompletename: TextInputEditText = findViewById(R.id.tiet_CompleteName)
+        var etusername: TextInputEditText = findViewById(R.id.tiet_Username)
+        var etpassword: TextInputEditText = findViewById(R.id.tiet_Password)
+        var etconfirmpassword: TextInputEditText = findViewById(R.id.tiet_ConfirmPassword)
+        var etemailaddress: TextInputEditText = findViewById(R.id.tiet_EmailAddress)
         var fecha = LocalDateTime.now()
 
         val pas1 = etpassword.text.toString()
@@ -53,7 +53,7 @@ class RegisterActivity : AppCompatActivity() {
                 nuevoUsuario.setString(5,"0")
                 nuevoUsuario.setDouble(6, 0.0)
                 nuevoUsuario.setInt(7, 10)
-                // nuevoUsuario.setDate(8, Date(fecha.toEpochSecond()))
+                nuevoUsuario.setString(8, fecha.toString())
                 nuevoUsuario.executeUpdate()
                 Toast.makeText(this, "Cuenta Creada Existosamente", Toast.LENGTH_SHORT).show()
                 openParental()
