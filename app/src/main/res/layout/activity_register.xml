@@ -43,7 +43,7 @@
         app:layout_constraintTop_toBottomOf="@+id/tv_register">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/ti_CompleteName"
+            android:id="@+id/tiet_CompleteName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="12sp" />
@@ -62,7 +62,7 @@
         app:layout_constraintTop_toBottomOf="@+id/ti_CompleteName" >
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/ti_Username"
+            android:id="@+id/tiet_Username"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="12sp" />
@@ -81,7 +81,7 @@
         app:layout_constraintTop_toBottomOf="@+id/ti_Username" >
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/ti_Password"
+            android:id="@+id/tiet_Password"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textPassword"
@@ -102,7 +102,7 @@
         app:layout_constraintTop_toBottomOf="@+id/ti_Password" >
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/ti_ConfirmPassword"
+            android:id="@+id/tiet_ConfirmPassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textPassword"
@@ -122,7 +122,7 @@
 
         <com.google.android.material.textfield.TextInputEditText
 
-            android:id="@+id/ti_EmailAddress"
+            android:id="@+id/tiet_EmailAddress"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="12sp" />

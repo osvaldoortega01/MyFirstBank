@@ -8,13 +8,14 @@ import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
 import com.example.myfirstbank.databinding.ActivityMainBinding
+import com.google.android.material.textfield.TextInputEditText
 import java.sql.Date
 import java.sql.PreparedStatement
 import java.sql.ResultSet
 import java.sql.SQLException
 import java.text.SimpleDateFormat
 import java.time.LocalDate
-
+import java.time.LocalDateTime
 
 
 class RegisterActivity : AppCompatActivity() {
@@ -31,12 +32,12 @@ class RegisterActivity : AppCompatActivity() {
     }
 
     private fun registerUser(){
-        var etcompletename: EditText = findViewById(R.id.ti_CompleteName)
-        var etusername: EditText = findViewById(R.id.ti_Username)
-        var etpassword: EditText = findViewById(R.id.ti_Password)
-        var etconfirmpassword: EditText = findViewById(R.id.ti_ConfirmPassword)
-        var etemailaddress: EditText = findViewById(R.id.ti_EmailAddress)
-        var fecha = LocalDate.now()
+        var etcompletename: TextInputEditText = findViewById(R.id.ti_CompleteName)
+        var etusername: TextInputEditText = findViewById(R.id.ti_Username)
+        var etpassword: TextInputEditText = findViewById(R.id.ti_Password)
+        var etconfirmpassword: TextInputEditText = findViewById(R.id.ti_ConfirmPassword)
+        var etemailaddress: TextInputEditText = findViewById(R.id.ti_EmailAddress)
+        var fecha = LocalDateTime.now()
 
         val pas1 = etpassword.text.toString()
         val cpas1 = etconfirmpassword.text.toString()
@@ -52,7 +53,7 @@ class RegisterActivity : AppCompatActivity() {
                 nuevoUsuario.setString(5,"0")
                 nuevoUsuario.setDouble(6, 0.0)
                 nuevoUsuario.setInt(7, 10)
-                nuevoUsuario.setDate(8, Date(fecha.toEpochDay()))
+                // nuevoUsuario.setDate(8, Date(fecha.toEpochSecond()))
                 nuevoUsuario.executeUpdate()
                 Toast.makeText(this, "Cuenta Creada Existosamente", Toast.LENGTH_SHORT).show()
                 openParental()
