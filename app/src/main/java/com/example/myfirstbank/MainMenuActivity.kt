@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.ImageButton
+import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
 
 class MainMenuActivity : AppCompatActivity(){
        override fun onCreate(savedInstanceState: Bundle?) {
@@ -17,11 +18,11 @@ class MainMenuActivity : AppCompatActivity(){
         var btn_MenuControlParental: Button = findViewById(R.id.btn_MenuControlParental)
         btn_MenuControlParental.setOnClickListener{ openControlParental() }
 
-        var ibtn_ahorros: ImageButton = findViewById(R.id.ibtn_ahorros)
-        ibtn_ahorros.setOnClickListener{ openAhorros() }
+        var btn_ahorros: ExtendedFloatingActionButton = findViewById(R.id.btn_ahorros)
+           btn_ahorros.setOnClickListener{ openAhorros() }
 
-        var ibtn_perfil: ImageButton = findViewById(R.id.ibtn_perfil)
-        ibtn_perfil.setOnClickListener{ openPerfil() }
+        var btn_perfil: ExtendedFloatingActionButton = findViewById(R.id.btn_perfil)
+           btn_perfil.setOnClickListener{ openPerfil() }
 
 
     }

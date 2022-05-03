@@ -7,12 +7,36 @@
     tools:context=".RegisterActivity">
 
 
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="173dp"
+        android:layout_height="140dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="28dp"
+        app:layout_constraintBottom_toTopOf="@+id/tv_register"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/user_plus_solid"
+        app:tint="@color/md_theme_light_tertiary" />
+
+    <TextView
+        android:id="@+id/tv_register"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="184dp"
+        android:text="@string/register"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/et_CompleteName"
+        android:id="@+id/ti_CompleteName"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:hint="@string/completeName"
-
+        android:layout_marginTop="12sp"
 
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -27,14 +51,15 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/et_Username"
+        android:id="@+id/ti_Username"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:hint="@string/username"
+        android:layout_marginTop="12sp"
 
 
-        app:layout_constraintStart_toStartOf="@+id/et_CompleteName"
-        app:layout_constraintTop_toBottomOf="@+id/et_CompleteName" >
+        app:layout_constraintStart_toStartOf="@+id/ti_CompleteName"
+        app:layout_constraintTop_toBottomOf="@+id/ti_CompleteName" >
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/ti_Username"
@@ -45,15 +70,15 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/et_Password"
+        android:id="@+id/ti_Password"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:hint="@string/password"
         app:endIconMode="password_toggle"
+        android:layout_marginTop="12sp"
 
-
-        app:layout_constraintStart_toStartOf="@+id/et_Username"
-        app:layout_constraintTop_toBottomOf="@+id/et_Username" >
+        app:layout_constraintStart_toStartOf="@+id/ti_Username"
+        app:layout_constraintTop_toBottomOf="@+id/ti_Username" >
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/ti_Password"
@@ -66,14 +91,15 @@
 
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/et_ConfirmPassword"
+        android:id="@+id/ti_ConfirmPassword"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:hint="@string/confirmPassword"
         app:endIconMode="password_toggle"
+        android:layout_marginTop="12sp"
 
-        app:layout_constraintStart_toStartOf="@+id/et_Password"
-        app:layout_constraintTop_toBottomOf="@+id/et_Password" >
+        app:layout_constraintStart_toStartOf="@+id/ti_Password"
+        app:layout_constraintTop_toBottomOf="@+id/ti_Password" >
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/ti_ConfirmPassword"
@@ -85,13 +111,14 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/et_EmailAddress"
+        android:id="@+id/ti_EmailAddress"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:hint="@string/Email"
+        android:layout_marginTop="12sp"
 
-        app:layout_constraintStart_toStartOf="@+id/et_ConfirmPassword"
-        app:layout_constraintTop_toBottomOf="@+id/et_ConfirmPassword" >
+        app:layout_constraintStart_toStartOf="@+id/ti_ConfirmPassword"
+        app:layout_constraintTop_toBottomOf="@+id/ti_ConfirmPassword" >
 
         <com.google.android.material.textfield.TextInputEditText
 
@@ -103,46 +130,18 @@
     </com.google.android.material.textfield.TextInputLayout>
 
 
-
-
-    <Button
+    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
         android:id="@+id/btn_Register"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="40dp"
-        android:text="@string/register"
+        android:layout_gravity="bottom|end"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <TextView
-        android:id="@+id/tv_register"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="184dp"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginBottom="40dp"
+        android:contentDescription="@string/register"
         android:text="@string/register"
-        android:textSize="24sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-
-
-    <ImageView
-        android:id="@+id/imageView3"
-        android:layout_width="173dp"
-        android:layout_height="140dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginBottom="28dp"
-        app:layout_constraintBottom_toTopOf="@+id/tv_register"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/user_plus_solid"
-        app:tint="@color/md_theme_light_tertiary" />
-
-
-
+        app:icon="@drawable/ic_round_how_to_reg_24"/>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

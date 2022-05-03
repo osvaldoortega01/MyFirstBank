@@ -6,28 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".MainMenuActivity">
 
-    <ImageButton
-        android:id="@+id/ibtn_ahorros"
-        android:layout_width="93dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginBottom="16dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@drawable/ahorros"
-        tools:ignore="SpeakableTextPresentCheck" />
-
-    <ImageButton
-        android:id="@+id/ibtn_perfil"
-        android:layout_width="91dp"
-        android:layout_height="90dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="16dp"
-        android:scaleType="fitXY"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:srcCompat="@drawable/usuario"
-        tools:ignore="SpeakableTextPresentCheck" />
 
     <Button
         android:id="@+id/btn_MenuControlParental"
@@ -38,7 +16,7 @@
         android:layout_marginEnd="54dp"
         android:text="@string/control_parental"
         android:textSize="24sp"
-        app:backgroundTint="#EF9696"
+
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btn_MenuMovimientos" />
@@ -52,7 +30,7 @@
         android:layout_marginEnd="54dp"
         android:text="@string/movimientos"
         android:textSize="24sp"
-        app:backgroundTint="#EF9696"
+
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/et_MenuSaldoCuenta" />
@@ -107,14 +85,42 @@
         android:layout_marginTop="27dp"
         android:layout_marginEnd="62dp"
         android:layout_marginBottom="19dp"
-        android:fontFamily="serif"
+        android:fontFamily="@font/oswald_regular"
         android:text="@string/mi_primer_banco"
         android:textAlignment="center"
-        android:textColor="@color/purple_700"
         android:textSize="34sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/iv_LogoApp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+
+    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+        android:id="@+id/btn_ahorros"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        app:layout_constraintBottom_toBottomOf="parent"
+
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginStart="16dp"
+        android:layout_marginBottom="36dp"
+        android:contentDescription="@string/register"
+        android:text="@string/ahorros"
+        app:icon="@drawable/round_savings_black_48"/>
+
+    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+        android:id="@+id/btn_perfil"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_marginBottom="36dp"
+        android:layout_marginEnd="16dp"
+        android:contentDescription="@string/register"
+        android:text="@string/perfil"
+        app:icon="@drawable/ic_sharp_account_circle_24"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

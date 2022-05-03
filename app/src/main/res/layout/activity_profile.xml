@@ -6,154 +6,18 @@
     android:layout_height="match_parent"
     tools:context=".Profile_Activity">
 
-    <Button
-        android:id="@+id/btn_Aplicar_Cambios"
-        android:layout_width="190dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="119dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="119dp"
-        android:text="@string/aplicar_cambios"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.529"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/et_ConfirmPassword3" />
 
-    <Button
-        android:id="@+id/btn_Cerrar_Sesion"
-        android:layout_width="190dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="129dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="129dp"
-        android:text="@string/cerrar_sesion"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.513"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_EstadoDeCuenta" />
-
-    <Button
-        android:id="@+id/btn_EstadoDeCuenta"
-        android:layout_width="190dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="114dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="115dp"
-        android:text="@string/estado_de_cuenta"
+    <ImageView
+        android:id="@+id/iv_Perfil"
+        android:layout_width="173dp"
+        android:layout_height="140dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="32dp"
+        app:layout_constraintBottom_toTopOf="@+id/tv_Perfil"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_Aplicar_Cambios" />
-
-    <EditText
-        android:id="@+id/et_ConfirmPassword3"
-        android:layout_width="300dp"
-        android:layout_height="37dp"
-        android:layout_marginStart="62dp"
-        android:layout_marginEnd="49dp"
-        android:ems="10"
-        android:hint="@string/confirmPassword"
-        android:inputType="textPersonName"
-        android:textSize="14sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_ConfirmPassword3" />
-
-    <TextView
-        android:id="@+id/tv_ConfirmPassword3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="62dp"
-        android:layout_marginTop="12dp"
-        android:layout_marginEnd="195dp"
-        android:text="@string/confirmPassword"
-        android:textSize="16sp"
-        app:layout_constraintBottom_toTopOf="@+id/et_ConfirmPassword3"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/et_Password3" />
-
-    <EditText
-        android:id="@+id/et_Password3"
-        android:layout_width="300dp"
-        android:layout_height="37dp"
-        android:layout_marginStart="62dp"
-        android:layout_marginEnd="49dp"
-        android:ems="10"
-        android:hint="@string/password"
-        android:inputType="textPersonName"
-        android:textSize="14sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_Password3" />
-
-    <TextView
-        android:id="@+id/tv_Password3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="62dp"
-        android:layout_marginTop="12dp"
-        android:layout_marginEnd="267dp"
-        android:text="@string/password"
-        android:textSize="16sp"
-        app:layout_constraintBottom_toTopOf="@+id/et_Password3"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/et_Username3" />
-
-    <EditText
-        android:id="@+id/et_Username3"
-        android:layout_width="300dp"
-        android:layout_height="37dp"
-        android:layout_marginStart="62dp"
-        android:layout_marginEnd="49dp"
-        android:ems="10"
-        android:hint="@string/ej_osvaldo_ortega"
-        android:inputType="textPersonName"
-        android:textSize="14sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_Username3" />
-
-    <TextView
-        android:id="@+id/tv_Username3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="62dp"
-        android:layout_marginTop="12dp"
-        android:layout_marginEnd="212dp"
-        android:text="@string/username"
-        android:textSize="16sp"
-        app:layout_constraintBottom_toTopOf="@+id/et_Username3"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/et_CompleteName3" />
-
-    <EditText
-        android:id="@+id/et_CompleteName3"
-        android:layout_width="300dp"
-        android:layout_height="37dp"
-        android:layout_marginStart="62dp"
-        android:layout_marginEnd="49dp"
-        android:ems="10"
-        android:hint="@string/exampleCompleteName"
-        android:inputType="textPersonName"
-        android:textSize="14sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_Nombre_Completo" />
-
-    <TextView
-        android:id="@+id/tv_Nombre_Completo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="62dp"
-        android:layout_marginTop="28dp"
-        android:layout_marginEnd="215dp"
-        android:text="@string/nombre_completo"
-        android:textSize="16sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_Perfil" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_sharp_account_circle_24"/>
 
     <TextView
         android:id="@+id/tv_Perfil"
@@ -166,19 +30,126 @@
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/iv_Perfil" />
+        app:layout_constraintTop_toBottomOf="@+id/iv_Perfil"/>
 
-    <ImageView
-        android:id="@+id/iv_Perfil"
-        android:layout_width="173dp"
-        android:layout_height="140dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginBottom="32dp"
-        app:layout_constraintBottom_toTopOf="@+id/tv_Perfil"
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/ti_CompleteName"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:hint="@string/completeName"
+        android:layout_marginTop="12sp"
+
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/usuario"
-        app:tint="#DE84FF" />
+        app:layout_constraintTop_toBottomOf="@+id/tv_Perfil">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="12sp" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/ti_Username"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:hint="@string/username"
+        android:layout_marginTop="12sp"
+
+
+        app:layout_constraintStart_toStartOf="@+id/ti_CompleteName"
+        app:layout_constraintTop_toBottomOf="@+id/ti_CompleteName" >
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="12sp" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/ti_Password"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:hint="@string/password"
+        app:endIconMode="password_toggle"
+        android:layout_marginTop="12sp"
+
+        app:layout_constraintStart_toStartOf="@+id/ti_Username"
+        app:layout_constraintTop_toBottomOf="@+id/ti_Username" >
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:inputType="textPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="12sp" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/ti_ConfirmPassword"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:hint="@string/confirmPassword"
+        app:endIconMode="password_toggle"
+        android:layout_marginTop="12sp"
+
+        app:layout_constraintStart_toStartOf="@+id/ti_Password"
+        app:layout_constraintTop_toBottomOf="@+id/ti_Password" >
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:inputType="textPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="12sp" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+
+    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+        android:id="@+id/btn_AplicarCambios"
+        android:layout_width="190dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="12sp"
+        app:layout_constraintBottom_toTopOf="@+id/btn_EstadoDeCuenta"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:contentDescription="@string/aplicar_cambios"
+        android:text="@string/aplicar_cambios"
+        app:icon="@drawable/ic_round_edit_24"/>
+
+    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+        android:id="@+id/btn_EstadoDeCuenta"
+        android:layout_width="190dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="12dp"
+        android:contentDescription="@string/estado_de_cuenta"
+        android:text="@string/estado_de_cuenta"
+        app:icon="@drawable/ic_round_account_balance_24"
+
+        app:layout_constraintBottom_toTopOf="@+id/btn_CerrarSesion"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        />
+
+    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+        android:id="@+id/btn_CerrarSesion"
+        android:layout_width="190dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginBottom="12dp"
+        android:contentDescription="@string/cerrar_sesion"
+        android:text="@string/cerrar_sesion"
+        app:icon="@drawable/round_logout_black_48"/>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
