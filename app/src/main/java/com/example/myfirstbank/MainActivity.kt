@@ -10,6 +10,7 @@ import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
 import com.example.myfirstbank.databinding.ActivityMainBinding
+import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
 import java.sql.PreparedStatement
 import java.sql.ResultSet
@@ -31,27 +32,32 @@ class MainActivity : AppCompatActivity() {
 
     }
     private fun validateLogin(){
-        var ti_Username: TextInputLayout = findViewById(R.id.ti_Username)
-        var ti_Password: TextInputLayout = findViewById(R.id.ti_Password)
+        var tiet_Username: TextInputEditText = findViewById(R.id.tiet_Username)
+        var tiet_Password: TextInputEditText = findViewById(R.id.tiet_Password)
 
-        try{
-
-            val usuario: PreparedStatement = connectSQL.dbConn()?.prepareStatement("SELECT UserPassword FROM usuarios WHERE Username = ?")!!
-            usuario.setString(1, ti_Username.editText?.text.toString())
-            val contrasena: ResultSet = usuario.executeQuery()
-            contrasena.next()
-            Log.e("Error: ", contrasena.getString(1))
-            if (ti_Password.editText?.text.toString() == contrasena.getString(1)){
-                Toast.makeText(this, "Inicio de sesión correcto", Toast.LENGTH_SHORT).show()
-                openMainMenu()
+        if(tiet_Username.text.toString().any()){
+            try{
+                val usuario: PreparedStatement = connectSQL.dbConn()?.prepareStatement("SELECT UserPassword FROM usuarios WHERE Username = ?")!!
+                usuario.setString(1, tiet_Username.text.toString())
+                val contrasena: ResultSet = usuario.executeQuery()
+                contrasena.next()
+                if (tiet_Password.text.toString() == contrasena.getString(1)){
+                    Toast.makeText(this, "Inicio de sesión correcto", Toast.LENGTH_SHORT).show()
+                    openMainMenu()
+                }
+                else{
+                    Toast.makeText(this, "Usuario y/o contraseña incorrectos", Toast.LENGTH_LONG).show()
+                }
             }
-            else{
-                Toast.makeText(this, "Usuario y/o contraseña incorrectos", Toast.LENGTH_LONG).show()
+            catch (ex: SQLException){
+                Toast.makeText(this, "${ex.message}", Toast.LENGTH_SHORT).show()
             }
         }
-        catch (ex: SQLException){
-            Toast.makeText(this, "${ex.message}", Toast.LENGTH_SHORT).show()
+        else{
+
         }
+
+
 
     }
     private fun openRegister(){
