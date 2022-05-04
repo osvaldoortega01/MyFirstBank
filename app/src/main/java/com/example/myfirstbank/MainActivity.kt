@@ -43,7 +43,20 @@ class MainActivity : AppCompatActivity() {
                 contrasena.next()
                 if (tiet_Password.text.toString() == contrasena.getString(1)){
                     Toast.makeText(this, "Inicio de sesión correcto", Toast.LENGTH_SHORT).show()
-                    openMainMenu()
+                    try{
+                        val getidusuario: PreparedStatement = connectSQL.dbConn()?.prepareStatement("SELECT UserID FROM usuarios WHERE Username = ?")!!
+                        getidusuario.setString(1, tiet_Username.text.toString())
+                        val iduser: ResultSet = getidusuario.executeQuery()
+                        iduser.next()
+                        fun openMainMenu() {
+                            var intent = Intent(this, MainMenuActivity::class.java)
+                            intent.putExtra("iduser", iduser.getString(1))
+                            startActivity(intent)
+                        }
+                        openMainMenu()
+                    }catch (ex:SQLException){
+                        Toast.makeText(this, ex.message, Toast.LENGTH_LONG).show()
+                    }
                 }
                 else{
                     Toast.makeText(this, "Usuario y/o contraseña incorrectos", Toast.LENGTH_LONG).show()
@@ -62,10 +75,6 @@ class MainActivity : AppCompatActivity() {
     }
     private fun openRegister(){
         var intent = Intent(this, RegisterActivity::class.java)
-        startActivity(intent)
-    }
-    private fun openMainMenu(){
-        var intent = Intent(this, MainMenuActivity::class.java)
         startActivity(intent)
     }
 }

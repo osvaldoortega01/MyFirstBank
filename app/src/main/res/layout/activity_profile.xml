@@ -45,6 +45,7 @@
         app:layout_constraintTop_toBottomOf="@+id/tv_Perfil">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/tie_CompleteName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="12sp" />
@@ -63,6 +64,7 @@
         app:layout_constraintTop_toBottomOf="@+id/ti_CompleteName" >
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/tie_Username"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="12sp" />
@@ -81,9 +83,10 @@
         app:layout_constraintTop_toBottomOf="@+id/ti_Username" >
 
         <com.google.android.material.textfield.TextInputEditText
-            android:inputType="textPassword"
+            android:id="@+id/tie_Password"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:inputType="textPassword"
             android:textSize="12sp" />
 
     </com.google.android.material.textfield.TextInputLayout>
@@ -101,9 +104,10 @@
         app:layout_constraintTop_toBottomOf="@+id/ti_Password" >
 
         <com.google.android.material.textfield.TextInputEditText
-            android:inputType="textPassword"
+            android:id="@+id/tie_ConfirmPassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:inputType="textPassword"
             android:textSize="12sp" />
 
     </com.google.android.material.textfield.TextInputLayout>

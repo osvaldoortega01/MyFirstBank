@@ -59,7 +59,20 @@ class RegisterActivity : AppCompatActivity() {
                         nuevoUsuario.setString(8, fecha.toString())
                         nuevoUsuario.executeUpdate()
                         Toast.makeText(this, "Cuenta Creada Existosamente", Toast.LENGTH_SHORT).show()
-                        openParental()
+                        try{
+                            val getidusuario: PreparedStatement = connectSQL.dbConn()?.prepareStatement("SELECT UserID FROM usuarios WHERE Username = ?")!!
+                            getidusuario.setString(1, etusername.text.toString())
+                            val iduser: ResultSet = getidusuario.executeQuery()
+                            iduser.next()
+                            fun openParental() {
+                                var intent = Intent(this, Parental_Control_Activity::class.java)
+                                intent.putExtra("iduser", iduser.getString(1))
+                                startActivity(intent)
+                            }
+                            openParental()
+                        }catch (ex:SQLException){
+                            Toast.makeText(this, ex.message, Toast.LENGTH_LONG).show()
+                        }
                     }catch (ex:SQLException){
                         Toast.makeText(this, ex.message, Toast.LENGTH_LONG).show()
                     }
@@ -78,8 +91,5 @@ class RegisterActivity : AppCompatActivity() {
     }
 
 
-    fun openParental() {
-        var intent = Intent(this, Parental_Control_Activity::class.java)
-        startActivity(intent)
-    }
+
 }

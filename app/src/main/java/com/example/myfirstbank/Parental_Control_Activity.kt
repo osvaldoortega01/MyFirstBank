@@ -1,21 +1,85 @@
 package com.example.myfirstbank
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.Button
+import android.widget.EditText
+import android.widget.TextView
+import android.widget.Toast
+import com.example.myfirstbank.databinding.ActivityMainBinding
+import com.google.android.material.textfield.TextInputEditText
+import com.google.android.material.textfield.TextInputLayout
+import java.sql.PreparedStatement
+import java.sql.ResultSet
+import java.sql.SQLException
+
 
 class Parental_Control_Activity : AppCompatActivity() {
+
+    private var connectSQL = ConnectSQL()
+
+    lateinit var binding: ActivityMainBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_parental_control)
 
+        val txtcantidadmax: TextInputEditText = findViewById(R.id.et_cantidadmaxima)
+
+        val txtcodigparent: TextInputEditText = findViewById(R.id.et_codigoparental)
+
+        val bundle = intent.extras
+        val iduser = bundle?.getString("iduser")
+
+        try{
+            val txtcmax: PreparedStatement = connectSQL.dbConn()?.prepareStatement("SELECT MaxCashOut FROM usuarios WHERE UserID = ?")!!
+            txtcmax.setString(1, iduser.toString())
+            val ticmax: ResultSet = txtcmax.executeQuery()
+            ticmax.next()
+            txtcantidadmax.setText(ticmax.getString(1))
+            val txtcodpar: PreparedStatement = connectSQL.dbConn()?.prepareStatement("SELECT ParentalKey FROM usuarios WHERE UserID = ?")!!
+            txtcodpar.setString(1, iduser.toString())
+            val ticod: ResultSet = txtcodpar.executeQuery()
+            ticod.next()
+            txtcodigparent.setText(ticod.getString(1))
+        }catch(ex: SQLException){
+            Toast.makeText(this, ex.message, Toast.LENGTH_LONG).show()
+        }
+
         var btn_Aplicar_Cambios_CP: Button = findViewById(R.id.btn_Aplicar_Cambios_CP)
-        btn_Aplicar_Cambios_CP.setOnClickListener{ openMainMenu() }
+        btn_Aplicar_Cambios_CP.setOnClickListener{ controlparental() }
     }
 
-    fun openMainMenu(){
-        var intent = Intent(this, MainMenuActivity::class.java)
-        startActivity(intent)
+
+    fun controlparental() {
+        val bundle = intent.extras
+        val iduser = bundle?.getString("iduser")
+        var etcantidadmaxima: TextInputEditText = findViewById(R.id.et_cantidadmaxima)
+        var etcodigocontrolparental: TextInputEditText = findViewById(R.id.et_codigoparental)
+        print(iduser)
+        try {
+            val controlparental: PreparedStatement = connectSQL.dbConn()
+                ?.prepareStatement("UPDATE usuarios SET ParentalKey = ?, MaxCashOut = ? WHERE UserID = ?")!!
+            controlparental.setString(1, etcodigocontrolparental.text.toString())
+            controlparental.setString(2, etcantidadmaxima.text.toString())
+            controlparental.setString(3, iduser.toString())
+            controlparental.executeUpdate()
+            Toast.makeText(this, "Datos Actualizados Correctamente", Toast.LENGTH_SHORT).show()
+            fun openMainMenu() {
+                val bundle = intent.extras
+                val iduser = bundle?.getString("iduser")
+                var intent = Intent(this, MainMenuActivity::class.java)
+                intent.putExtra("iduser", iduser.toString())
+                startActivity(intent)
+            }
+            openMainMenu()
+        } catch (ex: SQLException) {
+            Toast.makeText(this, "Fallo al ingresar los datos", Toast.LENGTH_SHORT).show()
+        }
     }
+
+
 }

@@ -64,7 +64,10 @@ class AhorroActivity : AppCompatActivity(), AdapterView.OnItemClickListener {
     }
 
     fun openMainMenu() {
+        val bundle = intent.extras
+        val iduser = bundle?.getString("iduser")
         var intent = Intent(this, MainMenuActivity::class.java)
+        intent.putExtra("iduser", iduser.toString())
         startActivity(intent)
     }
 }

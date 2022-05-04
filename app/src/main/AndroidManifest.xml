@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.myfirstbank">
-
-    <!--Permiso de la app para acceder a internet!-->
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <!-- Permiso de la app para acceder a internet! -->
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -12,6 +11,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MyFirstBank">
+        <activity
+            android:name=".PCV_Activity"
+            android:exported="false" />
         <activity
             android:name=".ConversionDivisas"
             android:exported="true" />
@@ -33,11 +35,9 @@
         <activity
             android:name=".MainMenuActivity"
             android:exported="false" />
-
         <activity
             android:name=".RegisterActivity"
             android:exported="false" />
-
         <activity
             android:name=".MainActivity"
             android:exported="true">

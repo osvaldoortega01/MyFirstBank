@@ -26,30 +26,14 @@
         android:layout_width="303dp"
         android:layout_height="68dp"
         android:layout_marginStart="54dp"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="33dp"
         android:layout_marginEnd="54dp"
         android:text="@string/movimientos"
+
         android:textSize="24sp"
-
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/et_MenuSaldoCuenta" />
-
-    <EditText
-        android:id="@+id/et_MenuSaldoCuenta"
-        android:layout_width="164dp"
-        android:layout_height="68dp"
-        android:layout_marginStart="123dp"
-        android:layout_marginTop="21dp"
-        android:layout_marginEnd="124dp"
-        android:ems="10"
-        android:inputType="numberDecimal"
-        android:text="@string/_340_50"
-        android:textAlignment="center"
-        android:textSize="34sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/TV_MenuSaldoActual" />
+        app:layout_constraintTop_toBottomOf="@+id/TV_SaldoDig" />
 
     <TextView
         android:id="@+id/TV_MenuSaldoActual"
@@ -63,6 +47,19 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/iv_LogoApp" />
+
+    <TextView
+        android:id="@+id/TV_SaldoDig"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="144dp"
+        android:layout_marginTop="26dp"
+        android:layout_marginEnd="144dp"
+        android:text="@string/_340_50"
+        android:textSize="34sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/TV_MenuSaldoActual" />
 
     <ImageView
         android:id="@+id/iv_LogoApp"

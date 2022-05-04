@@ -10,14 +10,14 @@
         android:id="@+id/tv_Cantidad_Maxima_r"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="60dp"
-        android:layout_marginTop="77dp"
-        android:layout_marginEnd="91dp"
+        android:layout_marginStart="63dp"
+        android:layout_marginTop="84dp"
+        android:layout_marginEnd="88dp"
+        android:layout_marginBottom="1dp"
         android:text="@string/ingrese_la_cantidad_maxima_a_retirar"
         android:textSize="16sp"
-        app:layout_constraintBottom_toTopOf="@+id/et_Cantidad_Maxima_r"
+        app:layout_constraintBottom_toTopOf="@+id/et_cantidadmaxima"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_controlparental" />
 
@@ -50,59 +50,50 @@
         android:id="@+id/tv_Codigo_Parental"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="60dp"
-        android:layout_marginTop="58dp"
-        android:layout_marginEnd="172dp"
+        android:layout_marginStart="61dp"
+        android:layout_marginTop="33dp"
+        android:layout_marginEnd="171dp"
         android:text="@string/cambiar_codigo_parental"
         android:textSize="16sp"
-        app:layout_constraintBottom_toTopOf="@+id/et_Codigo_Parental"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/et_Cantidad_Maxima_r" />
-
-    <EditText
-        android:id="@+id/et_Cantidad_Maxima_r"
-        android:layout_width="288dp"
-        android:layout_height="39dp"
-        android:layout_marginStart="61dp"
-        android:layout_marginEnd="62dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="@string/ej_200"
-        android:textSize="14sp"
+        app:layout_constraintBottom_toTopOf="@+id/et_codigoparental"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_Cantidad_Maxima_r" />
-
-    <EditText
-        android:id="@+id/et_Codigo_Parental"
-        android:layout_width="288dp"
-        android:layout_height="39dp"
-        android:layout_marginStart="61dp"
-        android:layout_marginEnd="62dp"
-        android:layout_marginBottom="70dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="@string/codigo_actual"
-        android:textSize="14sp"
-        app:layout_constraintBottom_toTopOf="@+id/btn_Aplicar_Cambios_CP"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_Codigo_Parental" />
+        app:layout_constraintTop_toBottomOf="@+id/et_cantidadmaxima" />
 
     <Button
         android:id="@+id/btn_Aplicar_Cambios_CP"
         android:layout_width="292dp"
         android:layout_height="68dp"
-        android:layout_marginStart="157dp"
-        android:layout_marginTop="70dp"
-        android:layout_marginEnd="156dp"
+        android:layout_marginStart="59dp"
+        android:layout_marginTop="72dp"
+        android:layout_marginEnd="60dp"
         android:text="@string/aplicar"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.494"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/et_Codigo_Parental" />
+        app:layout_constraintTop_toBottomOf="@+id/et_codigoparental" />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/et_codigoparental"
+        android:layout_width="286dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="60dp"
+        android:layout_marginEnd="65dp"
+        android:hint="@string/codigo_actual"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_Codigo_Parental" />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/et_cantidadmaxima"
+        android:layout_width="286dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="62dp"
+        android:layout_marginTop="1dp"
+        android:layout_marginEnd="63dp"
+        android:hint="@string/ej_200"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_Cantidad_Maxima_r" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
