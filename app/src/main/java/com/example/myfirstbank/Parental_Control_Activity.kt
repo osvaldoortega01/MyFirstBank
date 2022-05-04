@@ -9,6 +9,7 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
+import com.example.myfirstbank.MyFirstBank.Companion.prefs
 import com.example.myfirstbank.databinding.ActivityMainBinding
 import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
@@ -31,17 +32,16 @@ class Parental_Control_Activity : AppCompatActivity() {
 
         val txtcodigparent: TextInputEditText = findViewById(R.id.et_codigoparental)
 
-        val bundle = intent.extras
-        val iduser = bundle?.getString("iduser")
+        val iduser = prefs.getId()
 
         try{
             val txtcmax: PreparedStatement = connectSQL.dbConn()?.prepareStatement("SELECT MaxCashOut FROM usuarios WHERE UserID = ?")!!
-            txtcmax.setString(1, iduser.toString())
+            txtcmax.setString(1, iduser)
             val ticmax: ResultSet = txtcmax.executeQuery()
             ticmax.next()
             txtcantidadmax.setText(ticmax.getString(1))
             val txtcodpar: PreparedStatement = connectSQL.dbConn()?.prepareStatement("SELECT ParentalKey FROM usuarios WHERE UserID = ?")!!
-            txtcodpar.setString(1, iduser.toString())
+            txtcodpar.setString(1, iduser)
             val ticod: ResultSet = txtcodpar.executeQuery()
             ticod.next()
             txtcodigparent.setText(ticod.getString(1))
@@ -55,8 +55,7 @@ class Parental_Control_Activity : AppCompatActivity() {
 
 
     fun controlparental() {
-        val bundle = intent.extras
-        val iduser = bundle?.getString("iduser")
+        val iduser = prefs.getId()
         var etcantidadmaxima: TextInputEditText = findViewById(R.id.et_cantidadmaxima)
         var etcodigocontrolparental: TextInputEditText = findViewById(R.id.et_codigoparental)
         print(iduser)
@@ -65,21 +64,17 @@ class Parental_Control_Activity : AppCompatActivity() {
                 ?.prepareStatement("UPDATE usuarios SET ParentalKey = ?, MaxCashOut = ? WHERE UserID = ?")!!
             controlparental.setString(1, etcodigocontrolparental.text.toString())
             controlparental.setString(2, etcantidadmaxima.text.toString())
-            controlparental.setString(3, iduser.toString())
+            controlparental.setString(3, iduser)
             controlparental.executeUpdate()
             Toast.makeText(this, "Datos Actualizados Correctamente", Toast.LENGTH_SHORT).show()
-            fun openMainMenu() {
-                val bundle = intent.extras
-                val iduser = bundle?.getString("iduser")
-                var intent = Intent(this, MainMenuActivity::class.java)
-                intent.putExtra("iduser", iduser.toString())
-                startActivity(intent)
-            }
             openMainMenu()
         } catch (ex: SQLException) {
             Toast.makeText(this, "Fallo al ingresar los datos", Toast.LENGTH_SHORT).show()
         }
     }
-
+    fun openMainMenu() {
+        var intent = Intent(this, MainMenuActivity::class.java)
+        startActivity(intent)
+    }
 
 }

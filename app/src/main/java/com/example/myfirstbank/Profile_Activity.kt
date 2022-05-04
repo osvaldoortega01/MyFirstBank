@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.Toast
+import com.example.myfirstbank.MyFirstBank.Companion.prefs
 import com.example.myfirstbank.databinding.ActivityMainBinding
 import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
@@ -22,8 +23,7 @@ class Profile_Activity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_profile)
 
-        val bundle = intent.extras
-        val iduser = bundle?.getString("iduser")
+        val iduser = prefs.getId()
         val txtnombre: TextInputEditText = findViewById(R.id.tie_CompleteName)
         val txtusuario: TextInputEditText = findViewById(R.id.tie_Username)
         val txtcontraseña: TextInputEditText = findViewById(R.id.tie_Password)
@@ -31,17 +31,17 @@ class Profile_Activity : AppCompatActivity() {
 
         try{
             val txtNOM: PreparedStatement = connectSQL.dbConn()?.prepareStatement("SELECT FullName FROM usuarios WHERE UserID = ?")!!
-            txtNOM.setString(1, iduser.toString())
+            txtNOM.setString(1, iduser)
             val tiNOM: ResultSet = txtNOM.executeQuery()
             tiNOM.next()
             txtnombre.setText(tiNOM.getString(1))
             val txtUSE: PreparedStatement = connectSQL.dbConn()?.prepareStatement("SELECT Username FROM usuarios WHERE UserID = ?")!!
-            txtUSE.setString(1, iduser.toString())
+            txtUSE.setString(1, iduser)
             val tiUSE: ResultSet = txtUSE.executeQuery()
             tiUSE.next()
             txtusuario.setText(tiUSE.getString(1))
             val txtCONT: PreparedStatement = connectSQL.dbConn()?.prepareStatement("SELECT UserPassword FROM usuarios WHERE UserID = ?")!!
-            txtCONT.setString(1, iduser.toString())
+            txtCONT.setString(1, iduser)
             val tiCONT: ResultSet = txtCONT.executeQuery()
             tiCONT.next()
             txtcontraseña.setText(tiCONT.getString(1))
@@ -61,8 +61,7 @@ class Profile_Activity : AppCompatActivity() {
     }
 
     fun editarus(){
-        val bundle = intent.extras
-        val iduser = bundle?.getString("iduser")
+        val iduser = prefs.getId()
         val ti_nombre: TextInputEditText = findViewById(R.id.tie_CompleteName)
         val ti_tusuario: TextInputEditText = findViewById(R.id.tie_Username)
         val ti_contraseña: TextInputEditText = findViewById(R.id.tie_Password)
@@ -76,7 +75,7 @@ class Profile_Activity : AppCompatActivity() {
                editarperfl.setString(1, ti_nombre.text.toString())
                editarperfl.setString(2, ti_tusuario.text.toString())
                editarperfl.setString(3, ti_contraseña.text.toString())
-               editarperfl.setString(4, iduser.toString())
+               editarperfl.setString(4, iduser)
                editarperfl.executeUpdate()
                Toast.makeText(this, "Cambios realizados exitosamente", Toast.LENGTH_SHORT).show()
                openMainMenu()
@@ -91,22 +90,17 @@ class Profile_Activity : AppCompatActivity() {
 
     fun openMain(){
         var intent = Intent(this, MainActivity::class.java)
+        prefs.wipe()
         startActivity(intent)
     }
 
     fun openEstado() {
-        val bundle = intent.extras
-        val iduser = bundle?.getString("iduser")
         var intent = Intent(this, EstadoDeCuentaActivity::class.java)
-        intent.putExtra("iduser", iduser.toString())
         startActivity(intent)
     }
 
     fun openMainMenu(){
-        val bundle = intent.extras
-        val iduser = bundle?.getString("iduser")
         var intent = Intent(this, MainMenuActivity::class.java)
-        intent.putExtra("iduser", iduser.toString())
         startActivity(intent)
     }
 }

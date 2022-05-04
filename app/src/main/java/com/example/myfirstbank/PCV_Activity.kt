@@ -11,6 +11,7 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
+import com.example.myfirstbank.MyFirstBank.Companion.prefs
 import com.google.android.material.textfield.TextInputEditText
 import java.sql.*
 import java.text.SimpleDateFormat
@@ -32,13 +33,13 @@ class PCV_Activity : AppCompatActivity() {
     }
     fun verificarpc (){
         val bundle = intent.extras
-        val iduser = bundle?.getString("iduser")
+        val iduser = prefs.getId()
         val idpcv = bundle?.getString("idpcv")
         val tiet_pcv: TextInputEditText = findViewById(R.id.tiet_pcv)
         if(idpcv=="1"){
             try{
                 val codigoparentarl: PreparedStatement = connectSQL.dbConn()?.prepareStatement("SELECT ParentalKey FROM usuarios WHERE UserID = ?")!!
-                codigoparentarl.setString(1, iduser.toString())
+                codigoparentarl.setString(1, iduser)
                 val codigoparentaru: ResultSet = codigoparentarl.executeQuery()
                 codigoparentaru.next()
                 if (tiet_pcv.text.toString() == codigoparentaru.getString(1)) {
@@ -55,7 +56,7 @@ class PCV_Activity : AppCompatActivity() {
             if(idpcv=="2"){
                 try{
                     val codigoparentarl: PreparedStatement = connectSQL.dbConn()?.prepareStatement("SELECT ParentalKey FROM usuarios WHERE UserID = ?")!!
-                    codigoparentarl.setString(1, iduser.toString())
+                    codigoparentarl.setString(1, iduser)
                     val codigoparentaru: ResultSet = codigoparentarl.executeQuery()
                     codigoparentaru.next()
                     if (tiet_pcv.text.toString() == codigoparentaru.getString(1)) {
@@ -74,17 +75,11 @@ class PCV_Activity : AppCompatActivity() {
         }
     }
     fun openControlParental(){
-        val bundle = intent.extras
-        val iduser = bundle?.getString("iduser")
         var intent = Intent(this, Parental_Control_Activity::class.java)
-        intent.putExtra("iduser", iduser.toString())
         startActivity(intent)
     }
     fun openPerfil(){
-        val bundle = intent.extras
-        val iduser = bundle?.getString("iduser")
         var intent = Intent(this, Profile_Activity::class.java)
-        intent.putExtra("iduser", iduser.toString())
         startActivity(intent)
     }
 }

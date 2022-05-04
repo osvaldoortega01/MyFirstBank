@@ -9,6 +9,7 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
+import com.example.myfirstbank.MyFirstBank.Companion.prefs
 import com.example.myfirstbank.databinding.ActivityMainBinding
 import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
@@ -29,7 +30,7 @@ class MainActivity : AppCompatActivity() {
         loginButton.setOnClickListener { validateLogin() }
         val registerButton: Button = findViewById(R.id.btn_Register)
         registerButton.setOnClickListener{ openRegister() }
-
+        checkUserValues()
     }
     private fun validateLogin(){
         var tiet_Username: TextInputEditText = findViewById(R.id.tiet_Username)
@@ -48,12 +49,17 @@ class MainActivity : AppCompatActivity() {
                         getidusuario.setString(1, tiet_Username.text.toString())
                         val iduser: ResultSet = getidusuario.executeQuery()
                         iduser.next()
-                        fun openMainMenu() {
-                            var intent = Intent(this, MainMenuActivity::class.java)
-                            intent.putExtra("iduser", iduser.getString(1))
-                            startActivity(intent)
+                        fun accessToDetail(){
+                            if(tiet_Username.text.toString().isNotEmpty() && tiet_Password.text.toString().isNotEmpty()){
+                                prefs.saveUsername(tiet_Username.text.toString())
+                                prefs.savePassword(tiet_Password.text.toString())
+                                prefs.saveId(iduser.getString(1))
+                                openMainMenu()
+                            }else{
+
+                            }
                         }
-                        openMainMenu()
+                        accessToDetail()
                     }catch (ex:SQLException){
                         Toast.makeText(this, ex.message, Toast.LENGTH_LONG).show()
                     }
@@ -76,5 +82,14 @@ class MainActivity : AppCompatActivity() {
     private fun openRegister(){
         var intent = Intent(this, RegisterActivity::class.java)
         startActivity(intent)
+    }
+    fun openMainMenu() {
+        var intent = Intent(this, MainMenuActivity::class.java)
+        startActivity(intent)
+    }
+    fun checkUserValues(){
+        if(prefs.getUsername().isNotEmpty()){
+            openMainMenu()
+        }
     }
 }

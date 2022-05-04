@@ -10,6 +10,7 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
+import com.example.myfirstbank.MyFirstBank.Companion.prefs
 import com.example.myfirstbank.databinding.ActivityMainBinding
 import com.google.android.material.textfield.TextInputEditText
 import java.sql.*
@@ -27,12 +28,11 @@ class MainMenuActivity : AppCompatActivity(){
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main_menu)
 
-           val bundle = intent.extras
-           val iduser = bundle?.getString("iduser")
+           val iduser = prefs.getId()
            val tvsaldoDig: TextView= findViewById(R.id.TV_SaldoDig)
            try{
                val txtsaldo: PreparedStatement = connectSQL.dbConn()?.prepareStatement("SELECT Cash FROM usuarios WHERE UserID = ?")!!
-               txtsaldo.setString(1, iduser.toString())
+               txtsaldo.setString(1, iduser)
                val tvsaldo: ResultSet = txtsaldo.executeQuery()
                tvsaldo.next()
                tvsaldoDig.setText(tvsaldo.getString(1))
@@ -58,35 +58,23 @@ class MainMenuActivity : AppCompatActivity(){
 
 
     fun openMenuMovimientos(){
-        val bundle = intent.extras
-        val iduser = bundle?.getString("iduser")
         var intent = Intent(this, Movimientos::class.java)
-        intent.putExtra("iduser", iduser.toString())
         startActivity(intent)
     }
     fun openControlParental(){
-        val bundle = intent.extras
-        val iduser = bundle?.getString("iduser")
         val idpcv = 1
         var intent = Intent(this, PCV_Activity::class.java)
         intent.putExtra("idpcv", idpcv.toString())
-        intent.putExtra("iduser", iduser.toString())
         startActivity(intent)
     }
     fun openAhorros(){
-        val bundle = intent.extras
-        val iduser = bundle?.getString("iduser")
         var intent = Intent(this, AhorroActivity::class.java)
-        intent.putExtra("iduser", iduser.toString())
         startActivity(intent)
     }
     fun openPerfil(){
-        val bundle = intent.extras
-        val iduser = bundle?.getString("iduser")
         val idpcv = 2
         var intent = Intent(this, PCV_Activity::class.java)
         intent.putExtra("idpcv", idpcv.toString())
-        intent.putExtra("iduser", iduser.toString())
         startActivity(intent)
     }
 

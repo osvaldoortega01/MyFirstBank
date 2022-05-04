@@ -8,6 +8,7 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
+import com.example.myfirstbank.MyFirstBank.Companion.prefs
 import com.example.myfirstbank.databinding.ActivityMainBinding
 import com.google.android.material.textfield.TextInputEditText
 import java.sql.*
@@ -64,12 +65,17 @@ class RegisterActivity : AppCompatActivity() {
                             getidusuario.setString(1, etusername.text.toString())
                             val iduser: ResultSet = getidusuario.executeQuery()
                             iduser.next()
-                            fun openParental() {
-                                var intent = Intent(this, Parental_Control_Activity::class.java)
-                                intent.putExtra("iduser", iduser.getString(1))
-                                startActivity(intent)
+                            fun accessToDetail(){
+                                if(etusername.text.toString().isNotEmpty() && etpassword.text.toString().isNotEmpty()){
+                                    prefs.saveUsername(etpassword.text.toString())
+                                    prefs.savePassword(etusername.text.toString())
+                                    prefs.saveId(iduser.getString(1))
+                                    openParental()
+                                }else{
+
+                                }
                             }
-                            openParental()
+                            accessToDetail()
                         }catch (ex:SQLException){
                             Toast.makeText(this, ex.message, Toast.LENGTH_LONG).show()
                         }
@@ -89,7 +95,10 @@ class RegisterActivity : AppCompatActivity() {
         }
 
     }
-
+    fun openParental() {
+        var intent = Intent(this, Parental_Control_Activity::class.java)
+        startActivity(intent)
+    }
 
 
 }

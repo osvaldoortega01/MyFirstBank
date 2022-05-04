@@ -161,9 +161,6 @@ class Movimientos : AppCompatActivity() {
         }
 
         conversionDivisasButton.setOnClickListener {
-            val bundle = intent.extras
-            val iduser = bundle?.getString("iduser")
-            intent.putExtra("iduser", iduser.toString())
             startActivity(Intent(this, ConversionDivisas::class.java))
         }
 
