@@ -4,10 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
-import android.widget.AdapterView
-import android.widget.ArrayAdapter
-import android.widget.Button
-import android.widget.SeekBar
+import android.widget.*
 import com.example.myfirstbank.databinding.ActivityAhorroBinding
 import com.example.myfirstbank.databinding.ActivityMainBinding
 
@@ -16,7 +13,8 @@ class AhorroActivity : AppCompatActivity(), AdapterView.OnItemClickListener {
     private lateinit var binding: ActivityAhorroBinding
     var startpoint = 0
     var endpoint = 0
-    var item = ""
+    var item = "Semanal"
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -55,12 +53,23 @@ class AhorroActivity : AppCompatActivity(), AdapterView.OnItemClickListener {
 
         })
 
-        var btn_Ahorrar2: Button = findViewById(R.id.btn_ahorrar2)
-        btn_Ahorrar2.setOnClickListener{ openMainMenu() }
+        val btn_regresar: Button = findViewById(R.id.btn_regresar)
+        btn_regresar.setOnClickListener{ openMainMenu() }
+
+        val btn_ahorrar: Button = findViewById(R.id.btn_ahorrar)
+        btn_ahorrar.setOnClickListener{createAhorro()}
     }
 
     override fun onItemClick(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {//Recupero item seleccionado
        item = parent?.getItemAtPosition(position).toString()
+    }
+
+    private fun createAhorro(){
+        val textview_meta: TextView = findViewById(R.id.tv_Meta)
+        var metaAhorro: Int = textview_meta.text.toString().toInt()
+
+        var tipoAhorro: String = item
+        var duracion: Int = binding.etDuracion.text.toString().toInt()
     }
 
     fun openMainMenu() {
