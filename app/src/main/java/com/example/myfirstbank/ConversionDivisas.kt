@@ -14,18 +14,35 @@ import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.create
+import java.sql.PreparedStatement
+import java.sql.ResultSet
+import java.sql.SQLException
 
 class ConversionDivisas : AppCompatActivity() {
     private lateinit var binding: ActivityConversionDivisasBinding
     var latestConcurrencyValue : Float = 0f
     var currencyConverted: Float = 0f
     var nombreMonedaSeleccionada : String = ""
+    private var connectSQL = ConnectSQL()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_conversion_divisas)
         binding = ActivityConversionDivisasBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        //Obtiene el saldo de la cuenta a traves del UserID
+        val iduser = MyFirstBank.prefs.getId()
+        val tvsaldoDig: TextView= findViewById(R.id.textView9)
+        try{
+            val txtsaldo: PreparedStatement = connectSQL.dbConn()?.prepareStatement("SELECT Cash FROM usuarios WHERE UserID = ?")!!
+            txtsaldo.setString(1, iduser)
+            val tvsaldo: ResultSet = txtsaldo.executeQuery()
+            tvsaldo.next()
+            tvsaldoDig.setText(tvsaldo.getString(1))
+        }catch(ex: SQLException){
+            Toast.makeText(this, ex.message, Toast.LENGTH_LONG).show()
+        }
 
         val convertirButton: Button = findViewById(R.id.buttonConvertir)
         val spinner = findViewById<Spinner>(R.id.spinner)

@@ -23,7 +23,6 @@ class Movimientos : AppCompatActivity() {
         val depositarButton: Button = findViewById(R.id.btn_movIngresar)
         val retirarButton: Button = findViewById(R.id.btn_movRetirar)
         val prestamoButton: Button = findViewById(R.id.btn_movPrestamo)
-        val conversionDivisasButton: Button = findViewById(R.id.btn_ConvDivisas)
 
         depositarButton.setOnClickListener {
             val inflater: LayoutInflater =
@@ -158,10 +157,6 @@ class Movimientos : AppCompatActivity() {
                 0, // X offset
                 0 // Y offset
             )
-        }
-
-        conversionDivisasButton.setOnClickListener {
-            startActivity(Intent(this, ConversionDivisas::class.java))
         }
 
     }
