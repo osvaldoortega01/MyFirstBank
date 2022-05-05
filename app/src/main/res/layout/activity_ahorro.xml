@@ -149,7 +149,7 @@
         />
 
     <TextView
-        android:id="@+id/tv_cuenta"
+        android:id="@+id/tv_cuentaTexto"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="64dp"
@@ -159,14 +159,34 @@
         app:layout_constraintTop_toBottomOf="@+id/et_bonus"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <Button
-        android:id="@+id/btn_ahorrar2"
+    <TextView
+        android:id="@+id/tv_cuenta"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="60dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="32dp"
+        android:text="1"
+        android:textSize="20sp"
+        app:layout_constraintStart_toEndOf="@id/tv_cuentaTexto"
+        app:layout_constraintTop_toBottomOf="@+id/et_bonus"
+        />
+
+    <Button
+        android:id="@+id/btn_ahorrar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
         android:text="@string/ahorrar"
-        app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tv_cuenta" />
+    <Button
+        android:id="@+id/btn_regresar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="Regresar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btn_ahorrar" />
 </androidx.constraintlayout.widget.ConstraintLayout>

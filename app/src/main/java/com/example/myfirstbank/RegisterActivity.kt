@@ -26,17 +26,17 @@ class RegisterActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_register)
-        var btn_Register: Button = findViewById(R.id.btn_Register)
+        val btn_Register: Button = findViewById(R.id.btn_Register)
         btn_Register.setOnClickListener{ registerUser() }
     }
 
     private fun registerUser(){
-        var etcompletename: TextInputEditText = findViewById(R.id.tiet_CompleteName)
-        var etusername: TextInputEditText = findViewById(R.id.tiet_Username)
-        var etpassword: TextInputEditText = findViewById(R.id.tiet_Password)
-        var etconfirmpassword: TextInputEditText = findViewById(R.id.tiet_ConfirmPassword)
-        var etemailaddress: TextInputEditText = findViewById(R.id.tiet_EmailAddress)
-        var fecha = LocalDateTime.now()
+        val etcompletename: TextInputEditText = findViewById(R.id.tiet_CompleteName)
+        val etusername: TextInputEditText = findViewById(R.id.tiet_Username)
+        val etpassword: TextInputEditText = findViewById(R.id.tiet_Password)
+        val etconfirmpassword: TextInputEditText = findViewById(R.id.tiet_ConfirmPassword)
+        val etemailaddress: TextInputEditText = findViewById(R.id.tiet_EmailAddress)
+        val fecha = LocalDateTime.now()
 
         val pas1 = etpassword.text.toString()
         val cpas1 = etconfirmpassword.text.toString()
