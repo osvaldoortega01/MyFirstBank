@@ -22,8 +22,6 @@ class MainMenuActivity : AppCompatActivity(){
 
     private var connectSQL = ConnectSQL()
 
-    lateinit var binding: ActivityMainBinding
-
        override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main_menu)
@@ -43,15 +41,18 @@ class MainMenuActivity : AppCompatActivity(){
         var btn_MenuMovimientos: Button = findViewById(R.id.btn_MenuMovimientos)
         btn_MenuMovimientos.setOnClickListener{ openMenuMovimientos() }
 
+
         var btn_MenuControlParental: Button = findViewById(R.id.btn_MenuControlParental)
         btn_MenuControlParental.setOnClickListener{ openControlParental() }
+
+        var btn_Divisas: Button = findViewById(R.id.btn_Divisas)
+        btn_Divisas.setOnClickListener { openDivisas() }
 
         var btn_ahorros: ExtendedFloatingActionButton = findViewById(R.id.btn_ahorros)
            btn_ahorros.setOnClickListener{ openAhorros() }
 
         var btn_perfil: ExtendedFloatingActionButton = findViewById(R.id.btn_perfil)
            btn_perfil.setOnClickListener{ openPerfil() }
-
 
     }
 
@@ -65,6 +66,10 @@ class MainMenuActivity : AppCompatActivity(){
         val idpcv = 1
         var intent = Intent(this, PCV_Activity::class.java)
         intent.putExtra("idpcv", idpcv.toString())
+        startActivity(intent)
+    }
+    fun openDivisas(){
+        val intent = Intent(this, ConversionDivisas::class.java)
         startActivity(intent)
     }
     fun openAhorros(){

@@ -76,6 +76,7 @@
     <string name="ingresar_codigo">Ingresar Codigo</string>
     <string name="ingrese_el_codigo_parental">Ingrese el codigo parental:</string>
     <string name="codigo_parental">*Codigo Parental*</string>
+    <string name="cambio_de_divisas">Cambio de Divisas</string>
 
     <string-array name="lista_divisas">
         <item>Dólar Americano - USD</item>

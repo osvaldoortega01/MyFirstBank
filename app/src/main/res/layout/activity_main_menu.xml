@@ -8,6 +8,18 @@
 
 
     <Button
+        android:id="@+id/btn_Divisas"
+        android:layout_width="303dp"
+        android:layout_height="68dp"
+        android:layout_marginTop="12dp"
+        android:text="@string/cambio_de_divisas"
+
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_MenuControlParental" />
+
+    <Button
         android:id="@+id/btn_MenuControlParental"
         android:layout_width="303dp"
         android:layout_height="68dp"
@@ -98,22 +110,22 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|end"
-        app:layout_constraintBottom_toBottomOf="parent"
-
-        app:layout_constraintStart_toStartOf="parent"
         android:layout_marginStart="16dp"
+
         android:layout_marginBottom="36dp"
         android:contentDescription="@string/register"
         android:text="@string/ahorros"
-        app:icon="@drawable/round_savings_black_48"/>
+        app:icon="@drawable/round_savings_black_48"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
         android:id="@+id/btn_perfil"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|end"
-        android:layout_marginBottom="36dp"
         android:layout_marginEnd="16dp"
+        android:layout_marginBottom="36dp"
         android:contentDescription="@string/register"
         android:text="@string/perfil"
         app:icon="@drawable/ic_sharp_account_circle_24"
