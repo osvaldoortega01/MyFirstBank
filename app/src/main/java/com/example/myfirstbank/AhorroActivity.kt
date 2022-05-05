@@ -7,6 +7,9 @@ import android.view.View
 import android.widget.*
 import com.example.myfirstbank.databinding.ActivityAhorroBinding
 import com.example.myfirstbank.databinding.ActivityMainBinding
+import java.lang.Exception
+import java.time.LocalDate
+import java.util.*
 
 class AhorroActivity : AppCompatActivity(), AdapterView.OnItemClickListener {
 
@@ -29,6 +32,9 @@ class AhorroActivity : AppCompatActivity(), AdapterView.OnItemClickListener {
             tiposAhorro
         )
 
+        val userID: Int = 1
+        binding.tvCuenta.setText(userID.toString())
+
         with(binding.autotvTipoAhorro){
             setAdapter(adapter)
             onItemClickListener = this@AhorroActivity
@@ -37,6 +43,25 @@ class AhorroActivity : AppCompatActivity(), AdapterView.OnItemClickListener {
         binding.sbDuracion.setOnSeekBarChangeListener(object: SeekBar.OnSeekBarChangeListener{
             override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {//Imprimo progreso del slide bar
                 binding.etDuracion.setText(progress.toString())
+
+                try {
+                    val et_meta: EditText = findViewById(R.id.et_Meta_ahorro)
+                    val metaAhorro: Int = et_meta.text.toString().toInt()
+                    val ahorroProgramado: Double
+                    if(progress.toInt() != 0){
+                        ahorroProgramado= metaAhorro / progress.toDouble()
+                    } else{
+                        ahorroProgramado = 0.0
+                    }
+
+                    binding.etAhorroGenerado.setText(String.format("%.3f",ahorroProgramado))
+                    val interes: Double = ahorroProgramado*0.00095
+
+                    binding.etBonus.setText(String.format("%.3f",interes))
+                } catch (ex: Exception){
+                    Toast.makeText(null, ex.message.toString(), Toast.LENGTH_SHORT).show()
+                }
+
             }
 
             override fun onStartTrackingTouch(seekBar: SeekBar?) {//Recupero punto de inicio
@@ -62,14 +87,41 @@ class AhorroActivity : AppCompatActivity(), AdapterView.OnItemClickListener {
 
     override fun onItemClick(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {//Recupero item seleccionado
        item = parent?.getItemAtPosition(position).toString()
+        try{
+            if(item == "Diario"){
+                binding.sbDuracion.max = 365
+            } else if(item == "Semanal"){
+                binding.sbDuracion.max = 52
+            } else if(item == "Mensual"){
+                binding.sbDuracion.max = 12
+            }
+        } catch (ex: Exception){
+            Toast.makeText(this, ex.message.toString(), Toast.LENGTH_SHORT).show()
+
+        }
+
     }
 
     private fun createAhorro(){
-        val textview_meta: TextView = findViewById(R.id.tv_Meta)
-        var metaAhorro: Int = textview_meta.text.toString().toInt()
-
+        val et_meta: EditText = findViewById(R.id.et_Meta_ahorro)
+        var metaAhorro: Int = et_meta.text.toString().toInt()
         var tipoAhorro: String = item
-        var duracion: Int = binding.etDuracion.text.toString().toInt()
+        val fechaCreacion: LocalDate = LocalDate.now()
+        val userId: Int = binding.tvCuenta.text.toString().toInt()
+        try{
+            if(item == "Diario"){
+                val addDays: Long = binding.etDuracion.text.toString().toLong()
+                val fechaFin: LocalDate = fechaCreacion.plusDays(addDays)
+            } else if(item == "Semanal"){
+                val addWeeks: Long = binding.etDuracion.text.toString().toLong()
+                val fechaFin: LocalDate = fechaCreacion.plusDays(addWeeks)
+            } else if(item == "Mensual"){
+                val addMonths: Long = binding.etDuracion.text.toString().toLong()
+                val fechaFin: LocalDate = fechaCreacion.plusMonths(addMonths)
+            }
+        } catch (ex: Exception){
+            Toast.makeText(this, ex.message.toString(), Toast.LENGTH_SHORT).show()
+        }
     }
 
     fun openMainMenu() {

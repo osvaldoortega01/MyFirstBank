@@ -27,14 +27,14 @@
     <string name="ej_osvaldo_ortega">ej: osvaldo.ortega</string>
 
     <string name="meta">Meta de ahorro:</string>
-    <string name="ej_10k">10,000</string>
+    <string name="ej_10k">0.00</string>
     <string-array name="tipos_ahorro">
         <item>Diario</item>
         <item>Semanal</item>
         <item>Mensual</item>
     </string-array>
     <string name="ahorrar">Ahorrar</string>
-    <string name="ej_cuenta">Cuenta: XXXX XXXX XXXX 1234</string>
+    <string name="ej_cuenta">Cuenta:</string>
     <string name="tipo_hint">Tipo de ahorro</string>
     <string name="duracion">Duración:</string>
     <string name="ahorro_gen">Ahorro Generado:</string>

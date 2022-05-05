@@ -149,7 +149,7 @@
         />
 
     <TextView
-        android:id="@+id/tv_cuenta"
+        android:id="@+id/tv_cuentaTexto"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="64dp"
@@ -158,6 +158,18 @@
         android:textSize="20sp"
         app:layout_constraintTop_toBottomOf="@+id/et_bonus"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_cuenta"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="32dp"
+        android:text="1"
+        android:textSize="20sp"
+        app:layout_constraintStart_toEndOf="@id/tv_cuentaTexto"
+        app:layout_constraintTop_toBottomOf="@+id/et_bonus"
+        />
 
     <Button
         android:id="@+id/btn_ahorrar"
