@@ -8,7 +8,10 @@ import android.widget.*
 import com.example.myfirstbank.databinding.ActivityAhorroBinding
 import com.example.myfirstbank.databinding.ActivityMainBinding
 import java.lang.Exception
+import java.sql.PreparedStatement
+import java.sql.SQLException
 import java.time.LocalDate
+import java.time.LocalDateTime
 import java.util.*
 
 class AhorroActivity : AppCompatActivity(), AdapterView.OnItemClickListener {
@@ -17,6 +20,7 @@ class AhorroActivity : AppCompatActivity(), AdapterView.OnItemClickListener {
     var startpoint = 0
     var endpoint = 0
     var item = "Semanal"
+    private var connectSQL = ConnectSQL()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -104,28 +108,55 @@ class AhorroActivity : AppCompatActivity(), AdapterView.OnItemClickListener {
 
     private fun createAhorro(){
         val et_meta: EditText = findViewById(R.id.et_Meta_ahorro)
-        var metaAhorro: Int = et_meta.text.toString().toInt()
+        val metaAhorro: Int = et_meta.text.toString().toInt()
         var tipoAhorro: String = item
         val fechaCreacion: LocalDate = LocalDate.now()
         val userId: Int = binding.tvCuenta.text.toString().toInt()
+        var fechaFin: LocalDate = LocalDate.now()
         try{
             if(item == "Diario"){
                 val addDays: Long = binding.etDuracion.text.toString().toLong()
-                val fechaFin: LocalDate = fechaCreacion.plusDays(addDays)
+                fechaFin = fechaCreacion.plusDays(addDays)
             } else if(item == "Semanal"){
                 val addWeeks: Long = binding.etDuracion.text.toString().toLong()
-                val fechaFin: LocalDate = fechaCreacion.plusDays(addWeeks)
+                fechaFin= fechaCreacion.plusDays(addWeeks)
             } else if(item == "Mensual"){
                 val addMonths: Long = binding.etDuracion.text.toString().toLong()
-                val fechaFin: LocalDate = fechaCreacion.plusMonths(addMonths)
+                fechaFin = fechaCreacion.plusMonths(addMonths)
             }
         } catch (ex: Exception){
+            Toast.makeText(this, ex.message.toString(), Toast.LENGTH_SHORT).show()
+        }
+
+        try{
+            val insertAhorro: PreparedStatement = connectSQL.dbConn()?.prepareStatement("INSERT INTO ahorros VALUES(?,?,?,?,?)")!!
+            insertAhorro.setInt(1, userId)
+            insertAhorro.setInt(2, metaAhorro)
+            insertAhorro.setString(3, item)
+            insertAhorro.setString(4, fechaFin.toString())
+            insertAhorro.setString(5, fechaCreacion.toString())
+            insertAhorro.executeUpdate()
+            Toast.makeText(this, "Ahorro Creado Existosamente", Toast.LENGTH_SHORT).show()
+        } catch (ex: SQLException){
+            Toast.makeText(this, ex.message.toString(), Toast.LENGTH_SHORT).show()
+        }
+
+        try{
+            val insertMovimiento: PreparedStatement = connectSQL.dbConn()?.prepareStatement("INSERT INTO movimientos VALUES(?,?,?,?,?)")!!
+            insertMovimiento.setInt(1, userId)
+            insertMovimiento.setString(2, "Ahorro 1 - "+fechaCreacion.toString())
+            insertMovimiento.setString(3, item)
+            insertMovimiento.setDouble(4, binding.etAhorroGenerado.text.toString().toDouble())
+            insertMovimiento.setString(5, LocalDateTime.now().toString())
+            insertMovimiento.executeUpdate()
+            Toast.makeText(this, "Movimiento Creado Existosamente", Toast.LENGTH_SHORT).show()
+        } catch (ex: SQLException){
             Toast.makeText(this, ex.message.toString(), Toast.LENGTH_SHORT).show()
         }
     }
 
     fun openMainMenu() {
-        var intent = Intent(this, MainMenuActivity::class.java)
+        val intent = Intent(this, MainMenuActivity::class.java)
         startActivity(intent)
     }
 }
