@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.*
+import com.example.myfirstbank.MyFirstBank.Companion.prefs
 import com.example.myfirstbank.databinding.ActivityAhorroBinding
 import com.example.myfirstbank.databinding.ActivityMainBinding
 import java.lang.Exception
@@ -36,7 +37,7 @@ class AhorroActivity : AppCompatActivity(), AdapterView.OnItemClickListener {
             tiposAhorro
         )
 
-        val userID: Int = 1
+        val userID: String = prefs.getId()
         binding.tvCuenta.setText(userID.toString())
 
         with(binding.autotvTipoAhorro){
