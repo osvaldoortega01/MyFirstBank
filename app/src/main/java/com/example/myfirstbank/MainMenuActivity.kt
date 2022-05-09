@@ -1,24 +1,31 @@
 package com.example.myfirstbank
 
+import android.content.Context
 import android.content.Intent
+import android.hardware.Sensor
+import android.hardware.SensorEvent
+import android.hardware.SensorEventListener
+import android.hardware.SensorManager
+import android.media.MediaPlayer
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.ImageButton
 import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
-import android.util.Log
 import android.widget.Button
-import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
 import com.example.myfirstbank.MyFirstBank.Companion.prefs
-import com.example.myfirstbank.databinding.ActivityMainBinding
-import com.google.android.material.textfield.TextInputEditText
 import java.sql.*
-import java.text.SimpleDateFormat
-import java.time.LocalDate
-import java.time.LocalDateTime
+import java.util.*
+import kotlin.math.sqrt
 
 class MainMenuActivity : AppCompatActivity(){
+    //Variables para trabajar el acelerometro
+    private var sensorManager: SensorManager? = null
+    private var acceleration = 0f
+    private var currentAcceleration = 0f
+    private var lastAcceleration = 0f
+    var mediaPlayer : MediaPlayer? = null
+    //Fin variables para trabajar el acelerometro
 
     private var connectSQL = ConnectSQL()
 
@@ -54,6 +61,15 @@ class MainMenuActivity : AppCompatActivity(){
         var btn_perfil: ExtendedFloatingActionButton = findViewById(R.id.btn_perfil)
            btn_perfil.setOnClickListener{ openPerfil() }
 
+           // Instancia del acelerometro
+           sensorManager = getSystemService(Context.SENSOR_SERVICE) as SensorManager
+           Objects.requireNonNull(sensorManager)!!
+               .registerListener(sensorListener, sensorManager!!
+                   .getDefaultSensor(Sensor.TYPE_ACCELEROMETER), SensorManager.SENSOR_DELAY_NORMAL)
+           acceleration = 10f
+           currentAcceleration = SensorManager.GRAVITY_EARTH
+           lastAcceleration = SensorManager.GRAVITY_EARTH
+           //Fin instancia del acelerómetro
     }
 
 
@@ -82,5 +98,40 @@ class MainMenuActivity : AppCompatActivity(){
         intent.putExtra("idpcv", idpcv.toString())
         startActivity(intent)
     }
-
+    //Métodos para reproducir sonido y de configuraciones para el acelerometro
+    fun playSound() {
+        if (mediaPlayer == null) {
+            mediaPlayer = MediaPlayer.create(this, R.raw.coins_sound)
+            mediaPlayer!!.start()
+        } else {
+            mediaPlayer!!.start()
+        }
+    }
+    private val sensorListener: SensorEventListener = object : SensorEventListener {
+        override fun onSensorChanged(event: SensorEvent) {
+            val x = event.values[0]
+            val y = event.values[1]
+            val z = event.values[2]
+            lastAcceleration = currentAcceleration
+            currentAcceleration = sqrt((x * x + y * y + z * z).toDouble()).toFloat()
+            val delta: Float = currentAcceleration - lastAcceleration
+            acceleration = acceleration * 0.9f + delta
+            if (acceleration > 12) {
+                //Aqui ponemos el evento que queremos que se desencadene al agitar el teléfono
+                playSound()
+            }
+        }
+        override fun onAccuracyChanged(sensor: Sensor, accuracy: Int) {}
+    }
+    override fun onResume() {
+        sensorManager?.registerListener(sensorListener, sensorManager!!.getDefaultSensor(
+            Sensor .TYPE_ACCELEROMETER), SensorManager.SENSOR_DELAY_NORMAL
+        )
+        super.onResume()
+    }
+    override fun onPause() {
+        sensorManager!!.unregisterListener(sensorListener)
+        super.onPause()
+    }
+    //Fin de métodos para reproducir sonido y de configuraciones para el acelerometro
 }

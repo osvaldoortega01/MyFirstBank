@@ -1,27 +1,18 @@
 package com.example.myfirstbank
 
-import android.app.Activity
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.widget.Button
-import android.widget.EditText
-import android.widget.TextView
 import android.widget.Toast
 import com.example.myfirstbank.MyFirstBank.Companion.prefs
-import com.example.myfirstbank.databinding.ActivityMainBinding
 import com.google.android.material.textfield.TextInputEditText
-import com.google.android.material.textfield.TextInputLayout
 import java.sql.PreparedStatement
 import java.sql.ResultSet
 import java.sql.SQLException
 
 class MainActivity : AppCompatActivity() {
-
     private var connectSQL = ConnectSQL()
-
-    lateinit var binding: ActivityMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -72,12 +63,6 @@ class MainActivity : AppCompatActivity() {
                 Toast.makeText(this, "${ex.message}", Toast.LENGTH_SHORT).show()
             }
         }
-        else{
-
-        }
-
-
-
     }
     private fun openRegister(){
         var intent = Intent(this, RegisterActivity::class.java)
