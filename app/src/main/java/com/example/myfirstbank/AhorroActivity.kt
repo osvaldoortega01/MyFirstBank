@@ -23,8 +23,8 @@ class AhorroActivity : AppCompatActivity(), AdapterView.OnItemClickListener {
     var item = "Semanal"
     private var connectSQL = ConnectSQL()
 
-    var actual = Calendar.getInstance()
-    var calendar = Calendar.getInstance()
+    //var actual = Calendar.getInstance()
+    //var calendar = Calendar.getInstance()
     private val minutos = 0
     private val hora = 0
     private val dia = 0
@@ -142,6 +142,12 @@ class AhorroActivity : AppCompatActivity(), AdapterView.OnItemClickListener {
         val date = formatter.parse(fechaFin.toString())
         val cal = Calendar.getInstance()
         cal.time = date
+        print(cal)
+        cal.set(Calendar.SECOND, 0);
+        cal.set(Calendar.MINUTE, 0);
+        cal.set(Calendar.HOUR, 1);
+        cal.set(Calendar.AM_PM, Calendar.AM);
+        print(cal)
         try{
             val insertAhorro: PreparedStatement = connectSQL.dbConn()?.prepareStatement("INSERT INTO ahorros VALUES(?,?,?,?,?)")!!
             insertAhorro.setInt(1, userId)
@@ -167,6 +173,12 @@ class AhorroActivity : AppCompatActivity(), AdapterView.OnItemClickListener {
         } catch (ex: SQLException){
             Toast.makeText(this, ex.message.toString(), Toast.LENGTH_SHORT).show()
         }
+        val tag = generatekey()
+        val alertTime = cal.timeInMillis - System.currentTimeMillis()
+        val random = (Math.random()*50+1).toInt ()
+        val data = EnviarData("Plaso de ahorro finalizado", "El plaso del ahorro a finalizado, consulta los detalles", random)
+        Worknoti.GuardarNoti(alertTime, data, "tag")
+        Toast.makeText( this,"Notificacion Guardada.", Toast.LENGTH_SHORT).show()
     }
 
     private fun generatekey (): String {
@@ -184,35 +196,9 @@ class AhorroActivity : AppCompatActivity(), AdapterView.OnItemClickListener {
         startActivity(intent)
     }
     fun prueba(){
-        val et_meta: EditText = findViewById(R.id.et_Meta_ahorro)
-        val metaAhorro: Int = et_meta.text.toString().toInt()
-        var tipoAhorro: String = item
-        val fechaCreacion: LocalDate = LocalDate.now()
-        val userId: Int = binding.tvCuenta.text.toString().toInt()
-        var fechaFin: LocalDate = LocalDate.now()
-        try{
-            if(item == "Diario"){
-                val addDays: Long = binding.etDuracion.text.toString().toLong()
-                fechaFin = fechaCreacion.plusDays(addDays)
-            } else if(item == "Semanal"){
-                val addWeeks: Long = binding.etDuracion.text.toString().toLong()
-                fechaFin= fechaCreacion.plusDays(addWeeks)
-            } else if(item == "Mensual"){
-                val addMonths: Long = binding.etDuracion.text.toString().toLong()
-                fechaFin = fechaCreacion.plusMonths(addMonths)
-            }
-        } catch (ex: Exception){
-            Toast.makeText(this, ex.message.toString(), Toast.LENGTH_SHORT).show()
-        }
         val tag = generatekey()
-        calendar.set(Calendar.MONTH, Calendar.MAY);
-        calendar.set(Calendar.DAY_OF_MONTH, 11);
-        calendar.set(Calendar.YEAR, 2022);
-        calendar.set(Calendar.SECOND, 0);
-        calendar.set(Calendar.MINUTE, 3);
-        calendar.set(Calendar.HOUR, 12);
-        calendar.set(Calendar.AM_PM, Calendar.AM);
-        val alertTime = calendar.timeInMillis - System.currentTimeMillis()
+//        val alertTime = calendar.timeInMillis - System.currentTimeMillis()
+        val alertTime = 30000.toLong()
         val random = (Math.random()*50+1).toInt ()
         val data = EnviarData("Plaso de ahorro finalizado", "El plaso del ahorro a finalizado, consulta los detalles", random)
         Worknoti.GuardarNoti(alertTime, data, "tag1")

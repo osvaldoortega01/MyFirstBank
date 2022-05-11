@@ -80,6 +80,10 @@
     <string name="ultimos_movimientos">Ultimos Movimientos</string>
     <string name="ingresar_dinero_en_la_cuenta">Ingresar Dinero en la Cuenta</string>
     <string name="retirar_dinero_de_la_cuenta">Retirar Dinero de la Cuenta</string>
+    <string name="prueba">Prueba</string>
+    <string name="regresar">Regresar</string>
+    <string name="semanal">Semanal</string>
+    <string name="_1">1</string>
 
     <string-array name="lista_divisas">
         <item>Dólar Americano - USD</item>
