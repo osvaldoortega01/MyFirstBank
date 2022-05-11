@@ -1,16 +1,16 @@
 package com.example.myfirstbank
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.*
+import androidx.appcompat.app.AppCompatActivity
+import androidx.work.Data
 import com.example.myfirstbank.MyFirstBank.Companion.prefs
 import com.example.myfirstbank.databinding.ActivityAhorroBinding
-import com.example.myfirstbank.databinding.ActivityMainBinding
-import java.lang.Exception
 import java.sql.PreparedStatement
 import java.sql.SQLException
+import java.text.SimpleDateFormat
 import java.time.LocalDate
 import java.time.LocalDateTime
 import java.util.*
@@ -23,6 +23,13 @@ class AhorroActivity : AppCompatActivity(), AdapterView.OnItemClickListener {
     var item = "Semanal"
     private var connectSQL = ConnectSQL()
 
+    var actual = Calendar.getInstance()
+    var calendar = Calendar.getInstance()
+    private val minutos = 0
+    private val hora = 0
+    private val dia = 0
+    private val mes = 0
+    private val anio = 0
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -88,6 +95,9 @@ class AhorroActivity : AppCompatActivity(), AdapterView.OnItemClickListener {
 
         val btn_ahorrar: Button = findViewById(R.id.btn_ahorrar)
         btn_ahorrar.setOnClickListener{createAhorro()}
+
+        val btn_prueba: Button = findViewById(R.id.btn_prueba)
+        btn_prueba.setOnClickListener{prueba()}
     }
 
     override fun onItemClick(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {//Recupero item seleccionado
@@ -128,7 +138,10 @@ class AhorroActivity : AppCompatActivity(), AdapterView.OnItemClickListener {
         } catch (ex: Exception){
             Toast.makeText(this, ex.message.toString(), Toast.LENGTH_SHORT).show()
         }
-
+        val formatter = SimpleDateFormat("yyyy-MM-dd")
+        val date = formatter.parse(fechaFin.toString())
+        val cal = Calendar.getInstance()
+        cal.time = date
         try{
             val insertAhorro: PreparedStatement = connectSQL.dbConn()?.prepareStatement("INSERT INTO ahorros VALUES(?,?,?,?,?)")!!
             insertAhorro.setInt(1, userId)
@@ -156,8 +169,53 @@ class AhorroActivity : AppCompatActivity(), AdapterView.OnItemClickListener {
         }
     }
 
+    private fun generatekey (): String {
+        return UUID.randomUUID().toString()
+    }
+    private fun EnviarData(titulo:String, detalle:String, id_noti:Int): Data {
+        return Data. Builder ()
+            .putString("Titulo", titulo)
+            .putString("Detalle", detalle)
+            .putInt("idnoti", id_noti). build()
+    }
+
     fun openMainMenu() {
         val intent = Intent(this, MainMenuActivity::class.java)
         startActivity(intent)
+    }
+    fun prueba(){
+        val et_meta: EditText = findViewById(R.id.et_Meta_ahorro)
+        val metaAhorro: Int = et_meta.text.toString().toInt()
+        var tipoAhorro: String = item
+        val fechaCreacion: LocalDate = LocalDate.now()
+        val userId: Int = binding.tvCuenta.text.toString().toInt()
+        var fechaFin: LocalDate = LocalDate.now()
+        try{
+            if(item == "Diario"){
+                val addDays: Long = binding.etDuracion.text.toString().toLong()
+                fechaFin = fechaCreacion.plusDays(addDays)
+            } else if(item == "Semanal"){
+                val addWeeks: Long = binding.etDuracion.text.toString().toLong()
+                fechaFin= fechaCreacion.plusDays(addWeeks)
+            } else if(item == "Mensual"){
+                val addMonths: Long = binding.etDuracion.text.toString().toLong()
+                fechaFin = fechaCreacion.plusMonths(addMonths)
+            }
+        } catch (ex: Exception){
+            Toast.makeText(this, ex.message.toString(), Toast.LENGTH_SHORT).show()
+        }
+        val tag = generatekey()
+        calendar.set(Calendar.MONTH, Calendar.MAY);
+        calendar.set(Calendar.DAY_OF_MONTH, 11);
+        calendar.set(Calendar.YEAR, 2022);
+        calendar.set(Calendar.SECOND, 0);
+        calendar.set(Calendar.MINUTE, 3);
+        calendar.set(Calendar.HOUR, 12);
+        calendar.set(Calendar.AM_PM, Calendar.AM);
+        val alertTime = calendar.timeInMillis - System.currentTimeMillis()
+        val random = (Math.random()*50+1).toInt ()
+        val data = EnviarData("Plaso de ahorro finalizado", "El plaso del ahorro a finalizado, consulta los detalles", random)
+        Worknoti.GuardarNoti(alertTime, data, "tag1")
+        Toast.makeText( this,"Notificacion Guardada.", Toast.LENGTH_SHORT).show()
     }
 }
