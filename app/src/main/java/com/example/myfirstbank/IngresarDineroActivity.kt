@@ -12,6 +12,8 @@ import com.google.android.material.textfield.TextInputEditText
 import java.sql.PreparedStatement
 import java.sql.ResultSet
 import java.sql.SQLException
+import java.time.LocalDate
+import java.time.LocalDateTime
 
 class IngresarDineroActivity : AppCompatActivity() {
 
@@ -50,7 +52,9 @@ class IngresarDineroActivity : AppCompatActivity() {
         val iduser = MyFirstBank.prefs.getId()
         var etCantidadDinero: EditText = findViewById(R.id.editTextIngresarDinero)
         var nuevoSaldo: Float = etCantidadDinero.text.toString().toFloat() + saldoActual.toFloat()
-
+        val fechaCreacion: LocalDate = LocalDate.now()
+        val userID: String = MyFirstBank.prefs.getId()
+        //Actualizar DB con el monto ingresado
         try {
             val actualilzarCash: PreparedStatement = connectSQL.dbConn()
                 ?.prepareStatement("UPDATE usuarios SET Cash = ? WHERE UserID = ?")!!
@@ -58,9 +62,22 @@ class IngresarDineroActivity : AppCompatActivity() {
             actualilzarCash.setString(2, iduser)
             actualilzarCash.executeUpdate()
             Toast.makeText(this, "Transacción Exitosa", Toast.LENGTH_SHORT).show()
-            openMainMenu()
         } catch (ex: SQLException) {
             Toast.makeText(this, "Fallo al realizar la Transacción", Toast.LENGTH_SHORT).show()
+        }
+        //Registrar movimiento de ingreso en DB
+        try{
+            val insertMovimiento: PreparedStatement = connectSQL.dbConn()?.prepareStatement("INSERT INTO movimientos VALUES(?,?,?,?,?)")!!
+            insertMovimiento.setInt(1, userID.toInt())
+            insertMovimiento.setString(2, "Ingreso - "+fechaCreacion.toString())
+            insertMovimiento.setString(3, "Ingreso")
+            insertMovimiento.setDouble(4, etCantidadDinero.text.toString().toDouble())
+            insertMovimiento.setString(5, LocalDateTime.now().toString())
+            insertMovimiento.executeUpdate()
+            Toast.makeText(this, "Movimiento Creado Existosamente", Toast.LENGTH_SHORT).show()
+            openMainMenu()
+        } catch (ex: SQLException){
+            Toast.makeText(this, ex.message.toString(), Toast.LENGTH_SHORT).show()
         }
     }
 
