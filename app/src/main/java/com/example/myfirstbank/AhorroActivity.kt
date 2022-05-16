@@ -25,11 +25,11 @@ class AhorroActivity : AppCompatActivity(), AdapterView.OnItemClickListener {
 
     //var actual = Calendar.getInstance()
     //var calendar = Calendar.getInstance()
-    private val minutos = 0
-    private val hora = 0
-    private val dia = 0
-    private val mes = 0
-    private val anio = 0
+//    private val minutos = 0
+//    private val hora = 0
+//    private val dia = 0
+//    private val mes = 0
+//    private val anio = 0
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -130,7 +130,7 @@ class AhorroActivity : AppCompatActivity(), AdapterView.OnItemClickListener {
                 fechaFin = fechaCreacion.plusDays(addDays)
             } else if(item == "Semanal"){
                 val addWeeks: Long = binding.etDuracion.text.toString().toLong()
-                fechaFin= fechaCreacion.plusDays(addWeeks)
+                fechaFin= fechaCreacion.plusWeeks(addWeeks)
             } else if(item == "Mensual"){
                 val addMonths: Long = binding.etDuracion.text.toString().toLong()
                 fechaFin = fechaCreacion.plusMonths(addMonths)
