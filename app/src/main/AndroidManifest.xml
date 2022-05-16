@@ -13,6 +13,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MyFirstBank">
         <activity
+            android:name=".UltimosMovimientos"
+            android:exported="false" />
+        <activity
             android:name=".RetirarDineroActivity"
             android:exported="false" />
         <activity

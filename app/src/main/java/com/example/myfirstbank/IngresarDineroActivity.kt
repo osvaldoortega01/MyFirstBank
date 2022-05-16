@@ -5,10 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
-import android.widget.TextView
 import android.widget.Toast
-import com.example.myfirstbank.databinding.ActivityMainBinding
-import com.google.android.material.textfield.TextInputEditText
 import java.sql.PreparedStatement
 import java.sql.ResultSet
 import java.sql.SQLException
@@ -49,7 +46,6 @@ class IngresarDineroActivity : AppCompatActivity() {
     }
 
     fun ingresarDinero(){
-        val iduser = MyFirstBank.prefs.getId()
         var etCantidadDinero: EditText = findViewById(R.id.editTextIngresarDinero)
         var nuevoSaldo: Float = etCantidadDinero.text.toString().toFloat() + saldoActual.toFloat()
         val fechaCreacion: LocalDate = LocalDate.now()
@@ -59,7 +55,7 @@ class IngresarDineroActivity : AppCompatActivity() {
             val actualilzarCash: PreparedStatement = connectSQL.dbConn()
                 ?.prepareStatement("UPDATE usuarios SET Cash = ? WHERE UserID = ?")!!
             actualilzarCash.setString(1, nuevoSaldo.toString())
-            actualilzarCash.setString(2, iduser)
+            actualilzarCash.setString(2, userID)
             actualilzarCash.executeUpdate()
             Toast.makeText(this, "Transacción Exitosa", Toast.LENGTH_SHORT).show()
         } catch (ex: SQLException) {
@@ -80,7 +76,6 @@ class IngresarDineroActivity : AppCompatActivity() {
             Toast.makeText(this, ex.message.toString(), Toast.LENGTH_SHORT).show()
         }
     }
-
     fun openMainMenu(){
         var intent = Intent(this, MainMenuActivity::class.java)
         startActivity(intent)

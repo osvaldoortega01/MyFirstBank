@@ -1,14 +1,8 @@
 package com.example.myfirstbank
 
-import android.content.Context
 import android.content.Intent
-import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.Gravity
-import android.view.LayoutInflater
-import android.transition.Slide
-import android.transition.TransitionManager
 import android.widget.*
 import java.sql.PreparedStatement
 import java.sql.ResultSet
@@ -25,6 +19,7 @@ class Movimientos : AppCompatActivity() {
         //Botones activos en la pantalla MOVIMIENTOS
         val depositarButton: Button = findViewById(R.id.btn_movIngresar)
         val retirarButton: Button = findViewById(R.id.btn_movRetirar)
+        val ultimosMovButton: Button = findViewById(R.id.btn_movUltimos)
 
         //Obtiene el saldo de la cuenta a traves del UserID
         val iduser = MyFirstBank.prefs.getId()
@@ -41,6 +36,7 @@ class Movimientos : AppCompatActivity() {
 
         depositarButton.setOnClickListener { openIngresar() }
         retirarButton.setOnClickListener { openRetirar() }
+        ultimosMovButton.setOnClickListener { openUltimosMov() }
     }
 
     fun openIngresar(){
@@ -50,6 +46,11 @@ class Movimientos : AppCompatActivity() {
 
     fun openRetirar(){
         var intent = Intent(this, RetirarDineroActivity::class.java)
+        startActivity(intent)
+    }
+
+    fun openUltimosMov(){
+        var intent = Intent(this, UltimosMovimientos::class.java)
         startActivity(intent)
     }
 }
