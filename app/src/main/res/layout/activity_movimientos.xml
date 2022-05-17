@@ -43,33 +43,12 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView3" />
 
-    <ImageView
-        android:id="@+id/imageView5"
-        android:layout_width="50dp"
-        android:layout_height="54dp"
-        android:contentDescription="@string/icono_cash"
-        app:layout_constraintBottom_toBottomOf="@+id/textView4"
-        app:layout_constraintEnd_toStartOf="@+id/textView4"
-        app:layout_constraintTop_toTopOf="@+id/textView4"
-        app:srcCompat="@drawable/cash_icono" />
-
-    <TextView
-        android:id="@+id/textView6"
-        android:layout_width="91dp"
-        android:layout_height="44dp"
-        android:fontFamily="@font/audiowide"
-        android:text="@string/mxn"
-        android:textSize="34sp"
-        app:layout_constraintBottom_toBottomOf="@+id/textView4"
-        app:layout_constraintStart_toEndOf="@+id/textView4"
-        app:layout_constraintTop_toTopOf="@+id/textView4" />
-
     <TextView
         android:id="@+id/textView4"
-        android:layout_width="219dp"
-        android:layout_height="58dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginTop="36dp"
-        android:fontFamily="@font/roboto_fonts_family"
+        android:fontFamily="@font/roboto_bold"
         android:text="@string/saldo_pesos"
         android:textAlignment="center"
         android:textSize="40sp"

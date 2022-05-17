@@ -9,6 +9,8 @@ import java.sql.ResultSet
 import java.sql.SQLException
 
 class Movimientos : AppCompatActivity() {
+    //TODO: Cambiar los botones para que estén acuerdo a los movimientos
+    //TODO: Cambiar el ícono de Movimientos
 
     private var connectSQL = ConnectSQL()
 
@@ -29,7 +31,7 @@ class Movimientos : AppCompatActivity() {
             txtsaldo.setString(1, iduser)
             val tvsaldo: ResultSet = txtsaldo.executeQuery()
             tvsaldo.next()
-            tvsaldoDig.setText(tvsaldo.getString(1))
+            tvsaldoDig.setText("$ "+tvsaldo.getString(1)+" mxn")
         }catch(ex: SQLException){
             Toast.makeText(this, ex.message, Toast.LENGTH_LONG).show()
         }

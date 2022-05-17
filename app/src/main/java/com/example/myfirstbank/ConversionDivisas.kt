@@ -19,6 +19,9 @@ import java.sql.ResultSet
 import java.sql.SQLException
 
 class ConversionDivisas : AppCompatActivity() {
+    //TODO: Cambiar el Spinner a que sea parte del MaterialDesign (Estándar)
+    //TODO: Cambiar el botón con ícono de convertir, para que tenga imagen (Estándar)
+    //TODO: Arreglar el tvSaldo, para que se marquen como: "$ 10,000.00 mxn" en una sola línea
     private lateinit var binding: ActivityConversionDivisasBinding
     var latestConcurrencyValue : Float = 0f
     var currencyConverted: Float = 0f
@@ -63,7 +66,7 @@ class ConversionDivisas : AppCompatActivity() {
                     }
                 }
                 override fun onNothingSelected(parent: AdapterView<*>?) {
-                    TODO("Not yet implemented")
+                    //TODO: Aquí deben de poner un Toast que marque algo como "Debes de seleccionar una opción para continuar"
                 }
             }
         convertirButton.setOnClickListener {

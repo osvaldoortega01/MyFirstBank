@@ -7,8 +7,7 @@ import android.widget.Spinner
 
 
 class EstadoDeCuentaActivity : AppCompatActivity() {
-
-
+    // TODO: Implementar todo el Estado De Cuenta
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_estado_de_cuenta)

@@ -13,7 +13,8 @@ import java.time.LocalDate
 import java.time.LocalDateTime
 
 class RetirarDineroActivity : AppCompatActivity() {
-
+    //TODO: Cambiar el ícono de Retirar Dinero en la cuenta
+    //TODO:"Cambiar el ícono del botón de Retirar Dinero
     private var connectSQL = ConnectSQL()
     lateinit var saldoActual: String
     lateinit var maxCashOut: String
