@@ -10,13 +10,16 @@
 
     <ImageView
         android:id="@+id/imageView2"
+        style="@style/Widget.Material3.Button.Icon"
         android:layout_width="169dp"
         android:layout_height="157dp"
+        android:layout_marginTop="80dp"
         android:contentDescription="@string/movimientos_icono"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/movement_icon" />
+        app:srcCompat="@drawable/money" />
 
     <TextView
         android:id="@+id/textView3"
@@ -27,6 +30,7 @@
         android:textAlignment="center"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView2" />
 
@@ -39,58 +43,78 @@
         android:textAlignment="center"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView3" />
+
 
     <TextView
         android:id="@+id/textView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="36dp"
+        android:layout_marginTop="12dp"
         android:fontFamily="@font/roboto_bold"
         android:text="@string/saldo_pesos"
         android:textAlignment="center"
         android:textSize="40sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView5" />
 
-    <Button
+    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
         android:id="@+id/btn_movIngresar"
-        android:layout_width="204dp"
-        android:layout_height="60dp"
-        android:layout_marginTop="12dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+
+
+        android:layout_marginTop="24dp"
+        android:contentDescription="@string/ingresar_dinero"
         android:text="@string/ingresar_dinero"
-        android:textSize="16sp"
+        app:icon="@drawable/work_history_48px"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView4" />
 
-    <Button
-        android:id="@+id/btn_movUltimos"
-        android:layout_width="204dp"
-        android:layout_height="60dp"
-        android:layout_marginTop="8dp"
-        android:text="@string/ultimos_movimientos"
-        android:textSize="16sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_movRetirar"
-        tools:ignore="DuplicateSpeakableTextCheck" />
-
-    <Button
+    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
         android:id="@+id/btn_movRetirar"
-        android:layout_width="204dp"
-        android:layout_height="60dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+
+
         android:layout_marginTop="12dp"
+        android:contentDescription="@string/retirar_dinero"
         android:text="@string/retirar_dinero"
-        android:textSize="16sp"
+        app:icon="@drawable/ic_round_supervisor_account_24"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btn_movIngresar" />
+
+    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+        android:id="@+id/btn_movUltimos"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+
+
+        android:layout_marginTop="12dp"
+        android:contentDescription="@string/ultimos_movimientos"
+        android:text="@string/ultimos_movimientos"
+        app:icon="@drawable/work_history_48px"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_movRetirar" />
+
+    <androidx.constraintlayout.widget.Barrier
+        android:id="@+id/barrier2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:barrierDirection="left"
+        app:constraint_referenced_ids="root_movimientos" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -13,8 +13,6 @@ import java.time.LocalDate
 import java.time.LocalDateTime
 
 class IngresarDineroActivity : AppCompatActivity() {
-    //TODO: Cambiar el ícono de Ingresar Dinero en la cuenta
-    //TODO:"Cambiar el ícono del botón de Ingresar Dinero
 
     private var connectSQL = ConnectSQL()
     lateinit var saldoActual: String

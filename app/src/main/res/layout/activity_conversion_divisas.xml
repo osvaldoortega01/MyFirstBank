@@ -48,7 +48,7 @@
 
     <TextView
         android:id="@+id/textView9"
-        android:layout_width="219dp"
+        android:layout_width="wrap_content"
         android:layout_height="58dp"
         android:fontFamily="@font/roboto_fonts_family"
         android:text="@string/saldo_pesos"
@@ -129,6 +129,7 @@
         app:layout_constraintVertical_bias="0.117" />
     <Spinner
         android:id="@+id/spinner"
+        style="@style/Widget.AppCompat.Spinner.DropDown"
         android:layout_width="300dp"
         android:layout_height="80dp"
         android:layout_marginStart="64dp"
@@ -138,7 +139,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView10"
-        app:layout_constraintVertical_bias="0.050000012"
+        app:layout_constraintVertical_bias="0.05"
         tools:ignore="SpeakableTextPresentCheck"/>
 
 

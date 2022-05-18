@@ -54,12 +54,11 @@
         android:id="@+id/imageView7"
         android:layout_width="215dp"
         android:layout_height="170dp"
-        android:layout_marginTop="96dp"
+        android:layout_marginTop="80dp"
         android:contentDescription="@string/ingresar_dinero_en_la_cuenta"
         android:scaleType="centerInside"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/cash_in_icon"
-        app:tint="#2196F3" />
+        app:srcCompat="@drawable/ic_saving_money" />
 </androidx.constraintlayout.widget.ConstraintLayout>

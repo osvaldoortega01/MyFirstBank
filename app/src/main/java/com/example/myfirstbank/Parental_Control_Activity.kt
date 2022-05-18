@@ -19,8 +19,6 @@ import java.sql.SQLException
 
 
 class Parental_Control_Activity : AppCompatActivity() {
-    // TODO: Cambiar el ícono de Control Parental
-    // TODO: Cambiar el botón para que esté acorde al Estándar
     private var connectSQL = ConnectSQL()
 
     lateinit var binding: ActivityMainBinding

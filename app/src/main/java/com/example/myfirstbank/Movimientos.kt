@@ -4,13 +4,13 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.*
+import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
 import java.sql.PreparedStatement
 import java.sql.ResultSet
 import java.sql.SQLException
 
 class Movimientos : AppCompatActivity() {
-    //TODO: Cambiar los botones para que estén acuerdo a los movimientos
-    //TODO: Cambiar el ícono de Movimientos
+    //TODO: Cambiar los dibujos de botones para que estén acuerdo a las acciones
 
     private var connectSQL = ConnectSQL()
 
@@ -19,9 +19,9 @@ class Movimientos : AppCompatActivity() {
         setContentView(R.layout.activity_movimientos)
 
         //Botones activos en la pantalla MOVIMIENTOS
-        val depositarButton: Button = findViewById(R.id.btn_movIngresar)
-        val retirarButton: Button = findViewById(R.id.btn_movRetirar)
-        val ultimosMovButton: Button = findViewById(R.id.btn_movUltimos)
+        val depositarButton: ExtendedFloatingActionButton = findViewById(R.id.btn_movIngresar)
+        val retirarButton: ExtendedFloatingActionButton = findViewById(R.id.btn_movRetirar)
+        val ultimosMovButton: ExtendedFloatingActionButton = findViewById(R.id.btn_movUltimos)
 
         //Obtiene el saldo de la cuenta a traves del UserID
         val iduser = MyFirstBank.prefs.getId()

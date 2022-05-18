@@ -8,6 +8,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.work.Data
 import com.example.myfirstbank.MyFirstBank.Companion.prefs
 import com.example.myfirstbank.databinding.ActivityAhorroBinding
+import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
 import java.sql.PreparedStatement
 import java.sql.SQLException
 import java.text.SimpleDateFormat
@@ -90,10 +91,7 @@ class AhorroActivity : AppCompatActivity(), AdapterView.OnItemClickListener {
 
         })
 
-        val btn_regresar: Button = findViewById(R.id.btn_regresar)
-        btn_regresar.setOnClickListener{ openMainMenu() }
-
-        val btn_ahorrar: Button = findViewById(R.id.btn_ahorrar)
+        val btn_ahorrar: ExtendedFloatingActionButton = findViewById(R.id.btn_ahorrar)
         btn_ahorrar.setOnClickListener{createAhorro()}
 
         val btn_prueba: Button = findViewById(R.id.btn_prueba)
@@ -156,7 +154,7 @@ class AhorroActivity : AppCompatActivity(), AdapterView.OnItemClickListener {
             insertAhorro.setString(4, fechaFin.toString())
             insertAhorro.setString(5, fechaCreacion.toString())
             insertAhorro.executeUpdate()
-            Toast.makeText(this, "Ahorro Creado Existosamente", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "Ahorro creado con éxito", Toast.LENGTH_SHORT).show()
         } catch (ex: SQLException){
             Toast.makeText(this, ex.message.toString(), Toast.LENGTH_SHORT).show()
         }
@@ -169,14 +167,14 @@ class AhorroActivity : AppCompatActivity(), AdapterView.OnItemClickListener {
             insertMovimiento.setDouble(4, binding.etAhorroGenerado.text.toString().toDouble())
             insertMovimiento.setString(5, LocalDateTime.now().toString())
             insertMovimiento.executeUpdate()
-            Toast.makeText(this, "Movimiento Creado Existosamente", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "Movimiento creado con éxito", Toast.LENGTH_SHORT).show()
         } catch (ex: SQLException){
             Toast.makeText(this, ex.message.toString(), Toast.LENGTH_SHORT).show()
         }
         val tag = generatekey()
         val alertTime = cal.timeInMillis - System.currentTimeMillis()
         val random = (Math.random()*50+1).toInt ()
-        val data = EnviarData("Plaso de ahorro finalizado", "El plaso del ahorro a finalizado, consulta los detalles", random)
+        val data = EnviarData("Plazo de ahorro finalizado", "El plazo del ahorro a finalizado, consulte los detalles", random)
         Worknoti.GuardarNoti(alertTime, data, "tag")
         Toast.makeText( this,"Notificacion Guardada.", Toast.LENGTH_SHORT).show()
     }
@@ -191,17 +189,13 @@ class AhorroActivity : AppCompatActivity(), AdapterView.OnItemClickListener {
             .putInt("idnoti", id_noti). build()
     }
 
-    fun openMainMenu() {
-        val intent = Intent(this, MainMenuActivity::class.java)
-        startActivity(intent)
-    }
     fun prueba(){
         val tag = generatekey()
 //        val alertTime = calendar.timeInMillis - System.currentTimeMillis()
         val alertTime = 30000.toLong()
         val random = (Math.random()*50+1).toInt ()
-        val data = EnviarData("Plaso de ahorro finalizado", "El plaso del ahorro a finalizado, consulta los detalles", random)
+        val data = EnviarData("Plazo de ahorro finalizado", "El plazo del ahorro a finalizado, consulte los detalles", random)
         Worknoti.GuardarNoti(alertTime, data, "tag1")
-        Toast.makeText( this,"Notificacion Guardada.", Toast.LENGTH_SHORT).show()
+        Toast.makeText( this,"Notificación Guardada.", Toast.LENGTH_SHORT).show()
     }
 }

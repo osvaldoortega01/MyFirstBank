@@ -45,14 +45,14 @@ class MainMenuActivity : AppCompatActivity(){
                Toast.makeText(this, ex.message, Toast.LENGTH_LONG).show()
            }
 
-        var btn_MenuMovimientos: Button = findViewById(R.id.btn_MenuMovimientos)
+        var btn_MenuMovimientos: ExtendedFloatingActionButton = findViewById(R.id.btn_MenuMovimientos)
         btn_MenuMovimientos.setOnClickListener{ openMenuMovimientos() }
 
 
-        var btn_MenuControlParental: Button = findViewById(R.id.btn_MenuControlParental)
+        var btn_MenuControlParental: ExtendedFloatingActionButton = findViewById(R.id.btn_MenuControlParental)
         btn_MenuControlParental.setOnClickListener{ openControlParental() }
 
-        var btn_Divisas: Button = findViewById(R.id.btn_Divisas)
+        var btn_Divisas: ExtendedFloatingActionButton = findViewById(R.id.btn_Divisas)
         btn_Divisas.setOnClickListener { openDivisas() }
 
         var btn_ahorros: ExtendedFloatingActionButton = findViewById(R.id.btn_ahorros)

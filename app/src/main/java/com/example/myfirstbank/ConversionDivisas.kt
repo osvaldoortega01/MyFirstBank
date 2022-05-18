@@ -20,7 +20,6 @@ import java.sql.SQLException
 
 class ConversionDivisas : AppCompatActivity() {
     //TODO: Cambiar el Spinner a que sea parte del MaterialDesign (Estándar)
-    //TODO: Cambiar el botón con ícono de convertir, para que tenga imagen (Estándar)
     //TODO: Arreglar el tvSaldo, para que se marquen como: "$ 10,000.00 mxn" en una sola línea
     private lateinit var binding: ActivityConversionDivisasBinding
     var latestConcurrencyValue : Float = 0f
@@ -42,7 +41,7 @@ class ConversionDivisas : AppCompatActivity() {
             txtsaldo.setString(1, iduser)
             val tvsaldo: ResultSet = txtsaldo.executeQuery()
             tvsaldo.next()
-            tvsaldoDig.setText(tvsaldo.getString(1))
+            tvsaldoDig.setText("$ "+tvsaldo.getString(1)+" mxn")
         }catch(ex: SQLException){
             Toast.makeText(this, ex.message, Toast.LENGTH_LONG).show()
         }

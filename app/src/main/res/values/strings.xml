@@ -14,10 +14,10 @@
     <string name="control_parental">Control Parental</string>
     <string name="ingrese_la_cantidad_maxima_a_retirar">Ingrese la Cantidad maxima a retirar:</string>
     <string name="ingrese_la_cantidad_maxima_a_prestamos">Ingrese la cantidad maxima a prestamos:</string>
-    <string name="cambiar_codigo_parental">Cambiar codigo parental:</string>
+    <string name="cambiar_codigo_parental">Cambiar código parental:</string>
     <string name="ej_200">ej: 200$</string>
 
-    <string name="codigo_actual">*codigo actual*</string>
+    <string name="codigo_actual">Código Actual</string>
     <string name="aplicar">Aplicar</string>
     <string name="todo">TODO</string>
     <string name="perfil">Perfil</string>
@@ -43,17 +43,17 @@
     <string name="movimientos">Movimientos</string>
     <string name="saldo_actual">Tu saldo actual es:</string>
     <string name="mxn">MXN</string>
-    <string name="icono_cash">icono Cash</string>
+    <string name="icono_cash">Ícono Cash</string>
     <string name="saldo_pesos">10,500.30</string>
     <string name="volver">volver</string>
     <string name="ingresar_dinero">Ingresar Dinero</string>
     <string name="retirar_dinero">Retirar Dinero</string>
     <string name="pr_stamo">Préstamo</string>
-    <string name="pregunta_cantidad_depositar">Cuánto dinero vas a depositar?</string>
+    <string name="pregunta_cantidad_depositar">¿Cuánto dinero vas a depositar?</string>
     <string name="confirmar">Confirmar</string>
     <string name="ingresa_la_cantidad_en_pesos">Ingresa la cantidad en pesos</string>
-    <string name="pregunta_retirar_dinero">Cuánto dinero vas a retirar?</string>
-    <string name="pregunta_prestamo">Cuánto dinero vas a solicitar?</string>
+    <string name="pregunta_retirar_dinero">¿Cuánto dinero vas a retirar?</string>
+    <string name="pregunta_prestamo">¿Cuánto dinero vas a solicitar?</string>
     <string name="ahorros">Ahorros</string>
 
     <string name="_340_50">$340.50</string>
@@ -68,18 +68,18 @@
     <string name="aplicar_filtro">Aplicar Filtro</string>
     <string name="icono_conversion_moneda">icono conversion moneda</string>
     <string name="conversion_de_divisas">CONVERSION DE DIVISAS</string>
-    <string name="aqui_puedes_comprobar_el_valor_de_tus_ahorros_en_otra_moneda">Aqui puedes comprobar el valor de tus ahorros en otra moneda</string>
+    <string name="aqui_puedes_comprobar_el_valor_de_tus_ahorros_en_otra_moneda">Aquí puedes comprobar el valor de tus ahorros en otra moneda</string>
     <string name="convertir_a">Convertir a:</string>
     <string name="selecciona_divisa">Selecciona Divisa</string>
     <string name="convertir">CONVERTIR</string>
     <string name="actualmente_1_peso_mxn_equivale_a">Actualmente 1 peso MXN equivale a:</string>
     <string name="ingresar_codigo">Ingresar Codigo</string>
     <string name="ingrese_el_codigo_parental">Ingrese el codigo parental:</string>
-    <string name="codigo_parental">*Codigo Parental*</string>
+    <string name="codigo_parental">Código Parental</string>
     <string name="cambio_de_divisas">Cambio de Divisas</string>
     <string name="ultimos_movimientos">Ultimos Movimientos</string>
-    <string name="ingresar_dinero_en_la_cuenta">Ingresar Dinero en la Cuenta</string>
-    <string name="retirar_dinero_de_la_cuenta">Retirar Dinero de la Cuenta</string>
+    <string name="ingresar_dinero_en_la_cuenta">Ingresar dinero en la cuenta</string>
+    <string name="retirar_dinero_de_la_cuenta">Retirar dinero en la cuenta</string>
     <string name="prueba">Prueba</string>
     <string name="regresar">Regresar</string>
     <string name="semanal">Semanal</string>

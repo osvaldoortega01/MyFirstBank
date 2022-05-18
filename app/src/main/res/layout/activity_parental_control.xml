@@ -25,11 +25,13 @@
         android:id="@+id/iv_Control_Parental"
         android:layout_width="225dp"
         android:layout_height="225dp"
+        android:layout_marginTop="80dp"
         android:contentDescription="@string/todo"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.526"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/control_parental" />
+        app:srcCompat="@drawable/ic_parental_control" />
 
     <TextView
         android:id="@+id/tv_controlparental"
