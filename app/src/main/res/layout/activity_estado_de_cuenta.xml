@@ -6,13 +6,92 @@
     android:layout_height="match_parent"
     tools:context=".EstadoDeCuentaActivity">
 
+    <LinearLayout
+        android:id="@+id/headerLinear"
+        android:layout_width="match_parent"
+        android:layout_height="24dp"
+        android:orientation="vertical"
+        app:layout_constraintTop_toBottomOf="@+id/btn_AplicarFiltro"
+        tools:layout_editor_absoluteX="0dp">
+
+        <TableLayout
+            android:id="@+id/otraTabla"
+            android:layout_width="409dp"
+            android:layout_height="300dp">
+
+            <TableRow>
+
+                <TextView
+                    android:layout_weight="0.2"
+                    android:fontFamily="@font/roboto_bold"
+                    android:text="Descripción"
+
+                    android:textColor="@color/black" />
+
+                <TextView
+                    android:layout_weight="0.2"
+                    android:fontFamily="@font/roboto_bold"
+                    android:text="Tipo"
+
+                    android:textColor="@color/black"></TextView>
+
+                <TextView
+                    android:layout_weight="0.2"
+                    android:fontFamily="@font/roboto_bold"
+                    android:text="Cantidad"
+
+                    android:textColor="@color/black"></TextView>
+
+                <TextView
+                    android:layout_weight="0.2"
+                    android:fontFamily="@font/roboto_bold"
+                    android:text="Fecha"
+
+                    android:textColor="@color/black"></TextView>
+            </TableRow>
+
+        </TableLayout>
+
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/headerLinear"
+        tools:layout_editor_absoluteX="1dp">
+
+        <LinearLayout
+            android:id="@+id/mainLinear"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+
+            tools:layout_editor_absoluteY="354dp">
+
+            <TableLayout
+                android:id="@+id/tUltimosMovimientos"
+                android:layout_width="409dp"
+                android:layout_height="wrap_content">
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+
+            </TableLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+
+
     <Spinner
         android:id="@+id/sp_meses"
         android:layout_width="141dp"
         android:layout_height="33dp"
         android:layout_marginTop="28dp"
         app:layout_constraintStart_toEndOf="@+id/tv_SeleccionDeMes"
-        app:layout_constraintTop_toBottomOf="@+id/tv_MiEstadoDeCuenta" />
+        app:layout_constraintTop_toBottomOf="@+id/tv_MiEstadoDeCuenta"
+        tools:ignore="SpeakableTextPresentCheck" />
 
     <TextView
         android:id="@+id/tv_SeleccionDeMes"
@@ -43,14 +122,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="75dp"
-        android:layout_marginTop="33dp"
+        android:layout_marginTop="20dp"
         android:layout_marginEnd="75dp"
         android:text="@string/mi_estado_de_cuenta"
-        android:textColor="@color/purple_500"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.492"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@id/imageView5" />
 
     <Button
         android:id="@+id/btn_AplicarFiltro"
@@ -65,21 +144,38 @@
         app:layout_constraintTop_toBottomOf="@+id/tv_IngresoDeAño" />
 
     <EditText
-        android:id="@+id/et_AñoEstado"
+        android:id="@+id/et_Ano"
         android:layout_width="141dp"
-        android:layout_height="39dp"
+        android:layout_height="48dp"
         android:layout_marginTop="26dp"
         android:ems="10"
+        android:hint="2022"
         android:inputType="number"
         android:textSize="16sp"
         app:layout_constraintStart_toEndOf="@+id/tv_IngresoDeAño"
         app:layout_constraintTop_toBottomOf="@+id/sp_meses"
         tools:text="@string/ej_2022" />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:layout_width="409dp"
-        android:layout_height="453dp"
-        tools:layout_editor_absoluteX="1dp"
-        tools:layout_editor_absoluteY="276dp" />
+    <Button
+        android:id="@+id/btn_Clear"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Limpiar"
+        app:layout_constraintBottom_toTopOf="@+id/headerLinear"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.894"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView5"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_marginTop="80dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.505"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/history" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

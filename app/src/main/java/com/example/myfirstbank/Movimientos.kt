@@ -10,7 +10,7 @@ import java.sql.ResultSet
 import java.sql.SQLException
 
 class Movimientos : AppCompatActivity() {
-    //TODO: Cambiar los dibujos de botones para que estén acuerdo a las acciones
+
 
     private var connectSQL = ConnectSQL()
 
