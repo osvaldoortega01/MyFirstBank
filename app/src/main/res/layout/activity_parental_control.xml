@@ -76,6 +76,7 @@
         app:layout_constraintTop_toBottomOf="@+id/et_codigoparental" />
 
     <com.google.android.material.textfield.TextInputEditText
+        android:maxLength="4"
         android:id="@+id/et_codigoparental"
         android:layout_width="286dp"
         android:layout_height="48dp"
