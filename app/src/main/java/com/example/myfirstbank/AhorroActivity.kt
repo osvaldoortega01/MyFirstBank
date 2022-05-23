@@ -26,17 +26,17 @@ class AhorroActivity : AppCompatActivity(), AdapterView.OnItemClickListener {
 
     //var actual = Calendar.getInstance()
     //var calendar = Calendar.getInstance()
-//    private val minutos = 0
-//    private val hora = 0
-//    private val dia = 0
-//    private val mes = 0
-//    private val anio = 0
+    //    private val minutos = 0
+    //    private val hora = 0
+    //    private val dia = 0
+    //    private val mes = 0
+    //    private val anio = 0
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         binding = ActivityAhorroBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
+        //Drop Down List Tipos de ahorro
         val tiposAhorro = resources.getStringArray(R.array.tipos_ahorro)
 
         val adapter = ArrayAdapter(
@@ -53,28 +53,32 @@ class AhorroActivity : AppCompatActivity(), AdapterView.OnItemClickListener {
             onItemClickListener = this@AhorroActivity
         }
 
+        binding.etMetaAhorro.setText("0")
+
         binding.sbDuracion.setOnSeekBarChangeListener(object: SeekBar.OnSeekBarChangeListener{
             override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {//Imprimo progreso del slide bar
                 binding.etDuracion.setText(progress.toString())
+                val et_meta: EditText = findViewById(R.id.et_Meta_ahorro)
+                if(et_meta.text.toString() != ""){
+                    try {
+                        val metaAhorro: Int = et_meta.text.toString().toInt()
+                        val ahorroProgramado: Double
+                        if(progress.toInt() != 0){
+                            ahorroProgramado= metaAhorro / progress.toDouble()
+                        } else{
+                            ahorroProgramado = 0.0
+                        }
 
-                try {
-                    val et_meta: EditText = findViewById(R.id.et_Meta_ahorro)
-                    val metaAhorro: Int = et_meta.text.toString().toInt()
-                    val ahorroProgramado: Double
-                    if(progress.toInt() != 0){
-                        ahorroProgramado= metaAhorro / progress.toDouble()
-                    } else{
-                        ahorroProgramado = 0.0
+                        binding.etAhorroGenerado.setText(String.format("%.3f",ahorroProgramado))
+                        val interes: Double = ahorroProgramado*0.00095
+
+                        binding.etBonus.setText(String.format("%.3f",interes))
+                    } catch (ex: Exception){
+                        Toast.makeText(null, ex.message.toString(), Toast.LENGTH_SHORT).show()
                     }
-
-                    binding.etAhorroGenerado.setText(String.format("%.3f",ahorroProgramado))
-                    val interes: Double = ahorroProgramado*0.00095
-
-                    binding.etBonus.setText(String.format("%.3f",interes))
-                } catch (ex: Exception){
-                    Toast.makeText(null, ex.message.toString(), Toast.LENGTH_SHORT).show()
+                } else{
+                    Toast.makeText(null, "Primero Digite una meta de ahorro", Toast.LENGTH_SHORT).show()
                 }
-
             }
 
             override fun onStartTrackingTouch(seekBar: SeekBar?) {//Recupero punto de inicio
@@ -110,7 +114,6 @@ class AhorroActivity : AppCompatActivity(), AdapterView.OnItemClickListener {
             }
         } catch (ex: Exception){
             Toast.makeText(this, ex.message.toString(), Toast.LENGTH_SHORT).show()
-
         }
 
     }
