@@ -136,6 +136,7 @@ class AhorroActivity : AppCompatActivity(), AdapterView.OnItemClickListener {
         } catch (ex: Exception){
             Toast.makeText(this, ex.message.toString(), Toast.LENGTH_SHORT).show()
         }
+
         val formatter = SimpleDateFormat("yyyy-MM-dd")
         val date = formatter.parse(fechaFin.toString())
         val cal = Calendar.getInstance()

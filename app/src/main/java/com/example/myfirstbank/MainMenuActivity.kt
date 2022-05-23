@@ -9,12 +9,16 @@ import android.hardware.SensorManager
 import android.media.MediaPlayer
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.LayoutInflater
+import android.view.View
 import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
 import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
 import com.example.myfirstbank.MyFirstBank.Companion.prefs
+import net.sourceforge.jtds.jdbc.DateTime
 import java.sql.*
+import java.time.LocalDate
 import java.util.*
 import kotlin.math.sqrt
 
@@ -75,12 +79,12 @@ class MainMenuActivity : AppCompatActivity(){
 
 
     fun openMenuMovimientos(){
-        var intent = Intent(this, Movimientos::class.java)
+        val  intent = Intent(this, Movimientos::class.java)
         startActivity(intent)
     }
     fun openControlParental(){
         val idpcv = 1
-        var intent = Intent(this, PCV_Activity::class.java)
+        val intent = Intent(this, PCV_Activity::class.java)
         intent.putExtra("idpcv", idpcv.toString())
         startActivity(intent)
     }
@@ -89,12 +93,34 @@ class MainMenuActivity : AppCompatActivity(){
         startActivity(intent)
     }
     fun openAhorros(){
-        var intent = Intent(this, AhorroActivity::class.java)
-        startActivity(intent)
+        val intentAhorro = Intent(this, AhorroActivity::class.java)
+        val intentAhorroCreado = Intent(this, Ahorro_Creado::class.java)
+        val fechaActual: LocalDate = LocalDate.now()
+        var contador: Int = 0;
+        val iduser: String = prefs.getId()
+
+        try{
+            val consultaAhorros: PreparedStatement = connectSQL.dbConn()?.prepareStatement("SELECT * FROM ahorros WHERE UserID = ? AND FinalDate >= ?")!!
+            consultaAhorros.setString(1,iduser)
+            consultaAhorros.setString(2, fechaActual.toString())
+            val resultadoConsulta: ResultSet =  consultaAhorros.executeQuery()
+            while (resultadoConsulta.next())
+            {
+                contador += 1
+            }
+        }catch(ex: SQLException){
+            Toast.makeText(this, ex.message, Toast.LENGTH_LONG).show()
+        }
+
+        if(contador > 0){
+            startActivity(intentAhorroCreado)
+        } else {
+            startActivity(intentAhorro)
+        }
     }
     fun openPerfil(){
         val idpcv = 2
-        var intent = Intent(this, PCV_Activity::class.java)
+        val intent = Intent(this, PCV_Activity::class.java)
         intent.putExtra("idpcv", idpcv.toString())
         startActivity(intent)
     }
