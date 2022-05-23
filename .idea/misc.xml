@@ -78,8 +78,21 @@
         <entry key="..\:/Users/osval/AndroidStudioProjects/MyFirstBank/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.2785" />
         <entry key="..\:/Users/osval/AndroidStudioProjects/MyFirstBank/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.2785" />
         <entry key="..\:/Users/osval/Documents/Personal/MyFirstBank/app/src/main/res/drawable/work_history_48px.xml" value="0.3635" />
+        <entry key="..\:/Users/osval/Documents/Personal/MyFirstBank/app/src/main/res/layout/activity_ahorro.xml" value="0.3625" />
+        <entry key="..\:/Users/osval/Documents/Personal/MyFirstBank/app/src/main/res/layout/activity_conversion_divisas.xml" value="0.3625" />
         <entry key="..\:/Users/osval/Documents/Personal/MyFirstBank/app/src/main/res/layout/activity_estado_de_cuenta.xml" value="0.25" />
+        <entry key="..\:/Users/osval/Documents/Personal/MyFirstBank/app/src/main/res/layout/activity_ingresar_dinero.xml" value="0.3625" />
+        <entry key="..\:/Users/osval/Documents/Personal/MyFirstBank/app/src/main/res/layout/activity_main.xml" value="0.3625" />
+        <entry key="..\:/Users/osval/Documents/Personal/MyFirstBank/app/src/main/res/layout/activity_main_menu.xml" value="0.3625" />
+        <entry key="..\:/Users/osval/Documents/Personal/MyFirstBank/app/src/main/res/layout/activity_movimientos.xml" value="0.3625" />
+        <entry key="..\:/Users/osval/Documents/Personal/MyFirstBank/app/src/main/res/layout/activity_parental_control.xml" value="0.3625" />
+        <entry key="..\:/Users/osval/Documents/Personal/MyFirstBank/app/src/main/res/layout/activity_pcv.xml" value="0.3625" />
+        <entry key="..\:/Users/osval/Documents/Personal/MyFirstBank/app/src/main/res/layout/activity_profile.xml" value="0.3625" />
+        <entry key="..\:/Users/osval/Documents/Personal/MyFirstBank/app/src/main/res/layout/activity_register.xml" value="0.3625" />
+        <entry key="..\:/Users/osval/Documents/Personal/MyFirstBank/app/src/main/res/layout/activity_retirar_dinero.xml" value="0.3625" />
         <entry key="..\:/Users/osval/Documents/Personal/MyFirstBank/app/src/main/res/layout/activity_ultimos_movimientos.xml" value="0.23854166666666668" />
+        <entry key="..\:/Users/osval/Documents/Personal/MyFirstBank/app/src/main/res/layout/dropdown_item.xml" value="0.3625" />
+        <entry key="..\:/Users/osval/Documents/Personal/MyFirstBank/app/src/main/res/layout/item_table_layout_os.xml" value="0.3625" />
       </map>
     </option>
   </component>

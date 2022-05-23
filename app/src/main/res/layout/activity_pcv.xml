@@ -36,6 +36,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <com.google.android.material.textfield.TextInputEditText
+        android:maxLength="4"
         android:id="@+id/tiet_pcv"
         android:layout_width="324dp"
         android:layout_height="46dp"
