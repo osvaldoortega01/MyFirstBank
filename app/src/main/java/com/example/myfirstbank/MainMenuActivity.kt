@@ -100,7 +100,7 @@ class MainMenuActivity : AppCompatActivity(){
         val iduser: String = prefs.getId()
 
         try{
-            val consultaAhorros: PreparedStatement = connectSQL.dbConn()?.prepareStatement("SELECT * FROM ahorros WHERE UserID = ? AND FinalDate >= ?")!!
+            val consultaAhorros: PreparedStatement = connectSQL.dbConn()?.prepareStatement("SELECT * FROM ahorros WHERE UserID = ? AND FinalDate > ?")!!
             consultaAhorros.setString(1,iduser)
             consultaAhorros.setString(2, fechaActual.toString())
             val resultadoConsulta: ResultSet =  consultaAhorros.executeQuery()

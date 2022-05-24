@@ -56,6 +56,32 @@
         />
 
     <TextView
+        android:id="@+id/tv_PlanTitulo"
+        android:text="Plan:"
+        android:textSize="25sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_DolarSigno"
+        app:layout_constraintRight_toLeftOf="@id/tv_AhorroCantidad"
+        android:layout_marginTop="10dp"
+        android:textColor="@android:color/white"
+        />
+
+    <TextView
+        android:id="@+id/tv_Plan"
+        android:text="Semanal"
+        android:textSize="25sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toRightOf="@id/tv_DolarSigno"
+        app:layout_constraintTop_toBottomOf="@id/tv_AhorroCantidad"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginTop="10dp"
+        android:textColor="@android:color/white"
+        />
+
+    <TextView
         android:id="@+id/tv_InicioTitulo"
         android:text="Inicio"
         android:textSize="25sp"
@@ -112,7 +138,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="64dp"
         android:layout_marginTop="50dp"
-        android:text="Bonus (Interés): "
+        android:text="Interés al finalizar: "
         android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tv_InicioFechaAhorro" />

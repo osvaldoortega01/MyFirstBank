@@ -99,6 +99,7 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tv_duracion" />
 
+    <!--
     <TextView
         android:id="@+id/tv_ahorro_generado"
         android:layout_width="wrap_content"
@@ -127,7 +128,7 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintStart_toEndOf="@id/tv_ahorro_generado"
         app:layout_constraintTop_toBottomOf="@id/sb_duracion" />
-
+    -->
     <TextView
         android:id="@+id/tv_bonus"
         android:layout_width="wrap_content"
@@ -137,7 +138,8 @@
         android:text="@string/bonus"
         android:textSize="16sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/et_ahorro_generado" />
+        app:layout_constraintTop_toBottomOf="@id/sb_duracion"
+        />
 
     <EditText
         android:id="@+id/et_bonus"
@@ -155,7 +157,7 @@
         app:layout_constraintLeft_toRightOf="@id/tv_bonus"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintStart_toEndOf="@id/tv_bonus"
-        app:layout_constraintTop_toBottomOf="@id/et_ahorro_generado" />
+        app:layout_constraintTop_toBottomOf="@id/sb_duracion" />
 
     <TextView
         android:id="@+id/tv_cuentaTexto"

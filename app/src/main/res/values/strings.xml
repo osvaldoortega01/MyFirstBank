@@ -38,7 +38,7 @@
     <string name="tipo_hint">Tipo de ahorro</string>
     <string name="duracion">Duración:</string>
     <string name="ahorro_gen">Ahorro Generado:</string>
-    <string name="bonus">Bonus Por Ahorrar:</string>
+    <string name="bonus">Interés (7% Anual):</string>
     <string name="movimientos_icono">movimientos_icono</string>
     <string name="movimientos">Movimientos</string>
     <string name="saldo_actual">Tu saldo actual es:</string>
