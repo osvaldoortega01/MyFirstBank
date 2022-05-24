@@ -10,110 +10,110 @@
         android:id="@+id/iv_CantidadBackground"
         android:layout_width="410dp"
         android:layout_height="200dp"
+        android:layout_marginTop="80dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="50dp"
-        app:srcCompat="@drawable/blue_color_bg" />
+        app:srcCompat="@drawable/wallet" />
 
     <TextView
         android:id="@+id/tv_AhorroTitulo"
-        android:text="AHORRO"
-        android:textSize="40sp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="6dp"
+        android:text="Ahorro"
+        android:textSize="40sp"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="50dp"
-        android:textColor="@android:color/white"
-        />
+        app:layout_constraintHorizontal_bias="0.476"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/iv_CantidadBackground" />
 
     <TextView
         android:id="@+id/tv_DolarSigno"
-        android:text="$"
-        android:textSize="25sp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="@id/tv_AhorroTitulo"
-        app:layout_constraintRight_toLeftOf="@id/tv_AhorroCantidad"
-        android:layout_marginTop="100dp"
+        android:layout_marginEnd="22dp"
+        android:text="$"
         android:textColor="@android:color/white"
-        />
+        android:textSize="25sp"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_AhorroCantidad"
+        app:layout_constraintEnd_toStartOf="@+id/tv_AhorroCantidad" />
 
     <TextView
         android:id="@+id/tv_AhorroCantidad"
-        android:text="0.00"
-        android:textSize="25sp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintLeft_toRightOf="@id/tv_DolarSigno"
-        app:layout_constraintTop_toTopOf="@id/tv_AhorroTitulo"
-        app:layout_constraintRight_toRightOf="parent"
-        android:layout_marginTop="100dp"
-        android:textColor="@android:color/white"
-        />
 
-    <TextView
-        android:id="@+id/tv_InicioTitulo"
-        android:text="Inicio"
+        android:layout_marginBottom="48dp"
+
+        android:text="0.00"
+        android:textColor="@android:color/white"
+
         android:textSize="25sp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/iv_CantidadBackground"
-        app:layout_constraintRight_toLeftOf="@id/tv_FinTitulo"
-        android:layout_marginTop="50dp"
-        android:textColor="@android:color/black"
-        />
+        app:layout_constraintBottom_toBottomOf="@+id/iv_CantidadBackground"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/tv_FinTitulo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="84dp"
         android:text="Fin"
+        android:textColor="@android:color/black"
         android:textSize="25sp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         app:layout_constraintLeft_toRightOf="@id/tv_InicioTitulo"
-        app:layout_constraintTop_toBottomOf="@id/iv_CantidadBackground"
         app:layout_constraintRight_toRightOf="parent"
-        android:layout_marginTop="50dp"
-        android:textColor="@android:color/black"
-        />
-    <TextView
-        android:id="@+id/tv_InicioFechaAhorro"
-        android:text="/ /"
-        android:textSize="20sp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tv_InicioTitulo"
-        app:layout_constraintRight_toLeftOf="@id/tv_FinFechaAhorro"
-        android:layout_marginTop="50dp"
-        android:textColor="@android:color/black"
-        />
+        app:layout_constraintTop_toBottomOf="@id/iv_CantidadBackground" />
 
     <TextView
         android:id="@+id/tv_FinFechaAhorro"
-        android:text="/ /"
-        android:textSize="20sp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintLeft_toRightOf="@id/tv_InicioFechaAhorro"
-        app:layout_constraintTop_toBottomOf="@id/tv_FinTitulo"
-        app:layout_constraintRight_toRightOf="parent"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="24dp"
+        android:text="/ /"
         android:textColor="@android:color/black"
-        />
+        android:textSize="20sp"
+        app:layout_constraintLeft_toRightOf="@id/tv_InicioFechaAhorro"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_FinTitulo" />
+
+    <TextView
+        android:id="@+id/tv_InicioTitulo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="84dp"
+        android:text="Inicio"
+        android:textColor="@android:color/black"
+        android:textSize="25sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/tv_FinTitulo"
+        app:layout_constraintTop_toBottomOf="@id/iv_CantidadBackground" />
+
+    <TextView
+        android:id="@+id/tv_InicioFechaAhorro"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="/ /"
+        android:textColor="@android:color/black"
+        android:textSize="20sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/tv_FinFechaAhorro"
+        app:layout_constraintTop_toBottomOf="@id/tv_InicioTitulo" />
 
     <TextView
         android:id="@+id/tv_BonusTitulo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="64dp"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="48dp"
         android:text="Bonus (Interés): "
         android:textSize="20sp"
+
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.4"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tv_InicioFechaAhorro" />
 
@@ -121,12 +121,12 @@
         android:id="@+id/tv_BonusAhorro"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="50dp"
         android:text="0.00"
         android:textSize="20sp"
-        app:layout_constraintStart_toEndOf="@id/tv_BonusTitulo"
-        app:layout_constraintTop_toBottomOf="@id/tv_InicioFechaAhorro" />
+        app:layout_constraintBottom_toBottomOf="@+id/tv_BonusTitulo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.109"
+        app:layout_constraintStart_toEndOf="@+id/tv_BonusTitulo" />
 
     <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
         android:id="@+id/btn_FinalizarAhorro"
@@ -136,6 +136,7 @@
         android:layout_marginBottom="112dp"
         android:contentDescription="Clic para finalizar el ahorro (Se perdarán los intereses)"
         android:text="Finalizar Ahorro"
+        app:icon="@drawable/ic_round_done_24"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
