@@ -43,12 +43,10 @@ class ConversionDivisas : AppCompatActivity() {
         }catch(ex: SQLException){
             Toast.makeText(this, ex.message, Toast.LENGTH_LONG).show()
         }
-
         val convertirButton: Button = findViewById(R.id.buttonConvertir)
         val spinner = findViewById<Spinner>(R.id.spinner)
         val lista = resources.getStringArray(R.array.lista_divisas)
         val adaptador = ArrayAdapter(this,android.R.layout.simple_spinner_item,lista)
-
         spinner.adapter = adaptador
         spinner.onItemSelectedListener = object:
             AdapterView.OnItemSelectedListener{
@@ -82,12 +80,18 @@ class ConversionDivisas : AppCompatActivity() {
     //Métodos que trabajan mediante corrutinas
     private fun getCurrencyLatestValue(query: String){
         CoroutineScope(Dispatchers.IO).launch {
+            val iduser = MyFirstBank.prefs.getId()
             val call = getRetrofit().create(APIService::class.java)
                 .getLatestValues("convert?from=MXN&to=$query")
             val currencyValue = call.body()
             val tvValorPesoActual: TextView = findViewById(R.id.textView14)
             val tvValorConversion: TextView = findViewById(R.id.textView12)
             runOnUiThread{
+                val txtsaldo: PreparedStatement = connectSQL.dbConn()?.prepareStatement("SELECT Cash FROM usuarios WHERE UserID = ?")!!
+                txtsaldo.setString(1, iduser)
+                val tvsaldo: ResultSet = txtsaldo.executeQuery()
+                tvsaldo.next()
+                val saldo = tvsaldo.getString(1)
                 if (call.isSuccessful){
                     if (currencyValue != null) {
                         latestConcurrencyValue=0f
@@ -95,7 +99,7 @@ class ConversionDivisas : AppCompatActivity() {
                         latestConcurrencyValue=currencyValue.result
                         tvValorPesoActual.text="$ "+latestConcurrencyValue.toString()+" "+nombreMonedaSeleccionada
                         //Aqui se multiplicará el elelemnto que contiene la cantidad de dinero ahorrado
-                        currencyConverted=10500.30f*latestConcurrencyValue
+                        currencyConverted=saldo.toFloat()*latestConcurrencyValue
                         tvValorConversion.text="$ "+currencyConverted.toString()+" "+nombreMonedaSeleccionada
                     }
                 }

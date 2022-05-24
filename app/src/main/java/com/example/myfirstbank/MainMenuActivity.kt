@@ -75,6 +75,21 @@ class MainMenuActivity : AppCompatActivity(){
            lastAcceleration = SensorManager.GRAVITY_EARTH
            //Fin instancia del acelerómetro
     }
+    override fun onRestart() {
+        super.onRestart()
+        val iduser = prefs.getId()
+        val tvsaldoDig: TextView= findViewById(R.id.TV_SaldoDig)
+        try{
+            val txtsaldo: PreparedStatement = connectSQL.dbConn()?.prepareStatement("SELECT Cash FROM usuarios WHERE UserID = ?")!!
+            txtsaldo.setString(1, iduser)
+            val tvsaldo: ResultSet = txtsaldo.executeQuery()
+            tvsaldo.next()
+            tvsaldoDig.setText("$ "+tvsaldo.getString(1)+" mxn")
+        }catch(ex: SQLException){
+            Toast.makeText(this, ex.message, Toast.LENGTH_LONG).show()
+        }
+    }
+
 
 
 
