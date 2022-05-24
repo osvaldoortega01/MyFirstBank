@@ -7,6 +7,18 @@
     tools:context=".Parental_Control_Activity">
 
     <TextView
+        android:id="@+id/textView6"
+        android:layout_width="188dp"
+        android:layout_height="38dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/control_parental"
+        android:textAlignment="center"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/iv_Control_Parental" />
+
+    <TextView
         android:id="@+id/tv_Cantidad_Maxima_r"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
