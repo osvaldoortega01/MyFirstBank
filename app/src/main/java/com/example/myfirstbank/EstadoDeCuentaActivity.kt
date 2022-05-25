@@ -120,40 +120,6 @@ class EstadoDeCuentaActivity : AppCompatActivity() {
         }
     }
 
-    fun crearPdf() {
-        var path = Environment.getExternalStorageDirectory().absolutePath+"/MyFirstBank"
-
-        val dir = File(path)
-        if (!dir.exists())
-            dir.mkdirs()
-
-        val file = File(dir, "estadoCuenta.pdf")
-        val fileOutputStream = FileOutputStream(file)
-
-        val documento = Document()
-        PdfWriter.getInstance(documento, fileOutputStream)
-
-        documento.open()
-
-        val titulo = Paragraph(
-            "Estado de cuenta \n\n\n",
-            FontFactory.getFont("arial", 22f, Font.BOLD, BaseColor.BLUE)
-        )
-
-        documento.add(titulo)
-
-        var tabla = PdfPTable(4)
-        tabla.addCell("Descripción")
-        tabla.addCell("Tipo")
-        tabla.addCell("Cantidad")
-        tabla.addCell("Fecha")
-
-
-        documento.add(tabla)
-
-        documento.close()
-    }
-
     private fun checkPermission(): Boolean {
         val permission1 =
             ContextCompat.checkSelfPermission(applicationContext, WRITE_EXTERNAL_STORAGE)

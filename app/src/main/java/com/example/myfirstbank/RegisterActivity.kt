@@ -1,20 +1,19 @@
 package com.example.myfirstbank
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.TextUtils
-import android.util.Log
+import android.view.View
 import android.widget.Button
-import android.widget.EditText
-import android.widget.TextView
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import com.example.myfirstbank.MyFirstBank.Companion.prefs
 import com.example.myfirstbank.databinding.ActivityMainBinding
 import com.google.android.material.textfield.TextInputEditText
+import java.io.FileNotFoundException
+import java.io.FileOutputStream
+import java.io.IOException
 import java.sql.*
-import java.text.SimpleDateFormat
-import java.time.LocalDate
 import java.time.LocalDateTime
 
 
@@ -22,13 +21,16 @@ class RegisterActivity : AppCompatActivity() {
 
     private var connectSQL = ConnectSQL()
 
-    lateinit var binding: ActivityMainBinding
+    private val FILE_NAME = "ContrasenaUsuario.txt"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_register)
         val btn_Register: Button = findViewById(R.id.btn_Register)
-        btn_Register.setOnClickListener{ registerUser() }
+        btn_Register.setOnClickListener{
+            registerUser()
+            save()
+        }
     }
 
     private fun registerUser(){
@@ -124,6 +126,33 @@ class RegisterActivity : AppCompatActivity() {
     fun openParental() {
         var intent = Intent(this, Parental_Control_Activity::class.java)
         startActivity(intent)
+    }
+
+    fun save() {
+
+        val etpassword: TextInputEditText = findViewById(R.id.tiet_Password)
+        var fos: FileOutputStream? = null
+        try {
+            fos = openFileOutput(FILE_NAME, MODE_PRIVATE)
+            fos.write(etpassword.text.toString().toByteArray())
+
+            Toast.makeText(
+                this, "Guardado en $filesDir/$FILE_NAME",
+                Toast.LENGTH_LONG
+            ).show()
+        } catch (e: FileNotFoundException) {
+            e.printStackTrace()
+        } catch (e: IOException) {
+            e.printStackTrace()
+        } finally {
+            if (fos != null) {
+                try {
+                    fos.close()
+                } catch (e: IOException) {
+                    e.printStackTrace()
+                }
+            }
+        }
     }
 
 
