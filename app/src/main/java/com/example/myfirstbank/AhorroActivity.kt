@@ -163,6 +163,11 @@ class AhorroActivity : AppCompatActivity(), AdapterView.OnItemClickListener {
 
     }
 
+    fun openMainMenu(){
+        var intent = Intent(this, MainMenuActivity::class.java)
+        startActivity(intent)
+    }
+
     private fun createAhorro(){
         val et_meta: EditText = findViewById(R.id.et_Meta_ahorro)
         val metaAhorro: Int = et_meta.text.toString().toInt()
@@ -250,9 +255,10 @@ class AhorroActivity : AppCompatActivity(), AdapterView.OnItemClickListener {
             val tag = generatekey()
             val alertTime = cal.timeInMillis - System.currentTimeMillis()
             val random = (Math.random()*50+1).toInt ()
-            val data = EnviarData("Plazo de ahorro finalizado", "El plazo del ahorro a finalizado, consulte los detalles", random)
+            val data = EnviarData("Plazo de ahorro finalizado", "El plazo del ahorro a finalizado, favor de hacer clic en el botón Finalizar Ahorro para que se le entreguen su dinero e intereses generados", random)
             Worknoti.GuardarNoti(alertTime, data, "tag")
             Toast.makeText( this,"Notificacion Guardada.", Toast.LENGTH_SHORT).show()
+            openMainMenu()
         } else{
             Toast.makeText( this,"No tiene dinero suficiente, increse una cantidad menor...", Toast.LENGTH_SHORT).show()
         }
@@ -274,7 +280,7 @@ class AhorroActivity : AppCompatActivity(), AdapterView.OnItemClickListener {
 //        val alertTime = calendar.timeInMillis - System.currentTimeMillis()
         val alertTime = 10000.toLong()
         val random = (Math.random()*50+1).toInt ()
-        val data = EnviarData("Plazo de ahorro finalizado", "El plazo del ahorro a finalizado, consulte los detalles", random)
+        val data = EnviarData("Plazo de ahorro finalizado", "El plazo del ahorro a finalizado, favor de hacer clic en el botón Finalizar Ahorro para que se le entreguen su dinero e intereses generados", random)
         Worknoti.GuardarNoti(alertTime, data, "tag1")
         Toast.makeText( this,"Notificación Guardada.", Toast.LENGTH_SHORT).show()
     }

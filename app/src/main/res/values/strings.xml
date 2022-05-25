@@ -103,7 +103,8 @@
     <string name="fin_titulo">Fin</string>
     <string name="inicio_titulo">Inicio</string>
     <string name="fecha_vacia">/ /</string>
-    <string name="interes_titulo">Interés al finalizar:</string>
+    <string name="interes_titulo">Interés al finalizar: $</string>
     <string name="descripcion_btnFinalizarAhorro">Clic para finalizar el ahorro (Se perdarán los intereses)</string>
     <string name="finalizar_ahorro">Finalizar Ahorro</string>
+    <string name="estado_ahorro">El plan de ahorro está en curso.</string>
 </resources>

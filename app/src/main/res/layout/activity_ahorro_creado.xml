@@ -153,12 +153,24 @@
         app:layout_constraintHorizontal_bias="0.057"
         app:layout_constraintStart_toEndOf="@+id/tv_BonusTitulo" />
 
+    <TextView
+        android:id="@+id/tv_estadoAhorro"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:text="@string/estado_ahorro"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.4"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_BonusTitulo" />
+
     <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
         android:id="@+id/btn_FinalizarAhorro"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|end"
-        android:layout_marginBottom="112dp"
+        android:layout_marginBottom="80dp"
         android:contentDescription="@string/descripcion_btnFinalizarAhorro"
         android:text="@string/finalizar_ahorro"
         app:icon="@drawable/ic_round_done_24"
