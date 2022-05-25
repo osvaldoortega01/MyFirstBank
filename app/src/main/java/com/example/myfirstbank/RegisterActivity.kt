@@ -49,7 +49,7 @@ class RegisterActivity : AppCompatActivity() {
             norepeatuser.setString(1, etusername.text.toString())
             val verifuser: ResultSet = norepeatuser.executeQuery()
 
-            if(!verifuser.next()){
+            if(!verifuser.next() ){
                 if (pas1==cpas1){
                     if (TextUtils.isEmpty(etusername.text))
                     {
