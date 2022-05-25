@@ -6,17 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".Parental_Control_Activity">
 
-    <TextView
-        android:id="@+id/textView6"
-        android:layout_width="188dp"
-        android:layout_height="38dp"
-        android:layout_marginTop="8dp"
-        android:text="@string/control_parental"
-        android:textAlignment="center"
-        android:textSize="24sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/iv_Control_Parental" />
 
     <TextView
         android:id="@+id/tv_Cantidad_Maxima_r"
@@ -49,16 +38,12 @@
         android:id="@+id/tv_controlparental"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="155dp"
-        android:layout_marginEnd="155dp"
-        android:layout_marginBottom="487dp"
+        android:layout_marginTop="8dp"
         android:text="@string/control_parental"
         android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/iv_Control_Parental"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toBottomOf="@+id/iv_Control_Parental"  />
 
     <TextView
         android:id="@+id/tv_Codigo_Parental"
@@ -94,6 +79,7 @@
         android:layout_height="48dp"
         android:layout_marginStart="60dp"
         android:layout_marginEnd="65dp"
+        android:inputType="number"
         android:hint="@string/codigo_actual"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

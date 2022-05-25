@@ -3,6 +3,8 @@
     package="com.example.myfirstbank">
     <!-- Permiso de la app para acceder a internet! -->
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <application
         android:name=".MyFirstBank"
