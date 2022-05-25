@@ -3,6 +3,7 @@ package com.example.myfirstbank
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.text.TextUtils
 import android.util.Log
 import android.widget.Button
 import android.widget.EditText
@@ -48,39 +49,63 @@ class RegisterActivity : AppCompatActivity() {
 
             if(!verifuser.next()){
                 if (pas1==cpas1){
-                    try{
-                        val nuevoUsuario: PreparedStatement = connectSQL.dbConn()?.prepareStatement("insert into usuarios values (?,?,?,?,?,?,?,?)")!!
-                        nuevoUsuario.setString(1, etcompletename.text.toString())
-                        nuevoUsuario.setString(2, etusername.text.toString())
-                        nuevoUsuario.setString(3, etpassword.text.toString())
-                        nuevoUsuario.setString(4, etemailaddress.text.toString())
-                        nuevoUsuario.setString(5,"0")
-                        nuevoUsuario.setDouble(6, 0.0)
-                        nuevoUsuario.setInt(7, 10)
-                        nuevoUsuario.setString(8, fecha.toString())
-                        nuevoUsuario.executeUpdate()
-                        Toast.makeText(this, "Cuenta Creada Existosamente", Toast.LENGTH_SHORT).show()
-                        try{
-                            val getidusuario: PreparedStatement = connectSQL.dbConn()?.prepareStatement("SELECT UserID FROM usuarios WHERE Username = ?")!!
-                            getidusuario.setString(1, etusername.text.toString())
-                            val iduser: ResultSet = getidusuario.executeQuery()
-                            iduser.next()
-                            fun accessToDetail(){
-                                if(etusername.text.toString().isNotEmpty() && etpassword.text.toString().isNotEmpty()){
-                                    prefs.saveUsername(etpassword.text.toString())
-                                    prefs.savePassword(etusername.text.toString())
-                                    prefs.saveId(iduser.getString(1))
-                                    openParental()
-                                }else{
+                    if (TextUtils.isEmpty(etusername.text))
+                    {
+                        etusername.setError("El nombre de usuario es requerido")
+                    }
+                    else if(TextUtils.isEmpty(etcompletename.text))
+                    {
+                        etcompletename.setError("El nombre completo es requerido")
+                    }
+                    else if (TextUtils.isEmpty(etpassword.text))
+                    {
+                        etpassword.setError("La contraseña es requerida")
+                    }
+                    else if (TextUtils.isEmpty(etemailaddress.text))
+                    {
+                        etemailaddress.setError("El correo es requerido")
+                    }
+                    else {
 
+                        try {
+                            val nuevoUsuario: PreparedStatement = connectSQL.dbConn()
+                                ?.prepareStatement("insert into usuarios values (?,?,?,?,?,?,?,?)")!!
+                            nuevoUsuario.setString(1, etcompletename.text.toString())
+                            nuevoUsuario.setString(2, etusername.text.toString())
+                            nuevoUsuario.setString(3, etpassword.text.toString())
+                            nuevoUsuario.setString(4, etemailaddress.text.toString())
+                            nuevoUsuario.setString(5, "0")
+                            nuevoUsuario.setDouble(6, 0.0)
+                            nuevoUsuario.setInt(7, 10)
+                            nuevoUsuario.setString(8, fecha.toString())
+                            nuevoUsuario.executeUpdate()
+                            Toast.makeText(this, "Cuenta Creada Existosamente", Toast.LENGTH_SHORT)
+                                .show()
+                            try {
+                                val getidusuario: PreparedStatement = connectSQL.dbConn()
+                                    ?.prepareStatement("SELECT UserID FROM usuarios WHERE Username = ?")!!
+                                getidusuario.setString(1, etusername.text.toString())
+                                val iduser: ResultSet = getidusuario.executeQuery()
+                                iduser.next()
+                                fun accessToDetail() {
+                                    if (etusername.text.toString()
+                                            .isNotEmpty() && etpassword.text.toString().isNotEmpty()
+                                    ) {
+                                        prefs.saveUsername(etpassword.text.toString())
+                                        prefs.savePassword(etusername.text.toString())
+                                        prefs.saveId(iduser.getString(1))
+                                        openParental()
+                                    } else {
+
+                                    }
                                 }
+                                accessToDetail()
+                            } catch (ex: SQLException) {
+                                Toast.makeText(this, ex.message, Toast.LENGTH_LONG).show()
                             }
-                            accessToDetail()
-                        }catch (ex:SQLException){
+                        } catch (ex: SQLException) {
                             Toast.makeText(this, ex.message, Toast.LENGTH_LONG).show()
                         }
-                    }catch (ex:SQLException){
-                        Toast.makeText(this, ex.message, Toast.LENGTH_LONG).show()
                     }
                 }else{
                     Toast.makeText(this, "Las contraseñas no coinciden", Toast.LENGTH_LONG).show()
@@ -93,6 +118,7 @@ class RegisterActivity : AppCompatActivity() {
         catch (ex: SQLException){
             Toast.makeText(this, ex.message, Toast.LENGTH_LONG).show()
         }
+
 
     }
     fun openParental() {

@@ -3,6 +3,7 @@ package com.example.myfirstbank
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.text.TextUtils
 import android.widget.Button
 import android.widget.Toast
 import com.example.myfirstbank.MyFirstBank.Companion.prefs
@@ -27,7 +28,13 @@ class MainActivity : AppCompatActivity() {
         var tiet_Username: TextInputEditText = findViewById(R.id.tiet_Username)
         var tiet_Password: TextInputEditText = findViewById(R.id.tiet_Password)
 
-        if(tiet_Username.text.toString().any()){
+        if (TextUtils.isEmpty(tiet_Username.text)) {
+            tiet_Username.setError("El nombre de usuario es requerido")
+        }
+        else if (TextUtils.isEmpty(tiet_Password.text)){
+            tiet_Password.setError("La contraseña es requerida")
+        }
+        else {
             try{
                 val usuario: PreparedStatement = connectSQL.dbConn()?.prepareStatement("SELECT UserPassword FROM usuarios WHERE Username = ?")!!
                 usuario.setString(1, tiet_Username.text.toString())
@@ -62,6 +69,7 @@ class MainActivity : AppCompatActivity() {
             catch (ex: SQLException){
                 Toast.makeText(this, "${ex.message}", Toast.LENGTH_SHORT).show()
             }
+
         }
     }
     private fun openRegister(){
