@@ -94,4 +94,16 @@
         <item>Yen Japonés - JPY</item>
     </string-array>
 
+    <string name="ahorro_titulo">AHORRO</string>
+    <string name="crearAhorro_titulo">Creando Nuevo Ahorro</string>
+    <string name="dolar_signo">$</string>
+    <string name="cantidad_vacia">0.00</string>
+    <string name="plan_titulo">Plan:</string>
+    <string name="plan_value">Semanal</string>
+    <string name="fin_titulo">Fin</string>
+    <string name="inicio_titulo">Inicio</string>
+    <string name="fecha_vacia">/ /</string>
+    <string name="interes_titulo">Interés al finalizar:</string>
+    <string name="descripcion_btnFinalizarAhorro">Clic para finalizar el ahorro (Se perdarán los intereses)</string>
+    <string name="finalizar_ahorro">Finalizar Ahorro</string>
 </resources>

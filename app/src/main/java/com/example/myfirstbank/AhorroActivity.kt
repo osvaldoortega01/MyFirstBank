@@ -101,10 +101,29 @@ class AhorroActivity : AppCompatActivity(), AdapterView.OnItemClickListener {
         })
 
         val btn_ahorrar: ExtendedFloatingActionButton = findViewById(R.id.btn_ahorrar)
-        btn_ahorrar.setOnClickListener{ createAhorro() }
+        btn_ahorrar.setOnClickListener{
+            if(validarCampos()){
+                createAhorro()
+            } else {
+                Toast.makeText(this, "Por favor, llene todos los campos e intente nuevamente...", Toast.LENGTH_SHORT).show()
+            }
+
+        }
 
         val btn_prueba: Button = findViewById(R.id.btn_prueba)
         btn_prueba.setOnClickListener{prueba()}
+    }
+
+    private fun validarCampos(): Boolean{
+        val meta: String = binding.etMetaAhorro.text.toString()
+        val duracion: String = binding.etDuracion.text.toString()
+        val interes: String = binding.etDuracion.text.toString()
+
+        if(meta == "" || duracion == "" || interes == ""){
+            return false
+        } else {
+            return true
+        }
     }
 
     private fun validarMeta(metaCantidad: Int): Boolean{
@@ -148,7 +167,6 @@ class AhorroActivity : AppCompatActivity(), AdapterView.OnItemClickListener {
         val et_meta: EditText = findViewById(R.id.et_Meta_ahorro)
         val metaAhorro: Int = et_meta.text.toString().toInt()
         if(validarMeta(metaAhorro)){
-            var tipoAhorro: String = item
             val fechaCreacion: LocalDate = LocalDate.now()
             val userId: Int = binding.tvCuenta.text.toString().toInt()
             var fechaFin: LocalDate = LocalDate.now()
@@ -254,7 +272,7 @@ class AhorroActivity : AppCompatActivity(), AdapterView.OnItemClickListener {
     fun prueba(){
         val tag = generatekey()
 //        val alertTime = calendar.timeInMillis - System.currentTimeMillis()
-        val alertTime = 30000.toLong()
+        val alertTime = 10000.toLong()
         val random = (Math.random()*50+1).toInt ()
         val data = EnviarData("Plazo de ahorro finalizado", "El plazo del ahorro a finalizado, consulte los detalles", random)
         Worknoti.GuardarNoti(alertTime, data, "tag1")
