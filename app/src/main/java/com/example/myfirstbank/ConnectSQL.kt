@@ -8,10 +8,11 @@ import java.sql.DriverManager
 import java.sql.SQLException
 
 class ConnectSQL {
-    private val ip="myfirstbank.database.windows.net"
+    private val ip="192.168.1.12"
+    private val port="1433"
     private val db="myfirstbankdb"
-    private val username="dispositivos"
-    private val password="zHpJ7y9BZ4S66Qt"
+    private val username="test"
+    private val password="123"
 
     fun dbConn(): Connection? {
         val policy = StrictMode.ThreadPolicy.Builder().permitAll().build()
@@ -20,8 +21,9 @@ class ConnectSQL {
         val connString : String
         try{
             Class.forName("net.sourceforge.jtds.jdbc.Driver").newInstance()
-            connString = "jdbc:jtds:sqlserver://myfirstbank.database.windows.net:1433;DatabaseName=myfirstbankdb;user=dispositivos@myfirstbank;password=zHpJ7y9BZ4S66Qt;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;ssl=request"
-            conn = DriverManager.getConnection(connString)
+            connString = "jdbc:jtds:sqlserver://" + ip + ":"+port+"/"+db;
+                    //"encrypt=true;trustServerCertificate=false;loginTimeout=30;ssl=request"
+            conn = DriverManager.getConnection(connString, username, password)
         } catch (ex: SQLException){
             Log.e("Error: ", ex.message!!)
         } catch (ex1: ClassNotFoundException)
